@@ -1,0 +1,16 @@
+{
+  "name": "Weca Offroad Centre",
+  "short_name": "Weca Offroad",
+  "description": "Namibia's premier 4x4 accessories store. Quality products, professional fitment, and expert advice for offroad enthusiasts.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#E67E22",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Testing
+coverage/
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Production
+*.tsbuildinfo
+next-env.d.ts
+
+# Misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+bun-debug.log*
+
+# Local env files
+.env
+.env*.local
+.env.development
+.env.production
+.env.test
+# NOTE: .env.example IS committed (template for new developers)
+
+# Vercel
+.vercel/
+
+# Database files (regenerate via `bun run db:push`)
+db/*.db
+db/*.db-journal
+db/*.sqlite
+db/*.sqlite3
+
+# Logs and PID files
+*.log
+*.pid
+.zscripts/*.log
+.zscripts/*.pid
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.netrc
+
+# Bundled AI assistant skills (not part of the website)
+skills/
+
+# Local upload staging (use public/images/ for committed assets)
+upload/
+download/
+
+# Local reverse-proxy / runtime artifacts
+Caddyfile.cache
+
+# Build standalone output
+.standalone/
