@@ -158,7 +158,7 @@ export function Navbar() {
             <Link href="/" className="relative z-10">
               <div className="relative h-12 w-32 md:h-14 md:w-36 lg:h-16 lg:w-44">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo.webp"
                   alt="Weca Offroad Centre"
                   fill
                   className="object-contain"
@@ -414,7 +414,7 @@ export function Navbar() {
                 <Link href="/" onClick={handleLinkClick}>
                   <div className="relative h-10 w-28">
                     <Image
-                      src="/images/logo.png"
+                      src="/images/logo.webp"
                       alt="Weca Offroad Centre"
                       fill
                       className="object-contain"

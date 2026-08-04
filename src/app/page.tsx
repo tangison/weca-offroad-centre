@@ -24,7 +24,7 @@ export default function HomePage() {
         tagline="Est. 2015 Swakopmund"
         primaryCta={{ text: 'Shop Now', href: '/shop' }}
         secondaryCta={{ text: 'Get a Quote', href: '/contact' }}
-        logoSrc="/images/logo.png"
+        logoSrc="/images/logo.webp"
       />
 
       {/* Trust Indicators - Minimal */}

@@ -11,7 +11,7 @@ export default function NotFound() {
         <div className="mb-8">
           <div className="relative w-32 h-16 mx-auto">
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Weca Offroad Centre"
               fill
               className="object-contain"

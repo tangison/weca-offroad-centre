@@ -31,7 +31,7 @@ export default function GalleryPage() {
       <PageHero
         title="Our Work"
         subtitle="Real installations, real results. See what we have built for our customers."
-        backgroundImage="/images/gallery/gallery-1.jpg"
+        backgroundImage="/images/gallery/gallery-1.webp"
         size="sm"
       />
 

@@ -136,7 +136,7 @@ ${formData.message}`;
       <PageHero
         title="Contact Us"
         subtitle="Get in touch for quotes, inquiries, or just to say hello"
-        backgroundImage="/images/about/workshop.jpg"
+        backgroundImage="/images/about/workshop.webp"
         size="sm"
       />
 

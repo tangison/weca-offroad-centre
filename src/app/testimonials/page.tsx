@@ -56,7 +56,7 @@ export default function TestimonialsPage() {
       <PageHero
         title="Customer Reviews"
         subtitle="What our customers say about Weca Offroad Centre"
-        backgroundImage="/images/gallery/gallery-2.jpg"
+        backgroundImage="/images/gallery/gallery-2.webp"
         size="sm"
       />
 

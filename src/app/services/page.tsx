@@ -59,7 +59,7 @@ export default function ServicesPage() {
       <PageHero
         title="Our Services"
         subtitle="Professional fitment and installation for your 4x4"
-        backgroundImage="/images/about/workshop.jpg"
+        backgroundImage="/images/about/workshop.webp"
         size="sm"
       />
 
@@ -192,7 +192,7 @@ export default function ServicesPage() {
               className="relative aspect-video overflow-hidden border border-[#2A2A2A]"
             >
               <Image
-                src="/images/about/workshop.jpg"
+                src="/images/about/workshop.webp"
                 alt="Professional Installation"
                 fill
                 className="object-cover"

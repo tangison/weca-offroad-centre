@@ -149,7 +149,7 @@ export const galleryItems: GalleryItem[] = [
 export const brands: Brand[] = [
   {
     name: 'Brand Name',
-    logo: '/brands/logo.png',
+    logo: '/brands/logo.webp',
     description: 'Brand description',
     website: 'https://...',     // Optional
   },
@@ -182,8 +182,8 @@ export const brands: Brand[] = [
 
 ### About Page
 **Path:** `public/images/about/`
-- workshop.jpg - Workshop image
-- owner.jpg - Owner photo
+- workshop.webp - Workshop image
+- owner.webp - Owner photo
 
 ## Metadata & SEO
 
@@ -241,12 +241,12 @@ The logo is used as favicon:
 ### Custom Favicon
 To use a dedicated favicon:
 1. Create favicon.ico (16x16, 32x32)
-2. Create apple-touch-icon.png (180x180)
+2. Create apple-touch-icon.webp (180x180)
 3. Update `src/app/layout.tsx`:
 ```typescript
 icons: {
   icon: '/favicon.ico',
-  apple: '/apple-touch-icon.png',
+  apple: '/apple-touch-icon.webp',
 }
 ```
 

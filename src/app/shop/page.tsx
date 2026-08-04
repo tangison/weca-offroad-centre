@@ -73,7 +73,7 @@ export default function ShopPage() {
       <PageHero
         title="Shop 4x4 Accessories"
         subtitle="Quality products for your offroad adventures. Browse our selection and request a quote."
-        backgroundImage="/images/shop/shop-hero.jpg"
+        backgroundImage="/images/shop/shop-hero.webp"
         size="sm"
       />
 

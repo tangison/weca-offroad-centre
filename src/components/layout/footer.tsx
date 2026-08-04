@@ -35,7 +35,7 @@ export function Footer() {
             <Link href="/" className="inline-block mb-5">
               <div className="relative h-12 w-36">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo.webp"
                   alt="Weca Offroad Centre"
                   fill
                   className="object-contain"

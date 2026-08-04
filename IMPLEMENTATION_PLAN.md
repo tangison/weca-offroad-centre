@@ -10,13 +10,13 @@ This document outlines the complete implementation plan for transforming the Wec
 
 | File | Location | Purpose |
 |------|----------|---------|
-| logo.png | /upload/logo.png | Main logo - will be copied to /public/images/ |
-| front image.jpeg | /upload/front image.jpeg | Hero slideshow image |
-| shop.png | /upload/shop.png | Hero slideshow image |
-| Workshop.png | /upload/Workshop.png | Hero slideshow image / About page |
-| weca_ (32).jpg | /upload/weca_ (32).jpg | Hero slideshow image |
-| weca_galary images (40).jpg | /upload/weca_galary images (40).jpg | Hero slideshow / Gallery |
-| Werner_Schaap.jpeg | /upload/Werner_Schaap.jpeg | Owner photo for About page |
+| logo.webp | /upload/logo.webp | Main logo - will be copied to /public/images/ |
+| front image.webp | /upload/front image.webp | Hero slideshow image |
+| shop.webp | /upload/shop.webp | Hero slideshow image |
+| Workshop.webp | /upload/Workshop.webp | Hero slideshow image / About page |
+| weca_ (32).webp | /upload/weca_ (32).webp | Hero slideshow image |
+| weca_galary images (40).webp | /upload/weca_galary images (40).webp | Hero slideshow / Gallery |
+| Werner_Schaap.webp | /upload/Werner_Schaap.webp | Owner photo for About page |
 
 ---
 
@@ -95,11 +95,11 @@ Right Section: GET A QUOTE button
 
 ### 4.1 Hero Slideshow
 **Images to use (in order):**
-1. /upload/front image.jpeg
-2. /upload/shop.png
-3. /upload/Workshop.png
-4. /upload/weca_ (32).jpg
-5. /upload/weca_galary images (40).jpg
+1. /upload/front image.webp
+2. /upload/shop.webp
+3. /upload/Workshop.webp
+4. /upload/weca_ (32).webp
+5. /upload/weca_galary images (40).webp
 
 ### 4.2 Slideshow Behavior
 - Auto-advance every 5-6 seconds
@@ -202,12 +202,12 @@ Copyright | Privacy Policy | Terms of Service
 
 ### 6.2 ABOUT PAGE (/about)
 1. **Hero Section**
-   - Workshop.png as background
+   - Workshop.webp as background
    - Headline: "About Weca Offroad Centre"
 
 2. **Our Story Section**
    - Company history
-   - Werner Schaap photo (Werner_Schaap.jpeg)
+   - Werner Schaap photo (Werner_Schaap.webp)
    - Mission & Vision
 
 3. **Values Section**
@@ -221,7 +221,7 @@ Copyright | Privacy Policy | Terms of Service
 
 ### 6.3 SHOP PAGE (/shop)
 1. **Hero Section**
-   - shop.png as background
+   - shop.webp as background
    - Headline: "Our Products"
 
 2. **Category Filter**
@@ -254,7 +254,7 @@ Copyright | Privacy Policy | Terms of Service
 
 ### 6.5 SERVICES PAGE (/services)
 1. **Hero Section**
-   - Workshop.png background
+   - Workshop.webp background
    - Headline: "Our Services"
 
 2. **Services Grid** (8 services)
@@ -351,13 +351,13 @@ Embed:      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3
 ### 8.1 Images to Copy from Upload Folder
 ```
 Source                              →   Destination
-/upload/logo.png                    →   /public/images/logo.png
-/upload/front image.jpeg            →   /public/images/hero/slide-1.jpg
-/upload/shop.png                    →   /public/images/hero/slide-2.jpg
-/upload/Workshop.png                →   /public/images/hero/slide-3.jpg
-/upload/weca_ (32).jpg              →   /public/images/hero/slide-4.jpg
-/upload/weca_galary images (40).jpg →   /public/images/hero/slide-5.jpg
-/upload/Werner_Schaap.jpeg          →   /public/images/about/owner.jpg
+/upload/logo.webp                    →   /public/images/logo.webp
+/upload/front image.webp            →   /public/images/hero/slide-1.webp
+/upload/shop.webp                    →   /public/images/hero/slide-2.webp
+/upload/Workshop.webp                →   /public/images/hero/slide-3.webp
+/upload/weca_ (32).webp              →   /public/images/hero/slide-4.webp
+/upload/weca_galary images (40).webp →   /public/images/hero/slide-5.webp
+/upload/Werner_Schaap.webp          →   /public/images/about/owner.webp
 ```
 
 ### 8.2 AI-Generated Images Needed

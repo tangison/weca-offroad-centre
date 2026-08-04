@@ -35,25 +35,25 @@ const values = [
     icon: Shield,
     title: 'Quality Products',
     description: 'We only stock products we trust and would use on our own vehicles. No compromises on quality.',
-    image: '/images/hero/slide-1.jpg',
+    image: '/images/hero/slide-1.webp',
   },
   {
     icon: Heart,
     title: 'Honest Service',
     description: 'Transparent pricing, honest advice, and work done right the first time. Your satisfaction matters.',
-    image: '/images/hero/slide-2.jpg',
+    image: '/images/hero/slide-2.webp',
   },
   {
     icon: Users,
     title: 'Expert Knowledge',
     description: 'Years of experience in the 4x4 industry. We know what works in Namibian conditions.',
-    image: '/images/hero/slide-3.jpg',
+    image: '/images/hero/slide-3.webp',
   },
   {
     icon: Award,
     title: 'Customer Satisfaction',
     description: 'Your adventure starts with us. We are committed to helping you get the most out of your 4x4.',
-    image: '/images/gallery/gallery-1.jpg',
+    image: '/images/gallery/gallery-1.webp',
   },
 ];
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
       <PageHero
         title="About Weca Offroad Centre"
         subtitle="Your trusted partner for 4x4 accessories and fitment in Namibia since 2015"
-        backgroundImage="/images/about/workshop.jpg"
+        backgroundImage="/images/about/workshop.webp"
         size="md"
       />
 
@@ -107,7 +107,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/gallery/gallery-1.jpg"
+                  src="/images/gallery/gallery-1.webp"
                   alt="Weca Offroad Workshop"
                   fill
                   className="object-cover"
@@ -193,7 +193,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden border-4 border-[#2A2A2A]">
                   <Image
-                    src="/images/about/owner.jpg"
+                    src="/images/about/owner.webp"
                     alt="Werner Schaap - Owner"
                     fill
                     className="object-cover"
@@ -328,7 +328,7 @@ export default function AboutPage() {
             
             <div className="relative aspect-video overflow-hidden">
               <Image
-                src="/images/about/workshop.jpg"
+                src="/images/about/workshop.webp"
                 alt="Weca Offroad Workshop"
                 fill
                 className="object-cover"

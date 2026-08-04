@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Search, X, ArrowRight, Package, Wrench, Image as ImageIcon } from 'lucide-react';
-import { products, services, galleryItems, siteConfig } from '@/lib/data';
+import { products, services, galleryItems } from '@/lib/data';
+import { siteConfig } from '@/lib/config';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 

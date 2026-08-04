@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: siteConfig.seo.titleTemplate,
   },
   description: siteConfig.seo.defaultDescription,
-  keywords: siteConfig.seo.keywords,
+  keywords: [...siteConfig.seo.keywords],
   authors: [{ name: siteConfig.business.name }],
   creator: siteConfig.business.name,
   publisher: siteConfig.business.name,
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/logo.png" },
+      { url: "/images/logo.webp" },
     ],
     apple: [
-      { url: "/images/logo.png" },
+      { url: "/images/logo.webp" },
     ],
   },
   openGraph: {

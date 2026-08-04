@@ -51,6 +51,12 @@ db/*.sqlite3
 *.pid
 .zscripts/*.log
 .zscripts/*.pid
+dev.log
+server.log
+
+# Test artifacts
+coverage/
+.vitest/
 
 # Editor / OS
 .idea/
@@ -72,3 +78,4 @@ Caddyfile.cache
 
 # Build standalone output
 .standalone/
+.vercel
