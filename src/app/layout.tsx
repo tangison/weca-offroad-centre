@@ -91,6 +91,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.domain,
   },
+  verification: {
+    other: {
+      "msvalidate.01": "ABE9457C17856D987AEB00DB6BD0EF63",
+    },
+  },
 };
 
 export default function RootLayout({
