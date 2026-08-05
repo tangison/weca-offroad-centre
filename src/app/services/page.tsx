@@ -203,10 +203,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Brands — static logo grid */}
-      <section className="py-10 border-y border-[#2A2A2A]">
+      {/* Brands — static logo grid. Dark section, no card behind logos.
+          Logos are rendered in monochrome white via CSS filter and reveal
+          their true colors on hover. */}
+      <section className="py-14 md:py-16 bg-[#0D0D0D]">
         <div className="container mx-auto px-4 lg:px-8">
-          <p className="text-[#888888] text-[10px] uppercase tracking-widest text-center mb-6 font-accent">
+          <p className="text-[#666666] text-[10px] uppercase tracking-[0.25em] text-center mb-10 font-accent">
             Brands we install
           </p>
           <BrandLogoCarousel variant="grid" />

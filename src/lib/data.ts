@@ -2848,7 +2848,7 @@ export const brands: Brand[] = [
   { name: 'Tentco', logo: '/brands/tentco.webp', description: 'Premium rooftop tents', website: 'https://tentco.co.za/' },
   { name: 'Front Runner', logo: '/brands/front-runner.svg', description: 'Roof racks and storage', website: 'https://dometic.com/' },
   { name: 'Tough Dog', logo: '/brands/tough-dog.png', description: 'Suspension systems', website: 'https://toughdog.com.au/' },
-  { name: 'Wildog', logo: '/brands/wildog.jpg', description: 'Bumpers and protection', website: 'https://wildog.co.za/' },
+  { name: 'Wildog', logo: '/brands/wildog.png', description: 'Bumpers and protection', website: 'https://wildog.co.za/' },
   { name: 'Rhinoman', logo: '/brands/rhinoman.webp', description: 'Canopies', website: 'https://rhinoman.co.za/' },
   { name: 'Ecoflow', logo: '/brands/ecoflow.svg', description: 'Portable power', website: 'https://ecoflow.com/' },
   { name: 'Dometic', logo: '/brands/dometic.svg', description: 'Camping equipment', website: 'https://dometic.com/' },

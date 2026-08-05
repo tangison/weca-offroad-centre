@@ -19,18 +19,27 @@ interface BrandLogoCarouselProps {
  * Each logo links to the brand's verified official site in a new tab
  * with rel="noopener noreferrer".
  *
- * Logos are rendered on a light card background so both dark-fill logos
- * (e.g. Dometic #0D0D0D, BFGoodrich #014983) and light-fill logos
- * (e.g. EcoFlow white) are visible against the site's dark theme.
+ * Visual treatment (per visual-polish brief):
+ *   - All logos are rendered in a uniform white/monochrome via CSS filter
+ *     `brightness(0) invert(1)`. This keeps the look clean and consistent
+ *     without re-fetching assets from each brand's site.
+ *   - The carousel has NO background plate, card, or container behind it —
+ *     it is a clean, borderless marquee. The parent <section> supplies the
+ *     dark background (Atlantic Black #0D0D0D) so the white logos are visible.
+ *   - On hover, the filter is removed to reveal the brand's true colors —
+ *     a subtle, premium interaction that rewards attention without being
+ *     flashy.
  *
- * No new runtime dependency introduced — uses only next/image + CSS
- * animation. Respects prefers-reduced-motion per WCAG 2.1 SC 2.3.3.
+ * Respects prefers-reduced-motion per WCAG 2.1 SC 2.3.3 — falls back to a
+ * static, wrapped row.
+ *
+ * No new runtime dependency introduced — uses only next/image + CSS.
  */
 export function BrandLogoCarousel({ variant = 'carousel', className = '' }: BrandLogoCarouselProps) {
   if (variant === 'grid') {
     return (
       <div
-        className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 ${className}`}
+        className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-6 gap-y-8 ${className}`}
         role="list"
         aria-label="Brands we install"
       >
@@ -49,18 +58,19 @@ export function BrandLogoCarousel({ variant = 'carousel', className = '' }: Bran
       role="region"
       aria-label="Brands we sell — auto-scrolling carousel"
     >
-      {/* Edge fade masks for a polished look */}
+      {/* Edge fade masks so logos fade in/out at the edges of the marquee.
+          Mask color matches the dark section background (#0D0D0D). */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#0D0D0D] to-transparent"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 md:w-24 bg-gradient-to-r from-[#0D0D0D] to-transparent"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#0D0D0D] to-transparent"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 md:w-24 bg-gradient-to-l from-[#0D0D0D] to-transparent"
         aria-hidden="true"
       />
 
       {/* The track: two copies of the logo list, animated as one */}
-      <div className="brand-carousel-track flex gap-8 md:gap-12 w-max">
+      <div className="brand-carousel-track flex gap-10 md:gap-16 w-max items-center py-4">
         {[...brands, ...brands].map((brand, index) => (
           <BrandLogoCard
             key={`${brand.name}-${index}`}
@@ -99,8 +109,10 @@ export function BrandLogoCarousel({ variant = 'carousel', className = '' }: Bran
 }
 
 /**
- * Single brand logo card. Light background so both dark and light
- * logos are visible. Links out to the brand's official site.
+ * Single brand logo card. No background plate or card — just the logo
+ * on the parent section's dark background, rendered in monochrome white
+ * via CSS filter, with the filter removed on hover/focus to reveal the
+ * brand's true colors. Links out to the brand's official site.
  */
 function BrandLogoCard({
   brand,
@@ -110,8 +122,11 @@ function BrandLogoCard({
   compact?: boolean;
 }) {
   const isSvg = brand.logo.endsWith('.svg');
-  const width = compact ? 120 : 160;
-  const height = compact ? 64 : 80;
+  // Height is the controlled dimension; width is auto so aspect ratios
+  // are preserved. On hover/focus the filter lifts to reveal color.
+  const heightClass = compact ? 'h-10 md:h-12' : 'h-12 md:h-14';
+  const width = compact ? 140 : 180;
+  const height = compact ? 48 : 56;
   const href = brand.website || '#';
 
   return (
@@ -121,7 +136,7 @@ function BrandLogoCard({
       rel="noopener noreferrer"
       role="listitem"
       aria-label={`${brand.name} — visit official site`}
-      className="group flex shrink-0 flex-col items-center justify-center rounded-lg bg-[#F5F5F5] px-4 py-3 transition-all hover:bg-white hover:shadow-lg hover:shadow-[#E67E22]/20 hover:-translate-y-0.5"
+      className="group flex shrink-0 items-center justify-center transition-transform duration-300 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline-none"
       title={`${brand.name} — ${brand.description}`}
     >
       {isSvg ? (
@@ -132,7 +147,7 @@ function BrandLogoCard({
           alt={`${brand.name} logo`}
           width={width}
           height={height}
-          className="h-12 md:h-14 w-auto object-contain"
+          className={`${heightClass} w-auto object-contain brand-logo-mono`}
           loading="lazy"
         />
       ) : (
@@ -141,13 +156,35 @@ function BrandLogoCard({
           alt={`${brand.name} logo`}
           width={width}
           height={height}
-          className="h-12 md:h-14 w-auto object-contain"
+          className={`${heightClass} w-auto object-contain brand-logo-mono`}
           loading="lazy"
         />
       )}
-      <span className="mt-1 text-[10px] uppercase tracking-wider text-[#888888] group-hover:text-[#0D0D0D] transition-colors sr-only">
-        {brand.name}
-      </span>
+
+      {/* Inline <style> for the monochrome filter + hover reveal.
+          Kept inline so the component is self-contained. */}
+      <style>{`
+        .brand-logo-mono {
+          filter: brightness(0) invert(1);
+          opacity: 0.85;
+          transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        .group:hover .brand-logo-mono,
+        .group:focus-visible .brand-logo-mono {
+          filter: none;
+          opacity: 1;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .brand-logo-mono {
+            transition: none;
+          }
+          .group:hover .brand-logo-mono,
+          .group:focus-visible .brand-logo-mono {
+            filter: brightness(0) invert(1);
+            opacity: 1;
+          }
+        }
+      `}</style>
     </a>
   );
 }
