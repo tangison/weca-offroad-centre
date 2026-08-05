@@ -14,8 +14,21 @@ Record of material actions taken during this build session.
 | Verify | ESLint | Full project | `bun run lint` | 0 errors, 0 warnings | terminal | 2026-08-05 | complete |
 | Verify | Production build | Full project | `bun run build` | 13/13 routes built, exit 0 | terminal | 2026-08-05 | complete |
 | Docs | Foundation docs | Repo root | Write tool | PRODUCT.md, BRAND.md, BUILD_PLAN.md, CONTENT_PLAN.md, PROOF.md created | `ls *.md` | 2026-08-05 | complete |
-| Deploy | Commit and push to GitHub | `tangison/weca-offroad-centre` | `git commit` + `git push` | (pending) | (pending) | 2026-08-05 | pending |
-| Deploy | Verify GitHub Action auto-deploy | Vercel project | Watch for new production deployment after push | (pending) | (pending) | 2026-08-05 | pending |
+| Deploy | Commit and push catalog expansion | `tangison/weca-offroad-centre` | `git commit` + `git push` | commit `d6e3e50` pushed | GitHub API | 2026-08-05 | complete |
+| Deploy | Verify GitHub Action auto-deploy | Vercel project | Watch for new production deployment after push | Deployment `rag9s84vt` READY | Vercel API | 2026-08-05 | complete |
+| Verify | Browser-verify shop works | Live `/shop` | agent-browser | 236 products, search, pagination, URL filter all functional | terminal | 2026-08-05 | complete |
+| Maps | Replace fake map embed with real Google Place embed | `src/lib/data.ts`, `src/lib/config.ts`, `src/app/contact/page.tsx` | Edit — place_id `ChIJoa5Ba9xYdhwRzBnhVLf64Pc`, `output=embed` URL | Real embed renders at correct pin (-22.6712912, 14.5492686) | `download/contact-map-verify.png` | 2026-08-05 | complete |
+| Maps | Standardize Get Directions links | footer + /contact + /about | Edit source-of-truth in `businessInfo.maps` | All 3 instances point to `https://www.google.com/maps/place/?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc` | agent-browser eval | 2026-08-05 | complete |
+| Review | Fix Leave a Review link | footer + /testimonials | Edit — point to `search.google.com/local/writereview?placeid=...` | 2 instances verified, both point to Google review composer (was Facebook) | agent-browser eval | 2026-08-05 | complete |
+| Footer | Minimal rebuild | `src/components/layout/footer.tsx` | Rewrite — 3 columns (Brand+social, Explore, Contact), removed Services column | Footer height 466px (visibly shorter), 16 links (down from 20+) | `download/footer-verify.png` | 2026-08-05 | complete |
+| Credit | Replace Gemsweb credit with Tangison | `src/components/layout/footer.tsx` | Edit — "Made by Tangison Studio" → `https://studio.tangison.com` | Verified live: text + href both correct, "Gemsweb" gone, "Made with ❤️" gone | agent-browser eval | 2026-08-05 | complete |
+| SEO | Fix structured-data logo refs | `src/components/ui/structured-data.tsx` | Edit — `.png` → `.webp` | Schema.org image/logo now point to WebP asset | grep | 2026-08-05 | complete |
+| Deploy | Commit and push maps/footer/credit fixes | `tangison/weca-offroad-centre` | `git commit` + `git push` | commit `63c046c` pushed | GitHub API | 2026-08-05 | complete |
+| Deploy | Verify GitHub Action auto-deploy (2nd) | Vercel project | Watch for new production deployment | Deployment `pyoshrkvi` READY, all routes HTTP 200 | Vercel API | 2026-08-05 | complete |
+| Verify | TypeScript strict check | Full project | `bunx tsc --noEmit` | 0 errors | terminal | 2026-08-05 | complete |
+| Verify | ESLint | Full project | `bun run lint` | 0 errors, 0 warnings | terminal | 2026-08-05 | complete |
+| Verify | Tests | Full project | `bun run test` | 39/39 passing | terminal | 2026-08-05 | complete |
+| Verify | Production build | Full project | `bun run build` | 13/13 routes built, exit 0 | terminal | 2026-08-05 | complete |
 
 ## Pending client actions
 
@@ -24,10 +37,15 @@ Record of material actions taken during this build session.
    then assign to project, after purchase.
 3. **Configure DNS** — point `wecaoffroad.com` A record and `www` CNAME to
    Vercel's nameservers, after domain is in Vercel account.
-4. **(Optional) Provide real SKU-level product list** — replace the catalog in
-   `src/lib/data.ts` if the representative 236-product catalog needs to match
-   the business's actual inventory.
-5. **(Optional) Add Vercel-GitHub Login Connection** — visit
+4. **Provide Tavily API key + SKU list** — for scraping authentic product
+   images from manufacturers' sites (Tentco, Front Runner, Tough Dog, Wildog,
+   Rhinoman, ARB, Ecoflow, Dometic, BF Goodrich). No AI images will be
+   generated for /shop per client instruction; existing placeholders remain
+   until the scrape is delivered.
+5. **(Optional) Confirm YouTube/LinkedIn** — social audit found Facebook,
+   Instagram, TikTok, WhatsApp all correct and live. Ask client whether a
+   YouTube or LinkedIn profile exists to add to the footer social block.
+6. **(Optional) Add Vercel-GitHub Login Connection** — visit
    `https://vercel.com/dashboard/login-connections` to enable native git
    integration. The GitHub Action workaround already provides auto-deploy on
    push, so this is not blocking.
