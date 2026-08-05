@@ -323,7 +323,7 @@ ${formData.message}`;
                       className="w-full bg-[#0D0D0D] text-[#F5F5F5] hover:bg-[#1A1A1A] font-accent font-semibold uppercase tracking-wider h-11"
                     >
                       <a
-                        href={`https://wa.me/${businessInfo.whatsapp.replace(/\+/g, '')}`}
+                        href={`https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

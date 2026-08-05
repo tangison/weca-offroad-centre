@@ -182,7 +182,7 @@ export function getAbsoluteUrl(path: string = ''): string {
 }
 
 export function getWhatsAppLink(message?: string): string {
-  const baseUrl = `https://wa.me/${siteConfig.contact.whatsapp.replace(/\+/g, '')}`;
+  const baseUrl = `https://wa.me/${siteConfig.contact.whatsapp.replace(/\D/g, '')}`;
   return message ? `${baseUrl}?text=${encodeURIComponent(message)}` : baseUrl;
 }
 

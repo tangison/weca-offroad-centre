@@ -324,7 +324,7 @@ export default function HomePage() {
               Contact Us <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link
-              href={`https://wa.me/${businessInfo.whatsapp.replace(/\+/g, '')}`}
+              href={`https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center border border-[#0D0D0D] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 hover:bg-[#0D0D0D]/10 transition-colors"
