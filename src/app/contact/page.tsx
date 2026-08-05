@@ -102,7 +102,7 @@ export default function ContactPage() {
 ${formData.message}`;
 
       // Redirect to WhatsApp
-      const whatsappUrl = `https://wa.me/${businessInfo.whatsapp.replace(/\+/g, '')}?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     } else {
       // Build email

@@ -76,7 +76,7 @@ export function Footer() {
                 <TikTokIcon className="w-4 h-4" />
               </a>
               <a
-                href={`https://wa.me/${businessInfo.whatsapp.replace(/\+/g, '')}`}
+                href={`https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"

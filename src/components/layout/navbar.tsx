@@ -570,7 +570,7 @@ export function Navbar() {
                     <span className="text-[10px] font-accent uppercase">Call</span>
                   </a>
                   <a
-                    href={`https://wa.me/${businessInfo.whatsapp.replace(/\+/g, '')}`}
+                    href={`https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center gap-1 py-3 bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"

@@ -254,7 +254,7 @@ export default function ShopPage() {
                       className="w-full bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider"
                     >
                       <a
-                        href={`https://wa.me/${businessInfo.whatsapp.replace(/\+/g, '')}`}
+                        href={`https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -565,7 +565,7 @@ export default function ShopPage() {
                       className="w-full bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider"
                     >
                       <a
-                        href={`https://wa.me/${businessInfo.whatsapp.replace(/\+/g, '')}?text=Hi, I'm interested in the ${selectedProduct.name}`}
+                        href={`https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}?text=Hi, I'm interested in the ${selectedProduct.name}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
