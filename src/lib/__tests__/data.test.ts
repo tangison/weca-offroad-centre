@@ -14,13 +14,23 @@ describe("products", () => {
     expect(products.length).toBeGreaterThan(0);
   });
 
+  it("has at least 200 products (full catalog)", () => {
+    expect(products.length).toBeGreaterThanOrEqual(200);
+  });
+
   it("each product has required fields", () => {
     for (const p of products) {
       expect(p.id).toBeTruthy();
       expect(p.name).toBeTruthy();
+      expect(p.brand).toBeTruthy();
       expect(p.category).toBeTruthy();
+      expect(p.price).toBeTruthy();
+      expect(p.description).toBeTruthy();
+      expect(Array.isArray(p.features)).toBe(true);
+      expect(p.features.length).toBeGreaterThan(0);
       expect(p.image).toMatch(/^\/images\//);
       expect(p.image).toMatch(/\.webp$/);
+      expect(typeof p.inStock).toBe("boolean");
     }
   });
 
@@ -28,6 +38,13 @@ describe("products", () => {
     const ids = products.map((p) => p.id);
     const unique = new Set(ids);
     expect(unique.size).toBe(ids.length);
+  });
+
+  it("all product categories exist in productCategories", () => {
+    const validCategoryIds = new Set(productCategories.map((c) => c.id));
+    for (const p of products) {
+      expect(validCategoryIds.has(p.category)).toBe(true);
+    }
   });
 });
 
