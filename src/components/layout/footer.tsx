@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, Phone, Mail, Clock, ExternalLink, Code2, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import { businessInfo } from '@/lib/data';
 
 // TikTok Icon
@@ -12,13 +12,11 @@ function TikTokIcon({ className }: { className?: string }) {
   );
 }
 
-const quickLinks = [
+// Minimal link set per footer rebuild brief
+const footerLinks = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
   { href: '/shop', label: 'Shop' },
-  { href: '/gallery', label: 'Gallery' },
   { href: '/services', label: 'Services' },
-  { href: '/testimonials', label: 'Reviews' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -27,13 +25,12 @@ export function Footer() {
 
   return (
     <footer className="bg-[#0D0D0D] border-t border-[#2A2A2A] mt-auto">
-      {/* Main Footer */}
-      <div className="container mx-auto px-4 lg:px-8 py-10 md:py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-5">
-              <div className="relative h-12 w-36">
+      <div className="container mx-auto px-4 lg:px-8 py-10 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {/* Brand + Social */}
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <div className="relative h-10 w-32">
                 <Image
                   src="/images/logo.webp"
                   alt="Weca Offroad Centre"
@@ -45,13 +42,12 @@ export function Footer() {
             <p className="text-[#888888] text-sm mb-5 max-w-xs">
               {businessInfo.tagline}. Quality 4x4 accessories, professional fitment, and expert advice.
             </p>
-            {/* Social */}
             <div className="flex gap-2">
               <a
                 href={businessInfo.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -62,7 +58,7 @@ export function Footer() {
                 href={businessInfo.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +70,7 @@ export function Footer() {
                 href={businessInfo.social.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
                 aria-label="TikTok"
               >
                 <TikTokIcon className="w-4 h-4" />
@@ -83,7 +79,7 @@ export function Footer() {
                 href={`https://wa.me/${businessInfo.whatsapp.replace(/\+/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
                 aria-label="WhatsApp"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -93,13 +89,13 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Links */}
           <div>
-            <h3 className="text-[#F5F5F5] font-accent text-xs uppercase tracking-wider mb-5">
-              Quick Links
+            <h3 className="text-[#F5F5F5] font-accent text-xs uppercase tracking-wider mb-4">
+              Explore
             </h3>
             <ul className="space-y-2">
-              {quickLinks.map((link) => (
+              {footerLinks.map((link) => (
                 <li key={link.href + link.label}>
                   <Link
                     href={link.href}
@@ -109,29 +105,25 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-[#F5F5F5] font-accent text-xs uppercase tracking-wider mb-5">
-              Services
-            </h3>
-            <ul className="space-y-2">
-              <li><Link href="/services" className="text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm py-1 block">Rooftop Tent Installation</Link></li>
-              <li><Link href="/services" className="text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm py-1 block">Suspension Fitment</Link></li>
-              <li><Link href="/services" className="text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm py-1 block">Bumper Installation</Link></li>
-              <li><Link href="/services" className="text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm py-1 block">Custom Canopies</Link></li>
-              <li><Link href="/services" className="text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm py-1 block">Vehicle Builds</Link></li>
+              <li>
+                <a
+                  href={businessInfo.maps.reviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm py-1 block"
+                >
+                  Leave a Review
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-[#F5F5F5] font-accent text-xs uppercase tracking-wider mb-5">
+            <h3 className="text-[#F5F5F5] font-accent text-xs uppercase tracking-wider mb-4">
               Contact
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#E67E22] flex-shrink-0 mt-0.5" />
                 <div>
@@ -170,12 +162,11 @@ export function Footer() {
                 </div>
               </li>
             </ul>
-
             <a
-              href={businessInfo.maps.googleMapsLink}
+              href={businessInfo.maps.directionsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 bg-[#1A1A1A] text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm"
+              className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-[#1A1A1A] text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm"
             >
               <MapPin className="w-3 h-3" />
               Get Directions
@@ -187,14 +178,11 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-[#2A2A2A]">
-        <div className="container mx-auto px-4 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-5">
-            {/* Copyright */}
+        <div className="container mx-auto px-4 lg:px-8 py-5">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#888888]/60 text-xs text-center md:text-left">
               © {currentYear} {businessInfo.name}. All rights reserved.
             </p>
-            
-            {/* Links */}
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-xs">
               <Link href="/privacy" className="text-[#888888]/60 hover:text-[#888888] transition-colors">
                 Privacy
@@ -202,34 +190,24 @@ export function Footer() {
               <Link href="/terms" className="text-[#888888]/60 hover:text-[#888888] transition-colors">
                 Terms
               </Link>
-              <a
-                href={businessInfo.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#888888]/60 hover:text-[#888888] transition-colors"
-              >
-                Leave a Review
-              </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Developer Credit - Gemsweb Digital */}
+      {/* Studio Credit — Made by Tangison Studio */}
       <div className="bg-[#E67E22]">
-        <div className="container mx-auto px-4 lg:px-8 py-4">
+        <div className="container mx-auto px-4 lg:px-8 py-3">
           <a
-            href="https://gemsweb.xyz"
+            href="https://studio.tangison.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-[#0D0D0D] hover:opacity-90 transition-opacity group"
+            className="flex items-center justify-center gap-2 text-[#0D0D0D] hover:opacity-90 transition-opacity group"
           >
-            <div className="flex items-center gap-2">
-              <span className="font-heading text-lg tracking-wide flex items-center gap-2">
-                Made with ❤️ by Gemsweb Digital
-              </span>
-            </div>
-            <ExternalLink className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity hidden sm:block" />
+            <span className="font-heading text-sm tracking-wide">
+              Made by Tangison Studio
+            </span>
+            <ExternalLink className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" />
           </a>
         </div>
       </div>

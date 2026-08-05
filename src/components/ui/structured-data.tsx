@@ -41,8 +41,8 @@ export function LocalBusinessStructuredData() {
     priceRange: '$$',
     currenciesAccepted: 'NAD',
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
-    image: `${siteConfig.domain}/images/logo.png`,
-    logo: `${siteConfig.domain}/images/logo.png`,
+    image: `${siteConfig.domain}/images/logo.webp`,
+    logo: `${siteConfig.domain}/images/logo.webp`,
     sameAs: [
       siteConfig.social.facebook,
       siteConfig.social.instagram,

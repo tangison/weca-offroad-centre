@@ -45,8 +45,8 @@ export const siteConfig = {
     country: 'Namibia',
     postalCode: '13001',
     coordinates: {
-      lat: -22.6789,
-      lng: 14.5272,
+      lat: -22.6712912,
+      lng: 14.5492686,
     },
   },
   
@@ -78,11 +78,16 @@ export const siteConfig = {
     whatsapp: 'https://wa.me/264811691942',
   },
   
-  // Maps
+  // Maps — real Google Place ID for Weca Offroad Centre, Swakopmund
+  // place_id verified via Google Maps: ChIJoa5Ba9xYdhwRzBnhVLf64Pc
+  // embedUrl uses Google's documented output=embed format, which redirects to
+  // the real /maps/embed endpoint with a server-generated pb. No hand-written pb.
   maps: {
-    googleMapsLink: 'https://maps.app.goo.gl/EPAKvYQ9rdZDqYdJ9',
-    directionsLink: 'https://www.google.com/maps/dir/?api=1&destination=Eliaser+Tuhadeleni+Erf+4802+Swakopmund+Industrial',
-    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3586.8!2d14.5272!3d-22.6789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQwJzQ0LjAiUyAxNMKwMzEnMzguMCJF!5e0!3m2!1sen!2sna!4v1700000000000!5m2!1sen!2sna',
+    placeId: 'ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
+    googleMapsLink: 'https://www.google.com/maps/place/?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
+    directionsLink: 'https://www.google.com/maps/place/?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
+    embedUrl: 'https://maps.google.com/maps?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc&output=embed',
+    reviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
   },
   
   // Brands carried

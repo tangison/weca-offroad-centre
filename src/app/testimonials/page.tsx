@@ -159,7 +159,7 @@ export default function TestimonialsPage() {
                     </p>
                     <Button asChild className="w-full bg-[#D97742] hover:bg-[#E89F6D] text-[#1A1512] font-bold">
                       <a
-                        href={businessInfo.social.facebook}
+                        href={businessInfo.maps.reviewUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
