@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { PageHero } from '@/components/ui/page-hero';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { CTASection } from '@/components/ui/cta-section';
+import { BrandLogoCarousel } from '@/components/ui/brand-logo-carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
@@ -202,22 +203,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Brands */}
-      <section className="py-6 border-y border-[#2A2A2A]">
+      {/* Brands — static logo grid */}
+      <section className="py-10 border-y border-[#2A2A2A]">
         <div className="container mx-auto px-4 lg:px-8">
-          <p className="text-[#888888] text-[10px] uppercase tracking-widest text-center mb-4 font-accent">
+          <p className="text-[#888888] text-[10px] uppercase tracking-widest text-center mb-6 font-accent">
             Brands we install
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {['Tentco', 'Front Runner', 'Tough Dog', 'Wildog', 'Rhinoman', 'ARB', 'Ecoflow', 'Dometic', 'BF Goodrich'].map((brand) => (
-              <span
-                key={brand}
-                className="text-[#888888] text-xs font-accent uppercase tracking-wider hover:text-[#F5F5F5] transition-colors cursor-pointer"
-              >
-                {brand}
-              </span>
-            ))}
-          </div>
+          <BrandLogoCarousel variant="grid" />
         </div>
       </section>
 

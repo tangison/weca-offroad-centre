@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { HeroSlideshow } from '@/components/ui/hero-slideshow';
 import { ArrowRight, MapPin, Award, Wrench, Truck } from 'lucide-react';
-import { products, services, galleryItems, testimonials, businessInfo, heroSlides, brands } from '@/lib/data';
+import { BrandLogoCarousel } from '@/components/ui/brand-logo-carousel';
+import { products, services, galleryItems, testimonials, businessInfo, heroSlides } from '@/lib/data';
 
 export default function HomePage() {
   const featuredProducts = products.slice(0, 6);
@@ -56,22 +57,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Brands - Minimal */}
-      <section className="py-6 border-b border-[#2A2A2A]">
+      {/* Brands — logo carousel */}
+      <section className="py-10 border-b border-[#2A2A2A]">
         <div className="container mx-auto px-4 lg:px-8">
-          <p className="text-[#888888] text-[10px] uppercase tracking-widest text-center mb-4 font-accent">
-            Authorized dealer
+          <p className="text-[#888888] text-[10px] uppercase tracking-widest text-center mb-6 font-accent">
+            Brands we sell
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {brands.slice(0, 8).map((brand) => (
-              <span
-                key={brand.name}
-                className="text-[#888888] text-xs font-accent uppercase tracking-wider hover:text-[#F5F5F5] transition-colors cursor-pointer"
-              >
-                {brand.name}
-              </span>
-            ))}
-          </div>
+          <BrandLogoCarousel variant="carousel" />
         </div>
       </section>
 

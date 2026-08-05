@@ -1,0 +1,63 @@
+[
+  {
+    "slug": "front-runner",
+    "status": "OK",
+    "source_url": "https://dometic.com/images/logo-frontrunner.svg",
+    "saved_as": "front-runner.svg",
+    "official_source": "https://dometic.com"
+  },
+  {
+    "slug": "dometic",
+    "status": "OK",
+    "source_url": "https://dometic.com/images/logo-frontrunner.svg",
+    "saved_as": "dometic.svg",
+    "official_source": "https://dometic.com"
+  },
+  {
+    "slug": "tentco",
+    "status": "OK",
+    "source_url": "https://tentco.co.za/wp-content/uploads/2025/08/NOMAD-LOGO-FINAL.jpg",
+    "saved_as": "tentco.jpg",
+    "official_source": "https://tentco.co.za"
+  },
+  {
+    "slug": "tough-dog",
+    "status": "OK",
+    "source_url": "https://toughdog.com.au/site/DefaultSite/skins/toughdog_2019/images/logo-footer.png",
+    "saved_as": "tough-dog.png",
+    "official_source": "https://toughdog.com.au"
+  },
+  {
+    "slug": "wildog",
+    "status": "OK",
+    "source_url": "https://wildog.co.za/wp-content/uploads/2025/09/cropped-WhatsApp-Image-2025-07-10-at-15.29.47_490237a4-300x100.jpg",
+    "saved_as": "wildog.jpg",
+    "official_source": "https://wildog.co.za"
+  },
+  {
+    "slug": "rhinoman",
+    "status": "NO_CANDIDATES",
+    "official_source": "https://rhinoman.co.za"
+  },
+  {
+    "slug": "arb",
+    "status": "OK",
+    "source_url": "https://arb.com.au/content/dam/arb/permanent-site-assets/arb/logos/ARB%20Logo.svg",
+    "saved_as": "arb.svg",
+    "official_source": "https://arb.com.au"
+  },
+  {
+    "slug": "ecoflow",
+    "status": "OK",
+    "source_url": "https://us.ecoflow.com/cdn/shop/files/Logo_white_300x300.svg?v=1783411021",
+    "saved_as": "ecoflow.svg",
+    "official_source": "https://ecoflow.com"
+  },
+  {
+    "slug": "bfgoodrich",
+    "status": "OK",
+    "source_url": "https://africa.bfgoodrich.com/public/themes/bfgoodrich/assets/images/logos/svg/sprite-logos.svg",
+    "saved_as": "bfgoodrich.svg",
+    "official_source": "https://africa.bfgoodrich.com"
+  }
+]
