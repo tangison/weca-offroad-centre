@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: `Privacy policy for ${siteConfig.business.name}.`,
   robots: { index: false, follow: false },
+  alternates: {
+    canonical: '/legal/privacy',
+  },
 };
 
 const lastUpdated = '6 August 2026';

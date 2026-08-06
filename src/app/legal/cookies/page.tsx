@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Cookie Policy',
   description: `Cookie policy for ${siteConfig.business.name}.`,
   robots: { index: false, follow: false },
+  alternates: {
+    canonical: '/legal/cookies',
+  },
 };
 
 const lastUpdated = '6 August 2026';

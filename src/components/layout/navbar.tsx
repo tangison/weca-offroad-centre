@@ -30,6 +30,7 @@ const navLinks = [
 
 const moreLinks = [
   { href: '/testimonials', label: 'Reviews' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -192,41 +193,15 @@ export function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => {
-                if (link.label === 'Shop') {
-                  return (
-                    <div 
-                      key={link.href} 
-                      className="relative" 
-                      ref={dropdownRef}
-                      onMouseEnter={handleShopMouseEnter}
-                      onMouseLeave={handleShopMouseLeave}
-                    >
-                      <button
-                        onClick={() => setIsShopDropdownOpen(!isShopDropdownOpen)}
-                        className={`flex items-center gap-1 px-4 py-2 text-xs font-accent uppercase tracking-wider transition-colors ${
-                          isActive(link.href) || pathname.startsWith('/shop')
-                            ? 'text-[#E67E22]'
-                            : 'text-[#F5F5F5] hover:text-[#E67E22]'
-                        }`}
-                        aria-expanded={isShopDropdownOpen}
-                        aria-haspopup="true"
-                      >
-                        {link.label}
-                        <ChevronDown
-                          className={`w-3 h-3 transition-transform duration-150 ${
-                            isShopDropdownOpen ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-                    </div>
-                  );
-                }
+                // Shop is rendered as a plain link while the catalog is
+                // in "Coming Soon" state. When real products land, swap
+                // this back to the dropdown above using siteConfig.features.
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     className={`px-4 py-2 text-xs font-accent uppercase tracking-wider transition-colors ${
-                      isActive(link.href)
+                      isActive(link.href) || (link.href === '/shop' && pathname.startsWith('/shop'))
                         ? 'text-[#E67E22]'
                         : 'text-[#F5F5F5] hover:text-[#E67E22]'
                     }`}

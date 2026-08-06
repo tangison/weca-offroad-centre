@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     title: 'About Weca Offroad | Swakopmund 4x4 Experts',
     description: 'Namibia\'s trusted 4x4 accessories and fitment specialists since 2015.',
   },
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 const values = [
@@ -60,8 +63,8 @@ const values = [
 
 const certifications = [
   'Tough Dog Authorized Dealer',
-  'Front Runner Certified Fitment',
   'Tentco Premium Partner',
+  'WARN Winch Stockist',
   'Import/Export Licensed',
 ];
 

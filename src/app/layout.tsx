@@ -5,8 +5,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import { CookieConsent } from "@/components/layout/cookie-consent";
 import { LocalBusinessStructuredData, WebsiteStructuredData } from "@/components/ui/structured-data";
 import { siteConfig } from "@/lib/config";
+import { Analytics } from "@vercel/analytics/next";
 
 // Bebas Neue - Headings (bold, dramatic)
 const bebasNeue = Bebas_Neue({
@@ -50,10 +52,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/logo.webp" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
     ],
+    shortcut: ["/favicon.ico"],
     apple: [
-      { url: "/images/logo.webp" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
   manifest: "/manifest.webmanifest",
@@ -66,7 +73,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.domain}/images/logo.png`,
+        url: `${siteConfig.domain}/og-image.png`,
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -77,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.seo.defaultTitle,
     description: siteConfig.seo.defaultDescription,
-    images: [`${siteConfig.domain}/images/logo.png`],
+    images: [`${siteConfig.domain}/og-image.png`],
   },
   // PRIVATE SITE - noindex, nofollow while client reviews.
   // Per client instruction (2026-08-06): site must not be crawled or
@@ -98,8 +105,15 @@ export const metadata: Metadata = {
     canonical: siteConfig.domain,
   },
   verification: {
+    // Bing Webmaster Tools verification token.
     other: {
       "msvalidate.01": "ABE9457C17856D987AEB00DB6BD0EF63",
+      // Google Search Console verification: add the real token from Search
+      // Console (HTML tag method) as the env var NEXT_PUBLIC_GSC_TOKEN at
+      // build time on Vercel, and it will be injected here automatically.
+      ...(process.env.NEXT_PUBLIC_GSC_TOKEN
+        ? { "google-site-verification": process.env.NEXT_PUBLIC_GSC_TOKEN }
+        : {}),
     },
   },
 };
@@ -133,6 +147,8 @@ export default function RootLayout({
         </div>
         <ScrollToTop />
         <Toaster />
+        <CookieConsent />
+        <Analytics />
       </body>
     </html>
   );

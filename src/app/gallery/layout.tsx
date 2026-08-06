@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { BreadcrumbStructuredData } from '@/components/ui/structured-data';
 
 export const metadata: Metadata = {
   title: '4x4 Installation Gallery | Weca Offroad Work',
@@ -7,6 +8,9 @@ export const metadata: Metadata = {
     title: '4x4 Installation Gallery | Weca Offroad Work',
     description: 'Real installations, real results. See our completed 4x4 projects in Namibia.',
   },
+  alternates: {
+    canonical: '/gallery',
+  },
 };
 
 export default function GalleryLayout({
@@ -14,5 +18,15 @@ export default function GalleryLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <BreadcrumbStructuredData
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Gallery', url: '/gallery' },
+        ]}
+      />
+      {children}
+    </>
+  );
 }

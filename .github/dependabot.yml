@@ -1,0 +1,42 @@
+# Dependabot config - keeps dependencies fresh and secure.
+# Docs: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+
+updates:
+  # Next.js / React / app dependencies (Bun).
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Africa/Windhoek"
+    open-pull-requests-limit: 5
+    groups:
+      # Group minor + patch updates so we get one PR per ecosystem per week.
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+    # Major version bumps get their own PR so they can be reviewed carefully.
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps(dev)"
+    labels:
+      - "dependencies"
+      - "automated"
+    reviewers:
+      - "tangison"
+    # Auto-merge safe patch updates for dev dependencies.
+    # Production dependencies always require manual review.
+
+  # GitHub Actions.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "automated"

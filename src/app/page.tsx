@@ -9,7 +9,7 @@ import { HeroSlideshow } from '@/components/ui/hero-slideshow';
 import { ArrowRight, MapPin, Award, Wrench, Truck } from 'lucide-react';
 import { BrandLogoCarousel } from '@/components/ui/brand-logo-carousel';
 import { GoogleReviewsEmbed } from '@/components/ui/google-reviews-embed';
-import { services, galleryItems, testimonials, businessInfo, heroSlides } from '@/lib/data';
+import { services, galleryItems, businessInfo, heroSlides } from '@/lib/data';
 
 export default function HomePage() {
   const featuredServices = services.slice(0, 4);

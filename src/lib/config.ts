@@ -156,6 +156,7 @@ export const siteConfig = {
     ],
     more: [
       { href: '/testimonials', label: 'Reviews' },
+      { href: '/faq', label: 'FAQ' },
       { href: '/contact', label: 'Contact' },
     ],
     footer: [
@@ -165,6 +166,7 @@ export const siteConfig = {
       { href: '/gallery', label: 'Gallery' },
       { href: '/services', label: 'Services' },
       { href: '/testimonials', label: 'Reviews' },
+      { href: '/faq', label: 'FAQ' },
       { href: '/contact', label: 'Contact' },
     ],
   },

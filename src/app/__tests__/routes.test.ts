@@ -27,6 +27,8 @@ const ROUTES = [
   "/legal/terms",
   "/legal/cookies",
   "/site-map",
+  "/faq",
+  "/thank-you",
 ];
 
 describe("route modules", () => {

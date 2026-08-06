@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
+import { BreadcrumbStructuredData } from '@/components/ui/structured-data';
 
 export const metadata: Metadata = {
   title: 'Shop 4x4 Accessories | Weca Offroad Namibia',
@@ -8,6 +9,9 @@ export const metadata: Metadata = {
     title: 'Shop 4x4 Accessories | Weca Offroad Namibia',
     description: 'Catalog coming soon. Message us on WhatsApp for a quote on 4x4 accessories - rooftop tents, suspension, canopies, recovery gear, power and more.',
   },
+  alternates: {
+    canonical: '/shop',
+  },
 };
 
 export default function ShopLayout({
@@ -15,5 +19,15 @@ export default function ShopLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Suspense fallback={null}>{children}</Suspense>;
+  return (
+    <>
+      <BreadcrumbStructuredData
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Shop', url: '/shop' },
+        ]}
+      />
+      <Suspense fallback={null}>{children}</Suspense>
+    </>
+  );
 }

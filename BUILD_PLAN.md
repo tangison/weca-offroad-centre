@@ -54,7 +54,7 @@ re-running `python3 scripts/generate_catalog.py` (after editing the script's
 1. SSO protection removed from Vercel project (verified HTTP 200 unauthenticated).
 2. Catalog expanded to 236 products across 14 categories.
 3. Shop page enhanced: search, pagination, URL param sync, mobile filters.
-4. Audit issues #1–#22 fixed in prior commit `e7e7f89`.
+4. Audit issues #1 to #22 fixed in prior commit `e7e7f89`.
 5. All images converted to WebP in prior commit `e7e7f89`.
 6. TypeScript strict, ESLint clean, 39 tests pass, production build succeeds.
 

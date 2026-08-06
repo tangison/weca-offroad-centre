@@ -25,8 +25,13 @@ import {
   MessageCircle,
   ExternalLink,
   Send,
+  Loader2,
+  AlertCircle,
+  CheckCircle2,
 } from 'lucide-react';
 import { businessInfo } from '@/lib/data';
+import { useRouter } from 'next/navigation';
+import { Checkbox } from '@/components/ui/checkbox';
 
 // TikTok Icon
 function TikTokIcon({ className }: { className?: string }) {
@@ -46,15 +51,22 @@ const subjectOptions = [
 ];
 
 export default function ContactPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     subject: '',
     message: '',
+    vehicle: '',
+    // Honeypot field - hidden from real users, bots will fill it.
+    website: '',
   });
+  const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [contactMethod, setContactMethod] = useState<'whatsapp' | 'email'>('whatsapp');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'error' | 'success'>('idle');
+  const [serverError, setServerError] = useState<string>('');
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -76,47 +88,83 @@ export default function ContactPage() {
     // Email required if contact method is email
     if (contactMethod === 'email' && !formData.email.trim()) {
       newErrors.email = 'Email is required for email contact';
+    } else if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!consent) {
+      newErrors.consent = 'Please agree to be contacted';
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) return;
 
-    const selectedSubject = subjectOptions.find(s => s.value === formData.subject)?.label || formData.subject;
+    setStatus('submitting');
+    setServerError('');
 
-    if (contactMethod === 'whatsapp') {
-      // Build WhatsApp message
-      const message = `Hi Weca Offroad,
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject === 'other'
+            ? 'General enquiry'
+            : subjectOptions.find(s => s.value === formData.subject)?.label || formData.subject,
+          message: formData.message,
+          vehicle: formData.vehicle,
+          consent,
+          // Honeypot field, must be empty.
+          website: formData.website,
+        }),
+      });
 
-*Name:* ${formData.name}
-*Email:* ${formData.email || 'Not provided'}
-*Phone:* ${formData.phone || 'Not provided'}
-*Subject:* ${selectedSubject}
+      const data = await response.json();
 
-*Message:*
-${formData.message}`;
+      if (!response.ok) {
+        if (response.status === 429) {
+          setServerError(data.error || 'Too many attempts. Please wait and try again.');
+        } else if (data.issues && Array.isArray(data.issues)) {
+          const fieldErrors: Record<string, string> = {};
+          for (const issue of data.issues) {
+            fieldErrors[issue.path] = issue.message;
+          }
+          setErrors(fieldErrors);
+          setServerError('Please correct the highlighted fields and try again.');
+        } else {
+          setServerError(data.error || 'Something went wrong. Please try WhatsApp instead.');
+        }
+        setStatus('error');
+        return;
+      }
 
-      // Redirect to WhatsApp
-      const whatsappUrl = `https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-    } else {
-      // Build email
-      const emailSubject = `${selectedSubject} - Weca Offroad Inquiry`;
-      const emailBody = `Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone || 'Not provided'}
-Subject: ${selectedSubject}
+      // Success - open WhatsApp (or mailto) in a new tab, then redirect to thank-you.
+      if (contactMethod === 'whatsapp' && data.whatsappUrl) {
+        window.open(data.whatsappUrl, '_blank');
+      } else if (contactMethod === 'email') {
+        const selectedSubject = subjectOptions.find(s => s.value === formData.subject)?.label || formData.subject;
+        const emailSubject = `${selectedSubject} - Weca Offroad Inquiry`;
+        const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\nVehicle: ${formData.vehicle || 'Not provided'}\nSubject: ${selectedSubject}\n\nMessage:\n${formData.message}`;
+        const mailtoUrl = `mailto:${businessInfo.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        window.location.href = mailtoUrl;
+      }
 
-Message:
-${formData.message}`;
-
-      const mailtoUrl = `mailto:${businessInfo.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-      window.location.href = mailtoUrl;
+      setStatus('success');
+      // Short delay so the user sees the success state before redirect.
+      setTimeout(() => {
+        router.push('/thank-you');
+      }, 600);
+    } catch (err) {
+      setServerError('Network error. Please try WhatsApp directly.');
+      setStatus('error');
     }
   };
 
@@ -155,7 +203,35 @@ ${formData.message}`;
                     Fill out the form below and choose your preferred contact method.
                   </p>
 
-                  <form onSubmit={handleSubmit} className="space-y-5">
+                  <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                    {/* Honeypot - hidden from real users, bots will fill it. */}
+                    <div aria-hidden="true" className="absolute -left-[9999px] top-0 w-px h-px overflow-hidden">
+                      <label htmlFor="website">Website (leave empty)</label>
+                      <input
+                        id="website"
+                        name="website"
+                        type="text"
+                        value={formData.website}
+                        onChange={handleChange}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    {/* Server status banner */}
+                    {status === 'error' && serverError && (
+                      <div role="alert" className="flex items-start gap-3 p-4 border border-[#E67E22]/40 bg-[#E67E22]/10 text-[#F5F5F5]">
+                        <AlertCircle className="w-5 h-5 text-[#E67E22] flex-shrink-0 mt-0.5" aria-hidden="true" />
+                        <p className="text-sm">{serverError}</p>
+                      </div>
+                    )}
+                    {status === 'success' && (
+                      <div role="status" className="flex items-start gap-3 p-4 border border-[#25D366]/40 bg-[#25D366]/10 text-[#F5F5F5]">
+                        <CheckCircle2 className="w-5 h-5 text-[#25D366] flex-shrink-0 mt-0.5" aria-hidden="true" />
+                        <p className="text-sm">Opening WhatsApp now. Redirecting to the confirmation page...</p>
+                      </div>
+                    )}
+
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="name" className="text-[#F5F5F5] text-xs font-accent uppercase tracking-wider">
@@ -167,6 +243,8 @@ ${formData.message}`;
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="Your name"
+                          required
+                          autoComplete="name"
                           className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-muted-foreground/80 focus:border-[#E67E22] h-12 ${errors.name ? 'border-[#E67E22]' : ''}`}
                         />
                         {errors.name && (
@@ -185,6 +263,7 @@ ${formData.message}`;
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="your@email.com"
+                          autoComplete="email"
                           className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-muted-foreground/80 focus:border-[#E67E22] h-12 ${errors.email ? 'border-[#E67E22]' : ''}`}
                         />
                         {errors.email && (
@@ -201,41 +280,58 @@ ${formData.message}`;
                         <Input
                           id="phone"
                           name="phone"
+                          type="tel"
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+264 xx xxx xxxx"
+                          autoComplete="tel"
                           className="bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-muted-foreground/80 focus:border-[#E67E22] h-12"
                         />
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="subject" className="text-[#F5F5F5] text-xs font-accent uppercase tracking-wider">
-                          Subject <span className="text-[#E67E22]">*</span>
+                        <Label htmlFor="vehicle" className="text-[#F5F5F5] text-xs font-accent uppercase tracking-wider">
+                          Vehicle (optional)
                         </Label>
-                        <Select
-                          value={formData.subject}
-                          onValueChange={(value) => {
-                            setFormData((prev) => ({ ...prev, subject: value }));
-                            if (errors.subject) {
-                              setErrors((prev) => ({ ...prev, subject: '' }));
-                            }
-                          }}
-                        >
-                          <SelectTrigger className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] h-12 ${errors.subject ? 'border-[#E67E22]' : ''}`}>
-                            <SelectValue placeholder="Select a subject" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-[#1A1A1A] border-[#2A2A2A]">
-                            {subjectOptions.map((option) => (
-                              <SelectItem key={option.value} value={option.value} className="text-[#F5F5F5] hover:bg-[#2A2A2A] focus:bg-[#2A2A2A]">
-                                {option.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        {errors.subject && (
-                          <p className="text-sm text-[#E67E22]">{errors.subject}</p>
-                        )}
+                        <Input
+                          id="vehicle"
+                          name="vehicle"
+                          value={formData.vehicle}
+                          onChange={handleChange}
+                          placeholder="e.g. Toyota Hilux 2019"
+                          autoComplete="off"
+                          className="bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-muted-foreground/80 focus:border-[#E67E22] h-12"
+                        />
                       </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="subject" className="text-[#F5F5F5] text-xs font-accent uppercase tracking-wider">
+                        Subject <span className="text-[#E67E22]">*</span>
+                      </Label>
+                      <Select
+                        value={formData.subject}
+                        onValueChange={(value) => {
+                          setFormData((prev) => ({ ...prev, subject: value }));
+                          if (errors.subject) {
+                            setErrors((prev) => ({ ...prev, subject: '' }));
+                          }
+                        }}
+                      >
+                        <SelectTrigger className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] h-12 ${errors.subject ? 'border-[#E67E22]' : ''}`}>
+                          <SelectValue placeholder="Select a subject" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-[#1A1A1A] border-[#2A2A2A]">
+                          {subjectOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value} className="text-[#F5F5F5] hover:bg-[#2A2A2A] focus:bg-[#2A2A2A]">
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      {errors.subject && (
+                        <p className="text-sm text-[#E67E22]">{errors.subject}</p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -289,19 +385,55 @@ ${formData.message}`;
                       </div>
                     </div>
 
+                    {/* Consent checkbox */}
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-3">
+                        <Checkbox
+                          id="consent"
+                          checked={consent}
+                          onCheckedChange={(checked) => {
+                            setConsent(checked === true);
+                            if (errors.consent) {
+                              setErrors((prev) => ({ ...prev, consent: '' }));
+                            }
+                          }}
+                          className="mt-1 border-[#2A2A2A] data-[state=checked]:bg-[#E67E22] data-[state=checked]:border-[#E67E22] data-[state=checked]:text-[#0D0D0D]"
+                        />
+                        <Label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed">
+                          I agree to be contacted about my enquiry and have read the{' '}
+                          <Link href="/legal/privacy" className="text-[#E67E22] hover:underline">Privacy Policy</Link>.
+                          <span className="text-[#E67E22]"> *</span>
+                        </Label>
+                      </div>
+                      {errors.consent && (
+                        <p className="text-sm text-[#E67E22]">{errors.consent}</p>
+                      )}
+                    </div>
+
                     <Button
                       type="submit"
-                      className="w-full bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider h-12"
+                      disabled={status === 'submitting' || status === 'success'}
+                      className="w-full bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider h-12 disabled:opacity-60 disabled:cursor-not-allowed"
                       size="lg"
                     >
-                      {contactMethod === 'whatsapp' ? (
+                      {status === 'submitting' ? (
                         <>
-                          <MessageCircle className="w-4 h-4 mr-2" />
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" aria-hidden="true" />
+                          Sending...
+                        </>
+                      ) : status === 'success' ? (
+                        <>
+                          <CheckCircle2 className="w-4 h-4 mr-2" aria-hidden="true" />
+                          Sent - Redirecting...
+                        </>
+                      ) : contactMethod === 'whatsapp' ? (
+                        <>
+                          <MessageCircle className="w-4 h-4 mr-2" aria-hidden="true" />
                           Send via WhatsApp
                         </>
                       ) : (
                         <>
-                          <Send className="w-4 h-4 mr-2" />
+                          <Send className="w-4 h-4 mr-2" aria-hidden="true" />
                           Send via Email
                         </>
                       )}

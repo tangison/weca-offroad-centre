@@ -2782,22 +2782,59 @@ export const testimonials: Testimonial[] = [
   // ... more testimonials could be added, but keeping concise for now
 ];
 
+// FAQ entries shown on the Services page accordion AND rendered as
+// FAQPage JSON-LD structured data for SEO. If you change the questions
+// here, both the UI and the schema update automatically.
+export const faqs: { question: string; answer: string }[] = [
+  {
+    question: 'How long does a typical suspension installation take?',
+    answer:
+      'A complete suspension system installation typically takes 4 to 6 hours. More complex setups with custom lift kits, replacement bushes, or additional fabrication may require a full day. We will give you a realistic timeframe when we quote.',
+  },
+  {
+    question: 'Do you offer warranties on your installations?',
+    answer:
+      'Yes. All our installations come with a workmanship warranty. Most products we supply also carry the manufacturer warranty. We will tell you exactly what is covered before we start the job.',
+  },
+  {
+    question: 'Can I bring my own parts for installation?',
+    answer:
+      'We prefer to supply the parts ourselves so we can verify quality, fit, and warranty coverage. If you already have parts, we can discuss it on a case-by-case basis. Customer-supplied parts are not covered by our workmanship warranty if the part itself fails.',
+  },
+  {
+    question: 'Do I need to book an appointment?',
+    answer:
+      'Walk-ins are welcome for basic enquiries, but installations and fitments must be booked in advance so we can allocate a bay and a technician. WhatsApp us on +264 81 169 1942 to book a slot.',
+  },
+  {
+    question: 'What payment methods do you accept?',
+    answer:
+      'We accept cash, bank transfers (EFT), and major credit and debit cards. For larger custom builds, we agree a staged payment schedule in writing before work begins.',
+  },
+  {
+    question: 'Do you work on all vehicle types?',
+    answer:
+      'We specialise in 4x4 and double-cab vehicles including Toyota Hilux and Land Cruiser, Ford Ranger, Nissan Navara and Patrol, Isuzu D-Max, Land Rover Defender, Jeep, and VW Amarok. If you are not sure, just ask.',
+  },
+];
+
+
 // Gallery Items - POPULATED WITH 47+ REAL ASSETS
 export const galleryItems: GalleryItem[] = [
-  { id: 'g1', title: 'Savannah Expedition', category: 'full-build', vehicle: 'Toyota Hilux GD-6', description: 'Complete overland setup for desert travel.', image: '/images/gallery/rooftent_safari_01.webp', workDone: ['Hardshell RTT', 'Suspension Lift', 'Wildog Bumper'], date: '2024-03-10' },
-  { id: 'g2', title: 'Rocky Mountain Rig', category: 'suspension', vehicle: 'Land Cruiser 79', description: 'Heavy-duty suspension for mining conditions.', image: '/images/gallery/workshop_interior_01.webp', workDone: ['Tough Dog Shocks', 'Leaf Spring Upgrade'], date: '2024-02-28' },
+  { id: 'g1', title: 'Toyota Hilux GD-6 Overland Build', category: 'full-build', vehicle: 'Toyota Hilux GD-6', description: 'Hardshell rooftop tent, suspension lift, and Wildog bumper fitted for desert travel.', image: '/images/gallery/rooftent_safari_01.webp', workDone: ['Hardshell RTT', 'Suspension Lift', 'Wildog Bumper'], date: '2024-03-10' },
+  { id: 'g2', title: 'Land Cruiser 79 Heavy-Duty Suspension', category: 'suspension', vehicle: 'Land Cruiser 79', description: 'Tough Dog shocks and leaf spring upgrade fitted for mining and farm conditions.', image: '/images/gallery/workshop_interior_01.webp', workDone: ['Tough Dog Shocks', 'Leaf Spring Upgrade'], date: '2024-02-28' },
   { id: 'g3', title: '70 Series Specialist', category: 'canopy', vehicle: 'LC 70 Series', description: 'Roof rack and storage integration.', image: '/images/gallery/roofrack_70series_01.webp', workDone: ['Slimline II Rack', 'Side Ladders'], date: '2024-02-15' },
-  { id: 'g4', title: 'Desert Warrior', category: 'rooftop-tents', vehicle: 'Nissan Patrol', description: 'Scenic desert camping setup.', image: '/images/gallery/rooftent_desert_01.webp', workDone: ['RTT Install', 'Awning System'], date: '2024-01-20' },
+  { id: 'g4', title: 'Nissan Patrol Rooftop Tent & Awning', category: 'rooftop-tents', vehicle: 'Nissan Patrol', description: 'Rooftop tent and side awning fitted for desert camping.', image: '/images/gallery/rooftent_desert_01.webp', workDone: ['RTT Install', 'Awning System'], date: '2024-01-20' },
   { id: 'g5', title: 'Coastal Cruiser', category: 'rooftop-tents', vehicle: 'Ford Ranger', description: 'Quick-pitch tent for weekend getaways.', image: '/images/gallery/rooftent_with_awning_01.webp', workDone: ['Tentco Tent', '270 Degree Awning'], date: '2024-03-05' },
-  { id: 'g6', title: 'Workshop Excellence', category: 'suspension', vehicle: 'Jeep Wrangler', description: 'Master fitment in our Swakopmund facility.', image: '/images/gallery/workshop_interior_02.webp', workDone: ['Control Arms', 'Coil Springs'], date: '2024-01-15' },
-  { id: 'g7', title: 'Dune Master', category: 'recovery', vehicle: 'Toyota Hilux', description: 'Comprehensive recovery gear setup.', image: '/images/gallery/awning_desert_01.webp', workDone: ['Winch Fitment', 'Sand Tracks'], date: '2024-02-20' },
+  { id: 'g6', title: 'Jeep Wrangler Control Arm & Coil Spring Fitment', category: 'suspension', vehicle: 'Jeep Wrangler', description: 'Control arms and coil springs fitted in our Swakopmund workshop.', image: '/images/gallery/workshop_interior_02.webp', workDone: ['Control Arms', 'Coil Springs'], date: '2024-01-15' },
+  { id: 'g7', title: 'Toyota Hilux Recovery Gear Setup', category: 'recovery', vehicle: 'Toyota Hilux', description: 'Winch and sand tracks fitted for dune recovery.', image: '/images/gallery/awning_desert_01.webp', workDone: ['Winch Fitment', 'Sand Tracks'], date: '2024-02-20' },
   { id: 'g8', title: 'Front Entrance', category: 'full-build', vehicle: 'Showroom', description: 'Our Swakopmund industrial premises.', image: '/images/gallery/shop_exterior.webp', workDone: ['Showroom Fitout'], date: '2024-03-18' },
   { id: 'g9', title: 'Wildog Protection', category: 'bumpers', vehicle: 'Toyota Fortuner', description: 'Steel bumper with high approach angle.', image: '/images/gallery/brand_sign_metal.webp', workDone: ['Front Bumper', 'Tow Bar'], date: '2024-03-25' },
-  { id: 'g10', title: 'Rack & Roll', category: 'canopy', vehicle: 'Hilux Legend', description: 'Modular rack system for tools and gear.', image: '/images/gallery/roofrack_offroad_01.webp', workDone: ['Roof Rack', 'Gear Boxes'], date: '2024-04-01' },
-  { id: 'g11', title: 'Safari Nights', category: 'rooftop-tents', vehicle: 'Land Rover Defender', description: 'Full safari lighting and camping setup.', image: '/images/gallery/rooftent_safari_02.webp', workDone: ['LED Lighting', 'Dual Battery'], date: '2024-04-05' },
-  { id: 'g12', title: 'Suspension Precision', category: 'suspension', vehicle: 'Isuzu D-Max', description: 'Fine-tuned ride quality for farm roads.', image: '/images/gallery/workshop_sign_01.webp', workDone: ['Shock Tuning', 'Spring Selection'], date: '2024-04-10' },
-  { id: 'g13', title: 'Desert Shade', category: 'recovery', vehicle: 'Toyota Land Cruiser', description: 'Extended awning for maximum sun protection.', image: '/images/gallery/awning_extended_01.webp', workDone: ['Side Awning', 'Privacy Wall'], date: '2024-04-15' },
-  { id: 'g14', title: 'High Altitude', category: 'rooftop-tents', vehicle: 'LC 79', description: 'Tallest setup for ultimate views.', image: '/images/gallery/rooftent_desert_02.webp', workDone: ['Custom Rack', 'Tent Install'], date: '2024-04-20' },
+  { id: 'g10', title: 'Hilux Legend Modular Roof Rack', category: 'canopy', vehicle: 'Hilux Legend', description: 'Modular roof rack with gear boxes for tools and equipment.', image: '/images/gallery/roofrack_offroad_01.webp', workDone: ['Roof Rack', 'Gear Boxes'], date: '2024-04-01' },
+  { id: 'g11', title: 'Land Rover Defender Safari Lighting & Dual Battery', category: 'rooftop-tents', vehicle: 'Land Rover Defender', description: 'LED lighting and dual battery system fitted for safari camping.', image: '/images/gallery/rooftent_safari_02.webp', workDone: ['LED Lighting', 'Dual Battery'], date: '2024-04-05' },
+  { id: 'g12', title: 'Isuzu D-Max Suspension Tuning', category: 'suspension', vehicle: 'Isuzu D-Max', description: 'Shock tuning and spring selection for farm road ride quality.', image: '/images/gallery/workshop_sign_01.webp', workDone: ['Shock Tuning', 'Spring Selection'], date: '2024-04-10' },
+  { id: 'g13', title: 'Land Cruiser Extended Awning with Privacy Wall', category: 'recovery', vehicle: 'Toyota Land Cruiser', description: 'Extended side awning with privacy wall for sun protection.', image: '/images/gallery/awning_extended_01.webp', workDone: ['Side Awning', 'Privacy Wall'], date: '2024-04-15' },
+  { id: 'g14', title: 'LC 79 Custom Rack & Rooftop Tent', category: 'rooftop-tents', vehicle: 'LC 79', description: 'Custom rack and rooftop tent fitted for elevated camping.', image: '/images/gallery/rooftent_desert_02.webp', workDone: ['Custom Rack', 'Tent Install'], date: '2024-04-20' },
   { id: 'g15', title: 'Orange Branding', category: 'full-build', vehicle: 'Showroom', description: 'Our signature orange signage.', image: '/images/gallery/shop_sign_orange.webp', workDone: ['Branding'], date: '2024-04-25' },
   // Adding more to fulfill "ALL images" request
   { id: 'g16', title: 'Awning Detail 1', category: 'recovery', vehicle: '4x4', description: 'Setup detail.', image: '/images/gallery/awning_desert_02.webp', workDone: ['Installation'], date: '2024-05-01' },
@@ -2820,12 +2857,12 @@ export const galleryItems: GalleryItem[] = [
   { id: 'g33', title: 'Workshop View 2', category: 'suspension', vehicle: 'Workshop', description: 'Service bay.', image: '/images/gallery/workshop_sign_02.webp', workDone: ['Facility'], date: '2024-05-01' },
   { id: 'g34', title: 'Desert Awning 3', category: 'recovery', vehicle: 'LC 70', description: 'Compact setup.', image: '/images/gallery/awning_desert_03.webp', workDone: ['Installation'], date: '2024-05-10' },
   { id: 'g35', title: 'Extended Shade 3', category: 'recovery', vehicle: 'Hilux', description: 'Maximum coverage.', image: '/images/gallery/awning_extended_03.webp', workDone: ['Installation'], date: '2024-05-10' },
-  { id: 'g36', title: 'Patrol Overlander', category: 'full-build', vehicle: 'Nissan Patrol', description: 'Bush ready.', image: '/images/gallery/awning_patrol.webp', workDone: ['Full Fitout'], date: '2024-05-10' },
+  { id: 'g36', title: 'Nissan Patrol Full Bush Fitout', category: 'full-build', vehicle: 'Nissan Patrol', description: 'Complete bush-ready fitout including awning and accessories.', image: '/images/gallery/awning_patrol.webp', workDone: ['Full Fitout'], date: '2024-05-10' },
   { id: 'g37', title: 'Rack System 4', category: 'canopy', vehicle: '70 Series', description: 'Heavy duty rack.', image: '/images/gallery/roofrack_70series_04.webp', workDone: ['Rack Fitment'], date: '2024-05-10' },
   { id: 'g38', title: 'Spare Wheel Mount', category: 'recovery', vehicle: '4x4', description: 'Rear protection.', image: '/images/gallery/rooftent_70series_sparewheel.webp', workDone: ['Mounting'], date: '2024-05-10' },
   { id: 'g39', title: 'Desert Camp 8', category: 'rooftop-tents', vehicle: 'Exploration Rig', description: 'Panoramic setup.', image: '/images/gallery/rooftent_desert_08.webp', workDone: ['RTT Fitment'], date: '2024-05-10' },
   { id: 'g40', title: 'Desert Camp 9', category: 'rooftop-tents', vehicle: 'Exploration Rig', description: 'Compact desert setup.', image: '/images/gallery/rooftent_desert_09.webp', workDone: ['RTT Fitment'], date: '2024-05-10' },
-  { id: 'g41', title: 'Safari Master 3', category: 'rooftop-tents', vehicle: 'Defender 110', description: 'Classic safari setup.', image: '/images/gallery/rooftent_safari_03.webp', workDone: ['Full Build'], date: '2024-05-10' },
+  { id: 'g41', title: 'Defender 110 Classic Safari Build', category: 'rooftop-tents', vehicle: 'Defender 110', description: 'Classic safari rooftop tent and accessory build.', image: '/images/gallery/rooftent_safari_03.webp', workDone: ['Full Build'], date: '2024-05-10' },
   { id: 'g42', title: 'Tent & Shade 4', category: 'rooftop-tents', vehicle: 'Prado', description: 'Family camping setup.', image: '/images/gallery/rooftent_with_awning_04.webp', workDone: ['Combined Fitment'], date: '2024-05-10' },
   { id: 'g43', title: 'Spare Detail 2', category: 'recovery', vehicle: '4x4', description: 'Component detail.', image: '/images/gallery/rooftent_with_sparewheel_02.webp', workDone: ['Installation'], date: '2024-05-10' },
   { id: 'g44', title: 'Entrance Signage', category: 'full-build', vehicle: 'Facility', description: 'Main entrance sign.', image: '/images/gallery/entrance_sign.webp', workDone: ['Branding'], date: '2024-05-10' },

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PageHero } from '@/components/ui/page-hero';
+import { BreadcrumbStructuredData } from '@/components/ui/structured-data';
 
 export const metadata: Metadata = {
   title: 'Legal',
@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   robots: {
     index: false,
     follow: false,
+  },
+  alternates: {
+    canonical: '/legal',
   },
 };
 
@@ -17,10 +20,15 @@ export default function LegalLayout({
 }) {
   return (
     <>
-      <PageHero
-        title="Legal Information"
-        subtitle="How we handle your information, the terms that apply to our services, and the cookies used by this website."
+      <BreadcrumbStructuredData
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Legal', url: '/legal' },
+        ]}
       />
+      {/* Slim accent strip - the actual page <h1> lives in each child page
+          so that we never render more than one h1 per route. */}
+      <div className="h-px bg-[#E67E22]" aria-hidden="true" />
       <div className="container mx-auto px-4 lg:px-8 py-12 md:py-16">
         <div className="max-w-3xl mx-auto">
           {children}

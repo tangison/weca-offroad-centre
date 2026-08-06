@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Sitemap',
   description: `Complete map of every page on the ${siteConfig.business.name} website.`,
   robots: { index: false, follow: false },
+  alternates: {
+    canonical: '/site-map',
+  },
 };
 
 type PageEntry = {
@@ -55,6 +58,18 @@ const pages: PageEntry[] = [
     title: 'Reviews',
     description: 'Live Google Reviews for Weca Offroad Centre, pulled directly from Google Maps.',
     category: 'Main',
+  },
+  {
+    href: '/faq',
+    title: 'FAQ',
+    description: 'Common questions about 4x4 fitment, warranties, payments, and bookings at Weca Offroad.',
+    category: 'Main',
+  },
+  {
+    href: '/thank-you',
+    title: 'Thank You',
+    description: 'Confirmation page shown after the contact form is submitted.',
+    category: 'System',
   },
   {
     href: '/contact',

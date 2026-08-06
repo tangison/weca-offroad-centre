@@ -76,8 +76,13 @@ describe("POST /api/contact", () => {
         message: "I would like to enquire about installing a Tentco rooftop tent on my Land Cruiser 79.",
         vehicle: "Land Cruiser 79",
         service: "Rooftop Tent Installation",
+        consent: true,
+        website: "",
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-forwarded-for": "198.51.100.10",
+      },
     });
     const res = await POST(req);
     expect(res.status).toBe(200);
@@ -95,13 +100,98 @@ describe("POST /api/contact", () => {
         name: "Test User",
         subject: "General enquiry",
         message: "I would like more information about your products and services please.",
+        consent: true,
+        website: "",
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-forwarded-for": "198.51.100.20",
+      },
     });
     const res = await POST(req);
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.ok).toBe(true);
     expect(body.whatsappUrl).toMatch(/^https:\/\/wa\.me\/\d+/);
+  });
+
+  it("rejects submission without consent", async () => {
+    const req = new Request("https://example.com/api/contact", {
+      method: "POST",
+      body: JSON.stringify({
+        name: "Test User",
+        subject: "General enquiry",
+        message: "I would like more information about your products and services please.",
+        consent: false,
+        website: "",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        "x-forwarded-for": "198.51.100.30",
+      },
+    });
+    const res = await POST(req);
+    expect(res.status).toBe(422);
+    const body = await res.json();
+    expect(body.ok).toBe(false);
+    expect(body.issues).toBeDefined();
+  });
+
+  it("rejects submission with honeypot filled (bot)", async () => {
+    const req = new Request("https://example.com/api/contact", {
+      method: "POST",
+      body: JSON.stringify({
+        name: "Spam Bot",
+        subject: "Buy my product",
+        message: "This is a spam message that is long enough to pass length validation.",
+        consent: true,
+        website: "http://spam.example.com", // honeypot filled
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        "x-forwarded-for": "198.51.100.40",
+      },
+    });
+    const res = await POST(req);
+    expect(res.status).toBe(422);
+    const body = await res.json();
+    expect(body.ok).toBe(false);
+  });
+
+  it("rate-limits after 5 requests per minute from same IP", async () => {
+    const validBody = JSON.stringify({
+      name: "Test User",
+      subject: "General enquiry",
+      message: "I would like more information about your products and services please.",
+      consent: true,
+      website: "",
+    });
+    // First 5 should succeed.
+    for (let i = 0; i < 5; i++) {
+      const req = new Request("https://example.com/api/contact", {
+        method: "POST",
+        body: validBody,
+        headers: {
+          "Content-Type": "application/json",
+          "x-forwarded-for": "203.0.113.99",
+        },
+      });
+      const res = await POST(req);
+      expect(res.status).toBe(200);
+    }
+    // 6th should be rate-limited.
+    const req = new Request("https://example.com/api/contact", {
+      method: "POST",
+      body: validBody,
+      headers: {
+        "Content-Type": "application/json",
+        "x-forwarded-for": "203.0.113.99",
+      },
+    });
+    const res = await POST(req);
+    expect(res.status).toBe(429);
+    const body = await res.json();
+    expect(body.ok).toBe(false);
+    expect(body.retryAfter).toBeGreaterThan(0);
   });
 });

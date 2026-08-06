@@ -240,11 +240,19 @@ export default function GalleryPage() {
         variant="dark"
       />
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal - accessibility: role=dialog, aria-label on close,
+          Escape key to close, click outside to close. */}
       {selectedItem && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedItem.title} - enlarged view`}
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#1A1512]/95 p-4"
           onClick={() => setSelectedItem(null)}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') setSelectedItem(null);
+          }}
+          tabIndex={-1}
         >
           <div
             className="relative max-w-4xl w-full bg-[#2D2420] border border-[#4A3D35] overflow-hidden"
@@ -252,9 +260,11 @@ export default function GalleryPage() {
           >
             <button
               onClick={() => setSelectedItem(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-[#1A1512] text-[#F5EDE6] hover:text-[#D97742] transition-colors"
+              aria-label="Close image gallery dialog"
+              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-[#1A1512] text-[#F5EDE6] hover:text-[#D97742] transition-colors focus:outline-none focus:ring-2 focus:ring-[#E67E22]"
+              autoFocus
             >
-              X
+              <span aria-hidden="true">X</span>
             </button>
             <div className="relative aspect-video">
               <Image

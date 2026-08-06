@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { BreadcrumbStructuredData } from '@/components/ui/structured-data';
 
 export const metadata: Metadata = {
   title: 'Customer Reviews | Weca Offroad Centre',
@@ -7,6 +8,9 @@ export const metadata: Metadata = {
     title: 'Customer Reviews | Weca Offroad Centre',
     description: 'Real reviews from satisfied customers. See why we are Namibia\'s #1 4x4 store.',
   },
+  alternates: {
+    canonical: '/testimonials',
+  },
 };
 
 export default function TestimonialsLayout({
@@ -14,5 +18,15 @@ export default function TestimonialsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <BreadcrumbStructuredData
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Reviews', url: '/testimonials' },
+        ]}
+      />
+      {children}
+    </>
+  );
 }

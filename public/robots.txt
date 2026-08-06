@@ -1,4 +1,4 @@
-# PRIVATE SITE — DO NOT CRAWL
+# PRIVATE SITE - DO NOT CRAWL
 # Per client instruction (2026-08-06): site is under construction and must
 # not be indexed by any search engine until the client approves it for
 # public release. This file is kept in sync with src/app/robots.ts.

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Terms of Service',
   description: `Terms of service for ${siteConfig.business.name}.`,
   robots: { index: false, follow: false },
+  alternates: {
+    canonical: '/legal/terms',
+  },
 };
 
 const lastUpdated = '6 August 2026';

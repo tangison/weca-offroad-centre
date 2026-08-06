@@ -26,7 +26,7 @@ import {
   Zap,
   Settings,
 } from 'lucide-react';
-import { services, businessInfo } from '@/lib/data';
+import { services, businessInfo, faqs } from '@/lib/data';
 
 const processSteps = [
   { step: 1, title: 'Consultation', description: 'Discuss your needs and vehicle requirements.', icon: Search },
@@ -42,15 +42,6 @@ const benefits = [
   { icon: Award, title: 'Expert Knowledge', description: 'Years of experience with Namibian conditions.' },
   { icon: Zap, title: 'Quality Tools', description: 'Professional-grade tools and equipment.' },
   { icon: Clock, title: 'On-Time Delivery', description: 'We respect your time and deliver as promised.' },
-];
-
-const faqs = [
-  { question: 'How long does a typical suspension installation take?', answer: 'A complete suspension system installation typically takes 4-6 hours. More complex setups may require a full day.' },
-  { question: 'Do you offer warranties on your installations?', answer: 'Yes! All our installations come with a workmanship warranty. Most products also carry manufacturer warranties.' },
-  { question: 'Can I bring my own parts for installation?', answer: 'We prefer to supply parts to ensure quality and warranty coverage. However, we can discuss customer-supplied parts on a case-by-case basis.' },
-  { question: 'Do I need to book an appointment?', answer: 'While we accept walk-ins for basic services, we recommend booking for installations.' },
-  { question: 'What payment methods do you accept?', answer: 'We accept cash, bank transfers, and major credit/debit cards.' },
-  { question: 'Do you work on all vehicle types?', answer: 'We specialize in 4x4 vehicles including Toyota, Ford, Nissan, Isuzu, Land Rover, and Land Cruiser.' },
 ];
 
 export default function ServicesPage() {

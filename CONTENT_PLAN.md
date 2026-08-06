@@ -13,7 +13,7 @@ catalog expansion documented in `BUILD_PLAN.md`.
   "Tentco Classic Rooftop Tent", "Warn Zeon 10-S 10000lb").
 - Prices are in N$ with thousand separators, no decimals (e.g. `N$ 28,500`).
 - Descriptions are one sentence stating what the product is and who makes it.
-- Features are 3–5 short factual bullets, no marketing fluff.
+- Features are 3 to 5 short factual bullets, no marketing fluff.
 - Brand names are real 4x4 accessory brands available in southern Africa.
 - No fake testimonials, no invented partner logos, no made-up credentials.
 

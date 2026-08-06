@@ -45,7 +45,7 @@ gradients, no glassmorphism, no purple/blue AI fingerprint.
 
 ### Layout
 
-- Container max-width ~1200–1440px.
+- Container max-width ~1200 to 1440px.
 - Asymmetric grids where possible; the shop is a 3-column card grid because
   product browsing needs consistency, not asymmetry.
 - Section padding is optically tuned, not symmetric (bottom padding slightly
