@@ -8,10 +8,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { HeroSlideshow } from '@/components/ui/hero-slideshow';
 import { ArrowRight, MapPin, Award, Wrench, Truck } from 'lucide-react';
 import { BrandLogoCarousel } from '@/components/ui/brand-logo-carousel';
-import { products, services, galleryItems, testimonials, businessInfo, heroSlides } from '@/lib/data';
+import { services, galleryItems, testimonials, businessInfo, heroSlides } from '@/lib/data';
 
 export default function HomePage() {
-  const featuredProducts = products.slice(0, 6);
   const featuredServices = services.slice(0, 4);
   const featuredGallery = galleryItems.slice(0, 6);
 
@@ -69,69 +68,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Products - Minimal */}
+      {/* Catalog coming soon — replaces the previous "Featured Products"
+          section which rendered fabricated products from the frozen
+          products array. Per client instruction (2026-08-06): fake
+          products must not appear anywhere on the live site, including
+          the homepage. This teaser matches the /shop empty state and
+          routes visitors to WhatsApp or /services instead of showing
+          product cards. */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <h2 className="font-heading text-3xl md:text-4xl text-[#F5F5F5] tracking-tight">
-                Featured Products
-              </h2>
-              <p className="text-[#888888] text-sm mt-2">Quality 4x4 accessories from trusted brands</p>
-            </div>
-            <Link
-              href="/shop"
-              className="hidden md:inline-flex items-center text-[#E67E22] hover:text-[#F5F5F5] text-sm font-accent uppercase tracking-wider transition-colors"
+        <div className="container mx-auto px-4 lg:px-8 max-w-3xl text-center">
+          <h2 className="font-heading text-3xl md:text-4xl text-[#F5F5F5] tracking-tight mb-3">
+            Catalog Coming Soon
+          </h2>
+          <p className="text-[#888888] text-sm md:text-base leading-relaxed mb-8 font-body">
+            We are loading our full product range now. In the meantime,
+            message us on WhatsApp with what you need and we will quote
+            you on the spot.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button
+              asChild
+              className="bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider"
             >
-              View All <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {featuredProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.03 }}
+              <a
+                href={`https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Link href={`/shop?product=${product.id}`}>
-                  <Card className="group bg-[#1A1A1A] border-[#2A2A2A] hover:border-[#E67E22] transition-colors overflow-hidden">
-                    <div className="relative aspect-square overflow-hidden">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {!product.inStock && (
-                        <div className="absolute inset-0 bg-[#0D0D0D]/80 flex items-center justify-center">
-                          <span className="text-[#888888] text-xs font-accent uppercase">Out of Stock</span>
-                        </div>
-                      )}
-                    </div>
-                    <CardContent className="p-3">
-                      <p className="text-[#E67E22] text-[10px] font-accent uppercase tracking-wider mb-1">
-                        {product.brand}
-                      </p>
-                      <h3 className="text-[#F5F5F5] text-sm font-medium line-clamp-2 group-hover:text-[#E67E22] transition-colors">
-                        {product.name}
-                      </h3>
-                      <p className="text-[#E67E22] font-accent font-semibold text-sm mt-2">
-                        {product.price}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8 md:hidden">
-            <Button asChild variant="outline" className="border-[#2A2A2A] text-[#F5F5F5] hover:border-[#E67E22] font-accent uppercase tracking-wider">
-              <Link href="/shop">
-                View All Products <ArrowRight className="ml-2 h-4 w-4" />
+                WhatsApp Us
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="border-[#2A2A2A] text-[#F5F5F5] hover:border-[#E67E22] font-accent uppercase tracking-wider"
+            >
+              <Link href="/services">
+                View Our Services <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           </div>

@@ -90,19 +90,33 @@ export const siteConfig = {
     reviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
   },
   
-  // Brands carried
+  // Brands carried — confirmed real list per client (Shalyn), 2026-08-06.
+  // Updated to remove Front Runner, ARB, BF Goodrich, Rhinoman, D.AG,
+  // Vision X (not carried) and add the 15 newly confirmed brands.
+  // Logo files live in /public/brands/ and the carousel renders them
+  // from src/lib/data.ts `brands` array. This config list is for SEO
+  // and reference only.
   brands: [
-    { name: 'Tentco', category: 'Rooftop Tents' },
-    { name: 'Front Runner', category: 'Roof Racks & Storage' },
-    { name: 'Tough Dog', category: 'Suspension Systems' },
     { name: 'Wildog', category: 'Bumpers & Protection' },
-    { name: 'Rhinoman', category: 'Canopies' },
-    { name: 'Ecoflow', category: 'Portable Power' },
-    { name: 'D.AG', category: 'Snorkels & Accessories' },
+    { name: 'GOBI X', category: 'Front Bumpers' },
+    { name: 'Ratel', category: 'Bos Bumpers' },
     { name: 'Dometic', category: 'Camping Equipment' },
-    { name: 'ARB', category: '4x4 Accessories' },
-    { name: 'BF Goodrich', category: 'All-Terrain Tyres' },
-    { name: 'Vision X', category: 'Lighting' },
+    { name: 'Tentco', category: 'Rooftop Tents' },
+    { name: 'Howling Moon', category: 'Rooftop Tents & Awnings' },
+    { name: 'Fox', category: 'Performance Suspension' },
+    { name: 'Tough Dog', category: 'Suspension Systems' },
+    { name: 'EFS', category: '4x4 Suspension' },
+    { name: 'EcoFlow', category: 'Portable Power' },
+    { name: 'Runva', category: 'Electric Winches' },
+    { name: 'WARN', category: 'Winches & Recovery' },
+    { name: 'Moremi', category: 'Custom Campers & Trailers' },
+    { name: 'AluBlack', category: 'Flatbed Trays & Canopies' },
+    { name: 'Fredlin Hoists', category: 'Rooftop Tent Hoists' },
+    { name: 'DeGraaf Exhausts', category: 'Performance Exhausts' },
+    { name: 'Tougher', category: 'Seat Covers' },
+    { name: 'Beesdam', category: 'Premium Seat Covers' },
+    { name: 'Escape Gear', category: 'Vehicle Seat Covers' },
+    { name: 'Rockford', category: 'Premium Audio' },
   ],
   
   // SEO defaults
@@ -117,9 +131,9 @@ export const siteConfig = {
       'suspension systems',
       'Swakopmund',
       'vehicle fitment',
-      'Tough Dog',
+      'Wildog',
       'Tentco',
-      'Front Runner',
+      'WARN',
       '4x4 parts Namibia',
       'offroad modifications',
       'vehicle accessories Swakopmund',

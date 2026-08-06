@@ -4,8 +4,8 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, X, ArrowRight, Package, Wrench, Image as ImageIcon } from 'lucide-react';
-import { products, services, galleryItems } from '@/lib/data';
+import { Search, X, ArrowRight, Wrench, Image as ImageIcon } from 'lucide-react';
+import { services, galleryItems } from '@/lib/data';
 import { siteConfig } from '@/lib/config';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -30,21 +30,13 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   // Build search index
+  // NOTE: Products are intentionally excluded from search per client
+  // instruction (2026-08-06). The fabricated catalog has been removed
+  // from the live site; the /shop page shows a "Catalog coming soon"
+  // empty state. When the real SKU-level catalog arrives, re-add the
+  // products block here (see git history for the original code).
   const searchIndex = useMemo<SearchResult[]>(() => {
     const results: SearchResult[] = [];
-
-    // Products
-    products.forEach((product) => {
-      results.push({
-        type: 'product',
-        id: product.id,
-        title: product.name,
-        description: `${product.brand} - ${product.price || 'Request Quote'}`,
-        image: product.image,
-        href: `/shop?product=${product.id}`,
-        badge: product.category.replace('-', ' '),
-      });
-    });
 
     // Services
     services.forEach((service) => {
@@ -163,14 +155,12 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
 
   const getIcon = (type: string) => {
     switch (type) {
-      case 'product':
-        return Package;
       case 'service':
         return Wrench;
       case 'gallery':
         return ImageIcon;
       default:
-        return Package;
+        return Wrench;
     }
   };
 
@@ -202,7 +192,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                 <Search className="w-5 h-5 text-[#888888] ml-4 flex-shrink-0" />
                 <Input
                   type="text"
-                  placeholder="Search products, services, gallery..."
+                  placeholder="Search services, gallery..."
                   value={query}
                   onChange={(e) => {
                     setQuery(e.target.value);
@@ -229,77 +219,28 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                       Start typing to search...
                     </p>
                     <p className="text-[#888888]/60 text-xs mt-1">
-                      Products, services, and gallery items
+                      Services and gallery items
                     </p>
                   </div>
                 ) : filteredResults.length === 0 ? (
                   <div className="py-12 text-center">
-                    <Package className="w-8 h-8 text-[#2A2A2A] mx-auto mb-3" />
+                    <Search className="w-8 h-8 text-[#2A2A2A] mx-auto mb-3" />
                     <p className="text-[#888888] text-sm">
                       No results for &quot;{query}&quot;
                     </p>
                     <p className="text-[#888888]/60 text-xs mt-1">
-                      Try different keywords or browse our shop
+                      Try different keywords or browse our services
                     </p>
                     <Link
-                      href="/shop"
+                      href="/services"
                       onClick={onClose}
                       className="inline-block mt-4 px-4 py-2 bg-[#E67E22] text-[#0D0D0D] text-sm font-accent font-semibold uppercase tracking-wider hover:bg-[#F39C12] transition-colors"
                     >
-                      Browse Shop
+                      Browse Services
                     </Link>
                   </div>
                 ) : (
                   <div className="py-2">
-                    {/* Products */}
-                    {groupedResults.product.length > 0 && (
-                      <div>
-                        <div className="flex items-center gap-2 px-4 py-2 text-[#888888] text-xs font-accent uppercase tracking-wider">
-                          <Package className="w-3 h-3" />
-                          Products ({groupedResults.product.length})
-                        </div>
-                        {groupedResults.product.map((result, idx) => {
-                          const globalIdx = filteredResults.indexOf(result);
-                          const Icon = getIcon(result.type);
-                          return (
-                            <Link
-                              key={`${result.type}-${result.id}`}
-                              href={result.href}
-                              onClick={onClose}
-                              className={`flex items-center gap-3 px-4 py-3 transition-colors ${
-                                globalIdx === selectedIndex
-                                  ? 'bg-[#2A2A2A]'
-                                  : 'hover:bg-[#2A2A2A]'
-                              }`}
-                            >
-                              <div className="relative w-10 h-10 flex-shrink-0 bg-[#2A2A2A] overflow-hidden">
-                                <Image
-                                  src={result.image}
-                                  alt={result.title}
-                                  fill
-                                  className="object-cover"
-                                />
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <p className="text-[#F5F5F5] text-sm font-medium truncate">
-                                  {result.title}
-                                </p>
-                                <p className="text-[#888888] text-xs truncate">
-                                  {result.description}
-                                </p>
-                              </div>
-                              {result.badge && (
-                                <span className="text-[#E67E22] text-[10px] font-accent uppercase tracking-wider">
-                                  {result.badge}
-                                </span>
-                              )}
-                              <ArrowRight className="w-4 h-4 text-[#888888] flex-shrink-0" />
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
-
                     {/* Services */}
                     {groupedResults.service.length > 0 && (
                       <div>
