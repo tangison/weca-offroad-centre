@@ -150,23 +150,51 @@ Do NOT attempt to build this against the placeholder catalog.
 Client asked whether their upcoming POS/stock system could sync with the
 website. Cannot be scoped until we know which system they are implementing.
 
+**Research update (2026-08-06):** The client's stock system has been
+identified as **Robotill** — a South African, primarily Windows-based /
+offline retail POS (one-time license model), not a cloud SaaS with a
+public API by default. There is a Namibian reseller / installer
+(namibia4u.com) that may be who's setting this up locally.
+
+**Implication:** A live real-time sync between Robotill and the website
+is unlikely to be a simple API integration. Realistic paths are:
+- **Periodic CSV export / import** — Robotill can export product + stock
+  CSVs; a Vercel Cron job fetches and ingests them on a schedule.
+- **Custom middleware reading Robotill's local database directly** —
+  Robotill stores data in a local DB (likely SQL Server Express or
+  SQLite depending on edition); a small sync service could read it and
+  push updates to the website via an API route.
+
+Both paths require knowing exactly which Robotill edition / tier the
+client ends up with (Express, Pro, Enterprise), as data access differs
+per edition.
+
 Tangi to ask the client:
-1. Which POS / stock system are they implementing? (name + version)
-2. Does it have a public API, or can it export a product feed (CSV/XML/JSON)?
-3. What is the update frequency (real-time webhook, hourly poll, manual
-   export)?
-4. Does it include vehicle-fitment data, or only SKU/price/stock?
+1. Confirm the system is Robotill, and which edition (Express / Pro / Enterprise).
+2. Is the Namibian reseller (namibia4u.com) installing/configuring it?
+3. Does this edition support CSV export of products + stock levels?
+4. Does this edition expose its local database for read access?
+5. What is the desired update frequency (real-time, hourly, daily)?
+6. Does the product data include vehicle-fitment fields, or only
+   SKU / price / stock?
 
-Once the system is known, the integration can be scoped. Common patterns:
-- Shopify / WooCommerce / Magento: native Next.js commerce integrations
-  exist; the current site would need to be migrated to the platform's
-  data layer.
-- Custom POS with CSV export: a scheduled job (Vercel Cron) fetches the
-  export and updates `src/lib/data.ts` (or migrates to a database).
-- Custom POS with API: a Next.js API route proxies the POS API and
-  caches responses; product pages render from the cache.
+**Action for this pass:** RESEARCH ONLY. Do NOT start building any
+integration, export script, or middleware yet. This is pending Tangi
+confirming the exact Robotill setup with the client first.
 
-Do NOT plan the integration until the system name is confirmed.
+Common patterns (for reference once the edition is confirmed):
+- Robotill CSV export + Vercel Cron: scheduled job fetches CSV from a
+  known URL (or accepts a manual upload), parses, and updates the
+  product catalog. Simplest path; no DB access needed.
+- Robotill DB read + middleware: a small Node/Python service runs on
+  the same network as the Robotill install, reads the DB, and exposes
+  a JSON API that the website polls. More complex; requires network
+  access from Vercel to the middleware host.
+- Manual sync: client exports CSV from Robotill, uploads via an admin
+  page on the website, which ingests and updates the catalog. Lowest
+  tech, highest manual effort.
+
+Do NOT plan the integration until the Robotill edition is confirmed.
 
 ## Verification gates passed
 
