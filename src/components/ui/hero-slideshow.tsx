@@ -147,7 +147,7 @@ export function HeroSlideshow({
             {primaryCta && (
               <Link
                 href={primaryCta.href}
-                className="inline-flex items-center justify-center bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors w-full sm:w-auto"
+                className="btn-pill inline-flex items-center justify-center bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors w-full sm:w-auto"
               >
                 {primaryCta.text}
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -156,7 +156,7 @@ export function HeroSlideshow({
             {secondaryCta && (
               <Link
                 href={secondaryCta.href}
-                className="inline-flex items-center justify-center border border-[#2A2A2A] hover:border-[#E67E22] text-[#F5F5F5] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors w-full sm:w-auto"
+                className="btn-pill inline-flex items-center justify-center border border-[#2A2A2A] hover:border-[#E67E22] text-[#F5F5F5] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors w-full sm:w-auto"
               >
                 {secondaryCta.text}
               </Link>

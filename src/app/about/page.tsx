@@ -20,6 +20,7 @@ import {
   Wrench,
 } from 'lucide-react';
 import { businessInfo } from '@/lib/data';
+import { FacebookPageEmbed } from '@/components/ui/facebook-page-embed';
 
 export const metadata: Metadata = {
   title: 'About Weca Offroad | Swakopmund 4x4 Experts',
@@ -205,6 +206,17 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Facebook Page Embed — real, live Facebook content */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <SectionHeading
+            title="See Us on Facebook"
+            subtitle="Live from our workshop — real posts, real photos, real updates"
+          />
+          <FacebookPageEmbed />
         </div>
       </section>
 

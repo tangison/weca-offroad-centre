@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/select';
 import { Star, ExternalLink } from 'lucide-react';
 import { testimonials, businessInfo } from '@/lib/data';
+import { GoogleReviewsEmbed } from '@/components/ui/google-reviews-embed';
 
 export default function TestimonialsPage() {
   const [filterService, setFilterService] = useState('all');
@@ -84,6 +85,23 @@ export default function TestimonialsPage() {
               <p className="text-sm text-[#8B7D6B]">Satisfaction Rate</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Real Google Reviews — live iframe */}
+      <section className="py-12 md:py-16 bg-[#1A1512] border-b border-[#4A3D35]">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="font-heading text-3xl md:text-4xl text-[#F5EDE6] mb-3">
+              Real Reviews from Google
+            </h2>
+            <p className="text-[#8B7D6B] text-sm max-w-2xl mx-auto">
+              These are live reviews written by real customers on our Google
+              Maps listing. We cannot edit or remove them. Click inside the
+              map to read them in full, or write your own.
+            </p>
+          </div>
+          <GoogleReviewsEmbed />
         </div>
       </section>
 
@@ -172,8 +190,20 @@ export default function TestimonialsPage() {
               </Card>
             </div>
 
-            {/* Testimonials Grid */}
+            {/* Testimonials Grid — curated placeholder reviews, to be replaced
+                by real Google reviews once the client provides them. The
+                Google reviews iframe above is the source of truth for live
+                customer reviews. */}
             <div className="lg:col-span-3">
+              <div className="mb-6">
+                <h3 className="font-heading text-2xl text-[#F5EDE6] mb-2">
+                  Featured Customer Stories
+                </h3>
+                <p className="text-[#8B7D6B] text-sm">
+                  A selection of customer experiences. For the full set of
+                  live reviews, see the Google map above.
+                </p>
+              </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {filteredTestimonials.map((testimonial, index) => (
                   <motion.div

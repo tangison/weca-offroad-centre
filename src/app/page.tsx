@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { HeroSlideshow } from '@/components/ui/hero-slideshow';
 import { ArrowRight, MapPin, Award, Wrench, Truck } from 'lucide-react';
 import { BrandLogoCarousel } from '@/components/ui/brand-logo-carousel';
+import { GoogleReviewsEmbed } from '@/components/ui/google-reviews-embed';
 import { services, galleryItems, testimonials, businessInfo, heroSlides } from '@/lib/data';
 
 export default function HomePage() {
@@ -274,6 +275,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Real Google Reviews — live iframe */}
+      <section className="py-16 md:py-20 bg-[#0D0D0D]">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="font-heading text-3xl md:text-4xl text-[#F5F5F5] tracking-tight mb-3">
+              What Our Customers Say
+            </h2>
+            <p className="text-muted-foreground text-sm max-w-2xl mx-auto">
+              Real reviews from real customers, pulled live from our Google
+              Maps listing. We cannot edit or remove them.
+            </p>
+          </div>
+          <GoogleReviewsEmbed />
+        </div>
+      </section>
+
       {/* CTA Section - Minimal */}
       <section className="py-16 md:py-20 bg-[#E67E22]">
         <div className="container mx-auto px-4 lg:px-8 text-center">
@@ -286,7 +303,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-[#0D0D0D] hover:bg-[#1A1A1A] text-[#F5F5F5] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors"
+              className="btn-pill inline-flex items-center justify-center bg-[#0D0D0D] hover:bg-[#1A1A1A] text-[#F5F5F5] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors"
             >
               Contact Us <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
@@ -294,7 +311,7 @@ export default function HomePage() {
               href={`https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center border border-[#0D0D0D] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 hover:bg-[#0D0D0D]/10 transition-colors"
+              className="btn-pill inline-flex items-center justify-center border border-[#0D0D0D] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 hover:bg-[#0D0D0D]/10 transition-colors"
             >
               WhatsApp Us
             </Link>
