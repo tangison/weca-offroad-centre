@@ -84,7 +84,7 @@
   --sidebar-border: #2A2A2A;
   --sidebar-ring: #E67E22;
 
-  /* Button border-radius token — EXPERIMENTAL pill shape.
+  /* Button border-radius token - EXPERIMENTAL pill shape.
      Applies to the shadcn <Button> component (via [data-slot="button"]) and
      to any hand-rolled CTA that opts in with the .btn-pill class. All
      buttons reference this single token, so the pill shape can be reverted
@@ -128,7 +128,7 @@
   --sidebar-border: #2A2A2A;
   --sidebar-ring: #E67E22;
 
-  /* Button border-radius token — EXPERIMENTAL pill shape (dark theme mirror). */
+  /* Button border-radius token - EXPERIMENTAL pill shape (dark theme mirror). */
   --radius-button: 9999px;
 }
 
@@ -152,16 +152,16 @@
 }
 
 /* -----------------------------------------------------------------------
- * Pill-shaped buttons — EXPERIMENTAL (easy to revert)
+ * Pill-shaped buttons - EXPERIMENTAL (easy to revert)
  *
  * This override is the SINGLE place that applies the pill shape. It targets:
- *   1. [data-slot="button"] — the shadcn <Button> component (button.tsx)
- *   2. .btn-pill            — hand-rolled CTAs (<Link>/<button> that don't
+ *   1. [data-slot="button"] - the shadcn <Button> component (button.tsx)
+ *   2. .btn-pill            - hand-rolled CTAs (<Link>/<button> that don't
  *                             use <Button> but should match the button shape)
  *
  * Both selectors reference the --radius-button token, so the pill shape can
  * be reverted sitewide in ONE of three ways:
- *   - Set --radius-button: 0 in :root and .dark (token revert — instant)
+ *   - Set --radius-button: 0 in :root and .dark (token revert - instant)
  *   - Remove this entire override block (buttons revert to square via the
  *     global * rule above)
  *   - Remove the .btn-pill class from individual CTAs (per-element revert)

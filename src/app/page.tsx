@@ -57,7 +57,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Brands — logo carousel. Dark section, no card behind logos.
+      {/* Brands - logo carousel. Dark section, no card behind logos.
           Logos are rendered in monochrome white via CSS filter and reveal
           their true colors on hover. */}
       <section className="py-14 md:py-16 bg-[#0D0D0D]">
@@ -69,7 +69,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Catalog coming soon — replaces the previous "Featured Products"
+      {/* Catalog coming soon - replaces the previous "Featured Products"
           section which rendered fabricated products from the frozen
           products array. Per client instruction (2026-08-06): fake
           products must not appear anywhere on the live site, including
@@ -275,7 +275,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Real Google Reviews — live iframe */}
+      {/* Real Google Reviews - live iframe */}
       <section className="py-16 md:py-20 bg-[#0D0D0D]">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-10">

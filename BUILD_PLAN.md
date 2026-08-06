@@ -1,4 +1,4 @@
-# BUILD_PLAN — Weca Offroad Centre
+# BUILD_PLAN - Weca Offroad Centre
 
 ## Active mode
 
@@ -8,7 +8,7 @@ Namibian business.
 ## Art-direction owner
 
 Hallmark is the structural anti-slop gate (final audit). Impeccable handles
-polish and responsive hardening. Taste is not applied — this is a shop, not a
+polish and responsive hardening. Taste is not applied - this is a shop, not a
 landing page or redesign surface.
 
 ## Documented assumptions
@@ -18,12 +18,12 @@ but did not provide a product list. The catalog was built from:
 
 1. The existing ~57 products already in `src/lib/data.ts` (carried over and
    expanded, not replaced blindly).
-2. The business profile in `BUSINESS_INFO.md` — a Swakopmund 4x4 fitment
+2. The business profile in `BUSINESS_INFO.md` - a Swakopmund 4x4 fitment
    workshop carrying Tentco, Front Runner, Tough Dog, ARB, Wildog, D.AG,
    Dometic, BF Goodrich and similar southern-African overlanding brands.
 3. Realistic N$ pricing calibrated against publicly listed southern-African
    4x4 accessory retail prices.
-4. Image assets already in `/public/images/` — 112 WebP images of rooftop
+4. Image assets already in `/public/images/` - 112 WebP images of rooftop
    tents, awnings, roof racks, workshop and signage. Products map to the
    closest existing image in their category. No new images were generated.
 
@@ -44,7 +44,7 @@ re-running `python3 scripts/generate_catalog.py` (after editing the script's
 - **URL state for category** uses Next.js `useSearchParams` with `router.replace`
   rather than a state library. The URL is the single source of truth.
 - **Search** is client-side substring matching across name, brand, and
-  description. No server, no index, no debounce — 236 products filters in
+  description. No server, no index, no debounce - 236 products filters in
   under a frame.
 - **Product images** reuse existing gallery WebP assets cycled per category,
   rather than generating 236 product photos. This is documented in PRODUCT.md.
@@ -60,14 +60,14 @@ re-running `python3 scripts/generate_catalog.py` (after editing the script's
 
 ## Bounded outcomes remaining
 
-- Purchase `wecaoffroad.com` — requires client action (payment).
-- Attach custom domain to Vercel project — after purchase.
-- Configure DNS — after purchase.
-- Provide real SKU-level product list — optional, client decision.
+- Purchase `wecaoffroad.com` - requires client action (payment).
+- Attach custom domain to Vercel project - after purchase.
+- Configure DNS - after purchase.
+- Provide real SKU-level product list - optional, client decision.
 
 ## Client correction pass (2026-08-06)
 
-### Site privacy (DONE — commit `e3e72c1`)
+### Site privacy (DONE - commit `e3e72c1`)
 
 Client (Shalyn) said the site must not be publicly discoverable while she
 reviews it. Implemented as:
@@ -75,12 +75,12 @@ reviews it. Implemented as:
 - `public/robots.txt`: synced to `Disallow: /` (static fallback).
 - `src/app/layout.tsx`: `metadata.robots` set to `index: false, follow: false`.
 - No sitemap submitted to Google Search Console or Bing Webmaster Tools
-  (neither was submitted previously — noted in PROOF.md).
-- Site stays directly accessible (no SSO re-added) — only search engines
+  (neither was submitted previously - noted in PROOF.md).
+- Site stays directly accessible (no SSO re-added) - only search engines
   are blocked. Re-enable by flipping the three flags back to `true` and
   re-adding the sitemap reference in `robots.ts`.
 
-### Construction disclaimer (DONE — commit `e3e72c1`)
+### Construction disclaimer (DONE - commit `e3e72c1`)
 
 Client requested a disclaimer that the site is under construction and
 being built by Tangison Studio. Added as a small understated line in the
@@ -89,7 +89,7 @@ footer, above the copyright/credit bar:
 pricing are not final." The Tangison Studio text links to
 https://studio.tangison.com.
 
-### Fake shop catalog removed (DONE — commit `e3e72c1`)
+### Fake shop catalog removed (DONE - commit `e3e72c1`)
 
 Client flagged that the 236 fabricated products in `/shop` did not match
 their descriptions/pictures and were confusing her during review. The
@@ -99,14 +99,14 @@ fabricated catalog has been removed from the live `/shop` page:
   the shop hero + price-match banner + WhatsApp CTA + cross-link to
   /services.
 - `src/app/shop/layout.tsx`: metadata description updated (was "200+
-  accessories" + named Front Runner/ARB/Warn — all removed).
+  accessories" + named Front Runner/ARB/Warn - all removed).
 - The fabricated 236-product array in `src/lib/data.ts` is FROZEN in
   place (not deleted) so it can serve as a structural reference when the
   real SKU-level catalog arrives. It is no longer imported by the shop
   page. The data.test.ts "200+ products" assertion still passes against
   the frozen array.
 
-### Brand list replaced (DONE — commit pending push)
+### Brand list replaced (DONE - commit pending push)
 
 The brand carousel was built from web research before the client's actual
 brand list was available. The client has now given the real list directly.
@@ -119,17 +119,17 @@ brand list was available. The client has now given the real list directly.
   is behind Cloudflare bot protection).
 - Logos are now display-only (non-clickable). Removed `target="_blank"`
   outbound links per client instruction.
-- Pending: DAG (no independent official site found — distributed by 4x4
+- Pending: DAG (no independent official site found - distributed by 4x4
   Wholesalers Africa; client to provide logo directly).
 - Do NOT add: 'Gerbers' (name unconfirmed), tyre brands (client has not
   named which).
 
-### Vehicle-based browsing (LOGGED — not built, awaiting real catalog)
+### Vehicle-based browsing (LOGGED - not built, awaiting real catalog)
 
 Client requested vehicle-specific sections (e.g. a Hilux page showing
 everything for that vehicle) alongside the existing category departments
 (camping, rooftop, suspension, etc.). This is a real, good IA request
-but cannot be built against the placeholder catalog — it requires
+but cannot be built against the placeholder catalog - it requires
 vehicle-fitment data on each product, which the real SKU-level catalog
 from the client's POS / online supplier data feed will provide.
 
@@ -145,22 +145,22 @@ When the real catalog arrives with vehicle-fitment fields:
 
 Do NOT attempt to build this against the placeholder catalog.
 
-### Stock system integration (LOGGED — open question for Tangi)
+### Stock system integration (LOGGED - open question for Tangi)
 
 Client asked whether their upcoming POS/stock system could sync with the
 website. Cannot be scoped until we know which system they are implementing.
 
 **Research update (2026-08-06):** The client's stock system has been
-identified as **Robotill** — a South African, primarily Windows-based /
+identified as **Robotill** - a South African, primarily Windows-based /
 offline retail POS (one-time license model), not a cloud SaaS with a
 public API by default. There is a Namibian reseller / installer
 (namibia4u.com) that may be who's setting this up locally.
 
 **Implication:** A live real-time sync between Robotill and the website
 is unlikely to be a simple API integration. Realistic paths are:
-- **Periodic CSV export / import** — Robotill can export product + stock
+- **Periodic CSV export / import** - Robotill can export product + stock
   CSVs; a Vercel Cron job fetches and ingests them on a schedule.
-- **Custom middleware reading Robotill's local database directly** —
+- **Custom middleware reading Robotill's local database directly** -
   Robotill stores data in a local DB (likely SQL Server Express or
   SQLite depending on edition); a small sync service could read it and
   push updates to the website via an API route.
@@ -198,33 +198,33 @@ Do NOT plan the integration until the Robotill edition is confirmed.
 
 ## Verification gates passed
 
-- `bunx tsc --noEmit` — 0 errors
-- `bun run lint` — 0 errors, 0 warnings
-- `bun run test` — 39/39 passing
-- `bun run build` — 13/13 routes built
+- `bunx tsc --noEmit` - 0 errors
+- `bun run lint` - 0 errors, 0 warnings
+- `bun run test` - 39/39 passing
+- `bun run build` - 13/13 routes built
 - Unauthenticated HTTP 200 on production Vercel URL
 
-## Real reviews + Facebook embeds (DONE — commit `82d81e3`)
+## Real reviews + Facebook embeds (DONE - commit `82d81e3`)
 
 Client requested real reviews from Google and real staff content from
 Facebook, displayed on the site via iframes. Two new components added:
 
-- `src/components/ui/google-reviews-embed.tsx` — Google Maps Embed
+- `src/components/ui/google-reviews-embed.tsx` - Google Maps Embed
   iframe using the verified place_id (`ChIJoa5Ba9xYdhwRzBnhVLf64Pc`).
   Shows the live Google Maps place card with reviews tab accessible.
   No API key needed (uses Google's free `output=embed` form).
-- `src/components/ui/facebook-page-embed.tsx` — Facebook Page Plugin
+- `src/components/ui/facebook-page-embed.tsx` - Facebook Page Plugin
   iframe using the verified Facebook page URL. Shows live page feed
   with posts, photos, cover, like button. No Facebook App needed.
 
 Pages updated:
-- `/testimonials` — Google reviews iframe in a new "Real Reviews from
+- `/testimonials` - Google reviews iframe in a new "Real Reviews from
   Google" section above the existing testimonials grid. The existing
   (curated) testimonials grid is relabeled "Featured Customer Stories"
   with a note pointing to the Google iframe as the source of truth.
-- `/about` — Facebook page iframe in a new "See Us on Facebook" section
+- `/about` - Facebook page iframe in a new "See Us on Facebook" section
   between the Owner section and the Values section.
-- `/` (home) — Google reviews iframe in a new "What Our Customers Say"
+- `/` (home) - Google reviews iframe in a new "What Our Customers Say"
   section just before the orange CTA.
 
 ### Real staff from Facebook (OPEN ITEM)
@@ -252,7 +252,7 @@ members and photos, the paths are:
 
 Tangi to ask the client which path they prefer.
 
-### Google Places API native rendering (OPEN ITEM — optional)
+### Google Places API native rendering (OPEN ITEM - optional)
 
 The current implementation uses the Google Maps Embed iframe, which
 shows the place card with reviews accessible by clicking "Reviews"
@@ -261,7 +261,7 @@ on the site (styled to match the site's design, no Google chrome),
 the path is:
 
 1. Provision a Google Places API key (requires a Google Cloud project
-   with billing enabled — the API has a $200/month free tier that
+   with billing enabled - the API has a $200/month free tier that
    covers ~5000 reviews fetches).
 2. Add the API key to `.env` as `GOOGLE_PLACES_API_KEY`.
 3. Create an API route `/api/google-reviews` that fetches reviews
@@ -273,7 +273,7 @@ the path is:
 This is not started. Tangison to confirm with the client whether the
 iframe approach is sufficient or whether native rendering is desired.
 
-### Curated testimonials array (OPEN ITEM — minor)
+### Curated testimonials array (OPEN ITEM - minor)
 
 The `testimonials` array in `src/lib/data.ts` contains 3 fabricated
 reviews (Johan van der Merwe, Anna-Marie Strauss, Michael Properties).

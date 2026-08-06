@@ -78,7 +78,7 @@ export const siteConfig = {
     whatsapp: 'https://wa.me/264811691942',
   },
   
-  // Maps — real Google Place ID for Weca Offroad Centre, Swakopmund
+  // Maps - real Google Place ID for Weca Offroad Centre, Swakopmund
   // place_id verified via Google Maps: ChIJoa5Ba9xYdhwRzBnhVLf64Pc
   // embedUrl uses Google's documented output=embed format, which redirects to
   // the real /maps/embed endpoint with a server-generated pb. No hand-written pb.
@@ -90,7 +90,7 @@ export const siteConfig = {
     reviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
   },
   
-  // Brands carried — confirmed real list per client (Shalyn), 2026-08-06.
+  // Brands carried - confirmed real list per client (Shalyn), 2026-08-06.
   // Updated to remove Front Runner, ARB, BF Goodrich, Rhinoman, D.AG,
   // Vision X (not carried) and add the 15 newly confirmed brands.
   // Logo files live in /public/brands/ and the carousel renders them
@@ -190,7 +190,7 @@ export const siteConfig = {
     // Site-wide "under construction" banner. When true, a slim non-dismissible
     // strip renders at the top of the header on every page (see navbar.tsx)
     // alongside the footer disclaimer. Flip to false and rebuild to remove
-    // the header banner cleanly — no markup to delete across files.
+    // the header banner cleanly - no markup to delete across files.
     underConstruction: true,
   },
 } as const;

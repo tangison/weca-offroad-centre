@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { businessInfo } from '@/lib/data';
 
 /**
- * Footer — hyper-minimal, Collins-style.
+ * Footer - hyper-minimal, Collins-style.
  *
  * Design brief:
  *   - The Weca logo is the dominant visual element, not a small corner mark.
@@ -13,8 +13,11 @@ import { businessInfo } from '@/lib/data';
  *   - Essential contact info is preserved but visually understated so it
  *     does not compete with the big logo.
  *   - Top nav already covers Home, About, Shop, Gallery, Services, Reviews,
- *     Contact — so the footer does NOT repeat those links (cuts visual noise,
+ *     Contact - so the footer does NOT repeat those links (cuts visual noise,
  *     not functional info).
+ *   - Legal links (Privacy, Terms, Cookies) and the Sitemap link live in the
+ *     footer bottom bar so they are reachable from every page without
+ *     cluttering the main footer body.
  *   - Tangison Studio credit stays small and understated at the very bottom.
  *
  * The footer reads as: big logo, then almost nothing else.
@@ -31,21 +34,21 @@ export function Footer() {
 
   return (
     <footer className="bg-[#0D0D0D] mt-auto">
-      {/* Main footer body — logo dominant, contact info understated */}
+      {/* Main footer body - logo dominant, contact info understated */}
       <div className="container mx-auto px-6 lg:px-8 pt-16 pb-10 md:pt-24 md:pb-14">
-        {/* Big logo — dominant visual element of the footer.
+        {/* Big logo - dominant visual element of the footer.
             Container uses the logo's actual aspect ratio (1.10:1, derived
             from the source file 523x477) so object-contain fills edge-to-edge.
             Mobile: full width of the container (reads as "big logo, then
             almost nothing else").
-            Desktop: capped at 280px wide — significantly larger than a
+            Desktop: capped at 280px wide - significantly larger than a
             typical footer corner mark, but not so large it dominates the
             whole viewport. */}
         <div className="flex flex-col items-start">
           <Link
             href="/"
             className="block"
-            aria-label="Weca Offroad Centre — home"
+            aria-label="Weca Offroad Centre - home"
           >
             {/* Explicit width/height (not `fill`) so the image scales
                 deterministically to the rendered width. The previous
@@ -66,13 +69,13 @@ export function Footer() {
           </Link>
         </div>
 
-        {/* Essential contact info — preserved (per standing rule: don't delete
+        {/* Essential contact info - preserved (per standing rule: don't delete
             functional info), but condensed to the minimum vertical footprint
             that still keeps every channel reachable. On mobile this is 2 lines
             (contact channels, then address+hours); on desktop it collapses to
-            a single row. Text is xs (11–12px) using the muted-foreground token (#A0A0A0, ~7.4:1 contrast) so
+            a single row. Text is xs (11-12px) using the muted-foreground token (#A0A0A0, ~7.4:1 contrast) so
             it recedes visually while remaining legible and clickable.
-            No border-t above — the whitespace alone separates it from the
+            No border-t above - the whitespace alone separates it from the
             logo, keeping the hyper-minimal feel. */}
         <div className="mt-10">
           <div className="flex flex-col gap-1.5 md:flex-row md:items-center md:gap-5 md:flex-wrap">
@@ -108,14 +111,14 @@ export function Footer() {
                 {businessInfo.addressStreet}, {businessInfo.city}
               </a>
               <span className="text-muted-foreground text-[11px] font-body">
-                Mon–Fri {businessInfo.hours.weekdays} · Sat {businessInfo.hours.saturday}
+                Mon-Fri {businessInfo.hours.weekdays} · Sat {businessInfo.hours.saturday}
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Construction disclaimer — small, understated, sits above the
+      {/* Construction disclaimer - small, understated, sits above the
           copyright/credit bar. Per client instruction (2026-08-06): the
           site is under construction and must communicate that clearly to
           anyone who lands on it (client, Tangison Studio, or anyone who
@@ -138,14 +141,47 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar — copyright + Tangison credit.
-          Small, understated, does not compete with the big logo. */}
+      {/* Bottom bar - copyright + legal links + Tangison credit.
+          Small, understated, does not compete with the big logo.
+          Legal links grouped on a single row so they are reachable from
+          every page without competing with the contact info above. */}
       <div className="border-t border-[#1F1F1F]">
         <div className="container mx-auto px-6 lg:px-8 py-5">
-          <div className="flex flex-col gap-2 md:flex-row md:justify-between md:items-center">
-            <p className="text-muted-foreground text-[11px] font-body">
-              © {currentYear} {businessInfo.name}. All rights reserved.
-            </p>
+          <div className="flex flex-col gap-3 md:flex-row md:justify-between md:items-center">
+            <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+              <p className="text-muted-foreground text-[11px] font-body">
+                © {currentYear} {businessInfo.name}. All rights reserved.
+              </p>
+              <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <Link
+                  href="/legal/privacy"
+                  className="text-muted-foreground hover:text-[#E67E22] transition-colors text-[11px] font-body"
+                >
+                  Privacy
+                </Link>
+                <span aria-hidden="true" className="text-muted-foreground/50 text-[11px]">·</span>
+                <Link
+                  href="/legal/terms"
+                  className="text-muted-foreground hover:text-[#E67E22] transition-colors text-[11px] font-body"
+                >
+                  Terms
+                </Link>
+                <span aria-hidden="true" className="text-muted-foreground/50 text-[11px]">·</span>
+                <Link
+                  href="/legal/cookies"
+                  className="text-muted-foreground hover:text-[#E67E22] transition-colors text-[11px] font-body"
+                >
+                  Cookies
+                </Link>
+                <span aria-hidden="true" className="text-muted-foreground/50 text-[11px]">·</span>
+                <Link
+                  href="/site-map"
+                  className="text-muted-foreground hover:text-[#E67E22] transition-colors text-[11px] font-body"
+                >
+                  Sitemap
+                </Link>
+              </nav>
+            </div>
             <a
               href="https://studio.tangison.com"
               target="_blank"

@@ -209,12 +209,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Facebook Page Embed — real, live Facebook content */}
+      {/* Facebook Page Embed - real, live Facebook content */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <SectionHeading
             title="See Us on Facebook"
-            subtitle="Live from our workshop — real posts, real photos, real updates"
+            subtitle="Live from our workshop - real posts, real photos, real updates"
           />
           <FacebookPageEmbed />
         </div>

@@ -1,4 +1,4 @@
-# CONTENT_PLAN — Weca Offroad Centre
+# CONTENT_PLAN - Weca Offroad Centre
 
 ## Source of truth
 
@@ -37,5 +37,5 @@ the footer of every public page.
 ## Language
 
 English (Namibian business English). No Afrikaans or German copy in this build,
-though the business serves German-speaking customers in Swakopmund — a future
+though the business serves German-speaking customers in Swakopmund - a future
 localisation pass could add DE/AF if requested.

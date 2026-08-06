@@ -1,4 +1,4 @@
-# BRAND — Weca Offroad Centre
+# BRAND - Weca Offroad Centre
 
 ## Brand in one sentence
 
@@ -27,7 +27,7 @@ Banned phrases: "elevate", "seamless", "next-gen", "unleash", "delve",
 | Border subtle | `#2A2A2A` | Dividers, card borders |
 | Text primary | `#F5F5F5` | Headings, body text |
 | Text muted | `#888888` | Captions, secondary text |
-| Accent — Weca Orange | `#E67E22` | CTAs, highlights, active states |
+| Accent - Weca Orange | `#E67E22` | CTAs, highlights, active states |
 | Accent hover | `#F39C12` | Hover state for orange CTAs |
 | Success / in stock | `#22C55E` | Stock badges, success states |
 
@@ -77,7 +77,7 @@ Motion is restrained and purposeful. No decorative animation.
 - **Reduced motion**: all transitions respect `prefers-reduced-motion`.
 
 Motion engine: Framer Motion is the only runtime motion library. No GSAP,
-no Anime.js in this build — the site is content-led and does not need
+no Anime.js in this build - the site is content-led and does not need
 scroll-driven storytelling.
 
 ## Credit

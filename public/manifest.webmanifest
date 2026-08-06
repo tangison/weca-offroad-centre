@@ -1,0 +1,45 @@
+{
+  "name": "Weca Offroad Centre",
+  "short_name": "Weca Offroad",
+  "description": "Namibia's premier 4x4 accessories store. Quality products, professional fitment, and expert advice for offroad enthusiasts.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#0D0D0D",
+  "orientation": "portrait-primary",
+  "categories": ["business", "shopping", "auto"],
+  "icons": [
+    {
+      "src": "/images/logo.webp",
+      "sizes": "any",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contact Weca",
+      "short_name": "Contact",
+      "description": "Send a WhatsApp, email, or call the workshop.",
+      "url": "/contact"
+    },
+    {
+      "name": "Browse the Shop",
+      "short_name": "Shop",
+      "description": "Quote on 4x4 accessories on WhatsApp.",
+      "url": "/shop"
+    },
+    {
+      "name": "Read Google Reviews",
+      "short_name": "Reviews",
+      "description": "Real Google reviews for Weca Offroad Centre.",
+      "url": "/testimonials"
+    }
+  ]
+}

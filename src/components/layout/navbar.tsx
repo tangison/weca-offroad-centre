@@ -154,17 +154,17 @@ export function Navbar() {
 
   return (
     <>
-      {/* Header — fixed. Contains the optional construction banner (slim
+      {/* Header - fixed. Contains the optional construction banner (slim
           strip at the very top) and the nav row below it. The two are
           wrapped in a single fixed container so they move as one unit
           and share z-50 stacking. */}
       <header className="fixed top-0 left-0 right-0 z-50">
-        {/* Construction banner — conditional on siteConfig.features.underConstruction.
+        {/* Construction banner - conditional on siteConfig.features.underConstruction.
             Rendered above the nav row so it is the first thing visible.
             Not dismissible; stays for the whole visit while the flag is on. */}
         <ConstructionBanner />
 
-        {/* Nav row — carries the scroll-state bg/padding (was previously on
+        {/* Nav row - carries the scroll-state bg/padding (was previously on
             the <header> itself; moved here when the banner was added so the
             banner can have its own bg independent of scroll state). */}
         <div

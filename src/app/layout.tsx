@@ -56,6 +56,7 @@ export const metadata: Metadata = {
       { url: "/images/logo.webp" },
     ],
   },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: siteConfig.seo.defaultTitle,
     description: siteConfig.seo.defaultDescription,
@@ -78,7 +79,7 @@ export const metadata: Metadata = {
     description: siteConfig.seo.defaultDescription,
     images: [`${siteConfig.domain}/images/logo.png`],
   },
-  // PRIVATE SITE — noindex, nofollow while client reviews.
+  // PRIVATE SITE - noindex, nofollow while client reviews.
   // Per client instruction (2026-08-06): site must not be crawled or
   // indexed. Site stays accessible to client + Tangison Studio (no SSO),
   // but search engines are blocked. Rendered as:

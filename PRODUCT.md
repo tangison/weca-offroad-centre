@@ -1,4 +1,4 @@
-# PRODUCT — Weca Offroad Centre
+# PRODUCT - Weca Offroad Centre
 
 ## What the business is
 
@@ -23,14 +23,14 @@ products, request a quote, and book fitment. Pricing is in Namibian dollars
 
 ## What the website does
 
-1. **Shop** — 236 products across 14 categories, with search, category filter,
+1. **Shop** - 236 products across 14 categories, with search, category filter,
    sort, and a quote-by-WhatsApp enquiry flow. No online checkout: the business
    model is quote-then-fit, so the conversion action is "request quote".
-2. **Services** — fitment services with starting prices and durations.
-3. **Gallery** — finished builds showing workshop capability.
-4. **Testimonials** — verified customer reviews.
-5. **About** — owner story, location, hours, business credentials.
-6. **Contact** — address, phones, WhatsApp, email, embedded map, contact form.
+2. **Services** - fitment services with starting prices and durations.
+3. **Gallery** - finished builds showing workshop capability.
+4. **Testimonials** - verified customer reviews.
+5. **About** - owner story, location, hours, business credentials.
+6. **Contact** - address, phones, WhatsApp, email, embedded map, contact form.
 
 ## What the website does NOT do
 

@@ -88,7 +88,7 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Real Google Reviews — live iframe */}
+      {/* Real Google Reviews - live iframe */}
       <section className="py-12 md:py-16 bg-[#1A1512] border-b border-[#4A3D35]">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-8">
@@ -190,7 +190,7 @@ export default function TestimonialsPage() {
               </Card>
             </div>
 
-            {/* Testimonials Grid — curated placeholder reviews, to be replaced
+            {/* Testimonials Grid - curated placeholder reviews, to be replaced
                 by real Google reviews once the client provides them. The
                 Google reviews iframe above is the source of truth for live
                 customer reviews. */}

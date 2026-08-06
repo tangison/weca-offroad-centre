@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 
 /**
- * ScrollToTop — floating bottom-right button that appears after the user
+ * ScrollToTop - floating bottom-right button that appears after the user
  * scrolls past one viewport height and smooth-scrolls to top on click.
  *
  * Placement: bottom-right corner. The site has no other floating bottom
  * elements (WhatsApp CTAs are inline, not floating), so there is no
  * collision risk. Positioned at `bottom-6 right-6` (24px inset) on mobile
- * and `bottom-8 right-8` (32px) on desktop — matches the container padding
+ * and `bottom-8 right-8` (32px) on desktop - matches the container padding
  * rhythm so it reads as part of the layout, not stuck to the glass edge.
  *
  * Motion (tangison-motion-master):
@@ -23,7 +23,7 @@ import { ArrowUp } from 'lucide-react';
  *     Faster than appear (150 vs 200ms) so exiting feels snappy and
  *     doesn't linger after the user has already scrolled back up.
  *   - Hover: scale 1→1.08, 150ms. Tactile feedback that the button is
- *     interactive. No color shift — the orange bg already reads as
+ *     interactive. No color shift - the orange bg already reads as
  *     "primary action".
  *   - Tap: scale 1→0.95, 100ms. Physical press feedback.
  *   - AnimatePresence with mode="wait" is NOT used (would delay enter
@@ -47,11 +47,11 @@ import { ArrowUp } from 'lucide-react';
  *     elements (focus-visible:ring-ring/50).
  *   - The button is keyboard-focusable and activatable (Enter/Space) by
  *     default for <button> elements.
- *   - Does NOT trap focus or interfere with tab order — it's a progressive
+ *   - Does NOT trap focus or interfere with tab order - it's a progressive
  *     enhancement; the page is fully usable without it.
  *
  * Reduced motion: respects `prefers-reduced-motion` via Framer Motion's
- * built-in `useReducedMotion` — when reduced motion is preferred, the
+ * built-in `useReducedMotion` - when reduced motion is preferred, the
  * appear/disappear transitions are effectively instant (Framer Motion
  * handles this automatically when `MotionConfig` is set; here we rely on
  * the browser's smooth-scroll respecting the same preference, and the
@@ -109,7 +109,7 @@ export function ScrollToTop() {
           whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
           // z-40: below the header (z-50) and below the mobile menu (z-50),
           // above page content. The header is fixed at top, the scroll-to-top
-          // is fixed at bottom — they never overlap visually, but z-40 keeps
+          // is fixed at bottom - they never overlap visually, but z-40 keeps
           // the stacking order logical (header > scroll-to-top > content).
           className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 inline-flex items-center justify-center h-11 w-11 md:h-12 md:w-12 bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] shadow-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
         >

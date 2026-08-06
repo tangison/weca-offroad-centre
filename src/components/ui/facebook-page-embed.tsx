@@ -2,7 +2,7 @@ import { siteConfig } from '@/lib/config';
 import { Facebook, ExternalLink } from 'lucide-react';
 
 /**
- * FacebookPageEmbed — live iframe showing the business's real Facebook page
+ * FacebookPageEmbed - live iframe showing the business's real Facebook page
  * feed, photos, and cover using Facebook's official Page Plugin.
  *
  * Source: Facebook Page Plugin
@@ -12,7 +12,7 @@ import { Facebook, ExternalLink } from 'lucide-react';
  * scrolling feed of the page's recent posts.
  *
  * The page URL is sourced from `siteConfig.social.facebook` (verified real
- * Facebook page for Weca Offroad Centre — see config.ts).
+ * Facebook page for Weca Offroad Centre - see config.ts).
  *
  * Why iframe (not Graph API):
  *   - Facebook Graph API access to a page's posts and photos requires a
@@ -50,10 +50,10 @@ export function FacebookPageEmbed() {
   return (
     <div className="w-full">
       <div className="grid lg:grid-cols-3 gap-6">
-        {/* Iframe — the live Facebook page plugin */}
+        {/* Iframe - the live Facebook page plugin */}
         <div className="lg:col-span-2 relative bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center">
           <iframe
-            title={`Facebook page feed for ${siteConfig.name} — live posts, photos, and updates`}
+            title={`Facebook page feed for ${siteConfig.name} - live posts, photos, and updates`}
             src={embedSrc}
             className="w-full h-[600px]"
             style={{ border: 0, colorScheme: 'normal' }}
@@ -64,7 +64,7 @@ export function FacebookPageEmbed() {
           />
         </div>
 
-        {/* Side panel — CTAs + context */}
+        {/* Side panel - CTAs + context */}
         <div className="flex flex-col gap-4 justify-between bg-[#1A1A1A] border border-[#2A2A2A] p-6">
           <div>
             <div className="flex items-center gap-2 mb-3">
@@ -74,7 +74,7 @@ export function FacebookPageEmbed() {
               </h3>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-              The feed shows our latest Facebook posts — workshop photos,
+              The feed shows our latest Facebook posts - workshop photos,
               team updates, new product arrivals, and customer vehicle
               showcases. Follow our page to stay in the loop with what is
               happening in the workshop.

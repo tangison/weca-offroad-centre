@@ -23,6 +23,10 @@ const ROUTES = [
   "/services",
   "/testimonials",
   "/contact",
+  "/legal/privacy",
+  "/legal/terms",
+  "/legal/cookies",
+  "/site-map",
 ];
 
 describe("route modules", () => {

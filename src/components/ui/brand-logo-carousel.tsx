@@ -17,7 +17,7 @@ interface BrandLogoCarouselProps {
  *   - variant="grid": static responsive grid (for /services page).
  *
  * Behaviour change (2026-08-06, per client instruction):
- *   Logos are DISPLAY ONLY — non-clickable. The previous target="_blank"
+ *   Logos are DISPLAY ONLY - non-clickable. The previous target="_blank"
  *   outbound links to each brand's official site have been removed. The
  *   client explicitly said logos do not need to link out to the supplier's
  *   site. If/when a /shop category page exists for a brand, the logo can
@@ -27,17 +27,17 @@ interface BrandLogoCarouselProps {
  *   - All logos are rendered in a uniform white/monochrome via CSS filter
  *     `brightness(0) invert(1)`. This keeps the look clean and consistent
  *     without re-fetching assets from each brand's site.
- *   - The carousel has NO background plate, card, or container behind it —
+ *   - The carousel has NO background plate, card, or container behind it -
  *     it is a clean, borderless marquee. The parent <section> supplies the
  *     dark background (Atlantic Black #0D0D0D) so the white logos are visible.
- *   - On hover, the filter is removed to reveal the brand's true colors —
+ *   - On hover, the filter is removed to reveal the brand's true colors -
  *     a subtle, premium interaction that rewards attention without being
  *     flashy.
  *
- * Respects prefers-reduced-motion per WCAG 2.1 SC 2.3.3 — falls back to a
+ * Respects prefers-reduced-motion per WCAG 2.1 SC 2.3.3 - falls back to a
  * static, wrapped row.
  *
- * No new runtime dependency introduced — uses only next/image + CSS.
+ * No new runtime dependency introduced - uses only next/image + CSS.
  */
 export function BrandLogoCarousel({ variant = 'carousel', className = '' }: BrandLogoCarouselProps) {
   if (variant === 'grid') {
@@ -60,7 +60,7 @@ export function BrandLogoCarousel({ variant = 'carousel', className = '' }: Bran
     <div
       className={`relative overflow-hidden ${className}`}
       role="region"
-      aria-label="Brands we sell — auto-scrolling carousel"
+      aria-label="Brands we sell - auto-scrolling carousel"
     >
       {/* Edge fade masks so logos fade in/out at the edges of the marquee.
           Mask color matches the dark section background (#0D0D0D).
@@ -129,7 +129,7 @@ export function BrandLogoCarousel({ variant = 'carousel', className = '' }: Bran
 }
 
 /**
- * Single brand logo card. No background plate or card — just the logo
+ * Single brand logo card. No background plate or card - just the logo
  * on the parent section's dark background, rendered in monochrome white
  * via CSS filter, with the filter removed on hover/focus to reveal the
  * brand's true colors.
@@ -156,10 +156,10 @@ function BrandLogoCard({
   return (
     <div
       role="listitem"
-      aria-label={`${brand.name} — ${brand.description}`}
+      aria-label={`${brand.name} - ${brand.description}`}
       tabIndex={0}
       className="group flex shrink-0 items-center justify-center transition-transform duration-300 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline-none cursor-default"
-      title={`${brand.name} — ${brand.description}`}
+      title={`${brand.name} - ${brand.description}`}
     >
       {isSvg ? (
         // SVGs scale crisply at any size; use plain <img> to avoid

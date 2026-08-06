@@ -2846,20 +2846,20 @@ export const galleryCategories = [
 // Brands
 export const brands: Brand[] = [
   // Confirmed real brand list per client (Shalyn), 2026-08-06.
-  // Removed: Front Runner, ARB, BF Goodrich, Rhinoman — not carried.
+  // Removed: Front Runner, ARB, BF Goodrich, Rhinoman - not carried.
   // All logos sourced from each brand's own official site (never
   // third-party aggregators), in small batches to avoid timeouts.
   // Logos are display-only (non-clickable) in the carousel per client
-  // instruction — the `website` field is kept for reference only and is
+  // instruction - the `website` field is kept for reference only and is
   // NOT rendered as a link.
   //
   // Pending (confirmed by client but logo not yet sourced):
   //  - DAG: no independent official site found; distributed by 4x4
   //    Wholesalers Africa. Client to provide logo directly.
-  //  - 'Gerbers': client mentioned but name unconfirmed — DO NOT add
+  //  - 'Gerbers': client mentioned but name unconfirmed - DO NOT add
   //    until Tangi confirms the exact brand name.
   //  - Tyre brands: client said 'different tyre brands and rims' but did
-  //    not name which — DO NOT add until client provides specific names.
+  //    not name which - DO NOT add until client provides specific names.
   { name: 'Wildog', logo: '/brands/wildog.png', description: 'Bumpers and protection', website: 'https://wildog.co.za/' },
   { name: 'Dometic', logo: '/brands/dometic.svg', description: 'Camping equipment', website: 'https://dometic.com/' },
   { name: 'Tentco', logo: '/brands/tentco.webp', description: 'Premium rooftop tents', website: 'https://tentco.co.za/' },

@@ -203,7 +203,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Brands — static logo grid. Dark section, no card behind logos.
+      {/* Brands - static logo grid. Dark section, no card behind logos.
           Logos are rendered in monochrome white via CSS filter and reveal
           their true colors on hover. */}
       <section className="py-14 md:py-16 bg-[#0D0D0D]">
