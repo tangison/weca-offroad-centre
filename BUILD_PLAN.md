@@ -65,6 +65,109 @@ re-running `python3 scripts/generate_catalog.py` (after editing the script's
 - Configure DNS — after purchase.
 - Provide real SKU-level product list — optional, client decision.
 
+## Client correction pass (2026-08-06)
+
+### Site privacy (DONE — commit `e3e72c1`)
+
+Client (Shalyn) said the site must not be publicly discoverable while she
+reviews it. Implemented as:
+- `src/app/robots.ts`: `Disallow: /` for all user agents, sitemap reference removed.
+- `public/robots.txt`: synced to `Disallow: /` (static fallback).
+- `src/app/layout.tsx`: `metadata.robots` set to `index: false, follow: false`.
+- No sitemap submitted to Google Search Console or Bing Webmaster Tools
+  (neither was submitted previously — noted in PROOF.md).
+- Site stays directly accessible (no SSO re-added) — only search engines
+  are blocked. Re-enable by flipping the three flags back to `true` and
+  re-adding the sitemap reference in `robots.ts`.
+
+### Construction disclaimer (DONE — commit `e3e72c1`)
+
+Client requested a disclaimer that the site is under construction and
+being built by Tangison Studio. Added as a small understated line in the
+footer, above the copyright/credit bar:
+"This website is under construction by Tangison Studio. Content and
+pricing are not final." The Tangison Studio text links to
+https://studio.tangison.com.
+
+### Fake shop catalog removed (DONE — commit `e3e72c1`)
+
+Client flagged that the 236 fabricated products in `/shop` did not match
+their descriptions/pictures and were confusing her during review. The
+fabricated catalog has been removed from the live `/shop` page:
+- `src/app/shop/page.tsx`: full rewrite as "Catalog coming soon" empty
+  state (no product grid, no search, no filters, no dialog). Preserves
+  the shop hero + price-match banner + WhatsApp CTA + cross-link to
+  /services.
+- `src/app/shop/layout.tsx`: metadata description updated (was "200+
+  accessories" + named Front Runner/ARB/Warn — all removed).
+- The fabricated 236-product array in `src/lib/data.ts` is FROZEN in
+  place (not deleted) so it can serve as a structural reference when the
+  real SKU-level catalog arrives. It is no longer imported by the shop
+  page. The data.test.ts "200+ products" assertion still passes against
+  the frozen array.
+
+### Brand list replaced (DONE — commit pending push)
+
+The brand carousel was built from web research before the client's actual
+brand list was available. The client has now given the real list directly.
+- Removed: Front Runner, ARB, BF Goodrich, Rhinoman (4 brands not carried).
+- Kept: Wildog, Dometic, Tentco, Tough Dog, EcoFlow (5 existing logos reused).
+- Added: WARN, Howling Moon, Fox, Runva, GOBI X, Ratel, Moremi, DeGraaf
+  Exhausts, Fredlin Hoists, EFS, Tougher, Beesdam, Escape Gear, AluBlack,
+  Rockford (15 new logos sourced from each brand's own official site;
+  Escape Gear fetched via Wayback Machine archive because escapegear.com
+  is behind Cloudflare bot protection).
+- Logos are now display-only (non-clickable). Removed `target="_blank"`
+  outbound links per client instruction.
+- Pending: DAG (no independent official site found — distributed by 4x4
+  Wholesalers Africa; client to provide logo directly).
+- Do NOT add: 'Gerbers' (name unconfirmed), tyre brands (client has not
+  named which).
+
+### Vehicle-based browsing (LOGGED — not built, awaiting real catalog)
+
+Client requested vehicle-specific sections (e.g. a Hilux page showing
+everything for that vehicle) alongside the existing category departments
+(camping, rooftop, suspension, etc.). This is a real, good IA request
+but cannot be built against the placeholder catalog — it requires
+vehicle-fitment data on each product, which the real SKU-level catalog
+from the client's POS / online supplier data feed will provide.
+
+When the real catalog arrives with vehicle-fitment fields:
+1. Add a `vehicleFitment` field to the `Product` interface in
+   `src/lib/data.ts` (array of vehicle make/model/year strings).
+2. Create a `/vehicles` route with a vehicle picker (make → model → year)
+   that filters products by fitment.
+3. Add a "Shop by Vehicle" nav item and a vehicle-picker CTA on the
+   homepage and /shop.
+4. Each product card in /shop shows a "Fits your vehicle" badge when the
+   visitor has selected a vehicle.
+
+Do NOT attempt to build this against the placeholder catalog.
+
+### Stock system integration (LOGGED — open question for Tangi)
+
+Client asked whether their upcoming POS/stock system could sync with the
+website. Cannot be scoped until we know which system they are implementing.
+
+Tangi to ask the client:
+1. Which POS / stock system are they implementing? (name + version)
+2. Does it have a public API, or can it export a product feed (CSV/XML/JSON)?
+3. What is the update frequency (real-time webhook, hourly poll, manual
+   export)?
+4. Does it include vehicle-fitment data, or only SKU/price/stock?
+
+Once the system is known, the integration can be scoped. Common patterns:
+- Shopify / WooCommerce / Magento: native Next.js commerce integrations
+  exist; the current site would need to be migrated to the platform's
+  data layer.
+- Custom POS with CSV export: a scheduled job (Vercel Cron) fetches the
+  export and updates `src/lib/data.ts` (or migrates to a database).
+- Custom POS with API: a Next.js API route proxies the POS API and
+  caches responses; product pages render from the cache.
+
+Do NOT plan the integration until the system name is confirmed.
+
 ## Verification gates passed
 
 - `bunx tsc --noEmit` — 0 errors

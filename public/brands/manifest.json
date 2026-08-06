@@ -1,63 +1,169 @@
 [
   {
-    "slug": "front-runner",
+    "slug": "wildog",
+    "name": "Wildog",
     "status": "OK",
-    "source_url": "https://dometic.com/images/logo-frontrunner.svg",
-    "saved_as": "front-runner.svg",
-    "official_source": "https://dometic.com"
+    "saved_as": "wildog.png",
+    "official_source": "https://wildog.co.za",
+    "note": "Reused from prior session (existing logo file)"
   },
   {
     "slug": "dometic",
+    "name": "Dometic",
     "status": "OK",
-    "source_url": "https://dometic.com/images/logo-frontrunner.svg",
     "saved_as": "dometic.svg",
-    "official_source": "https://dometic.com"
+    "official_source": "https://dometic.com",
+    "note": "Reused from prior session (existing logo file)"
   },
   {
     "slug": "tentco",
+    "name": "Tentco",
     "status": "OK",
-    "source_url": "https://tentco.co.za/wp-content/uploads/2025/08/NOMAD-LOGO-FINAL.jpg",
-    "saved_as": "tentco.jpg",
-    "official_source": "https://tentco.co.za"
+    "saved_as": "tentco.webp",
+    "official_source": "https://tentco.co.za",
+    "note": "Reused from prior session (existing logo file)"
   },
   {
     "slug": "tough-dog",
+    "name": "Tough Dog",
     "status": "OK",
-    "source_url": "https://toughdog.com.au/site/DefaultSite/skins/toughdog_2019/images/logo-footer.png",
     "saved_as": "tough-dog.png",
-    "official_source": "https://toughdog.com.au"
-  },
-  {
-    "slug": "wildog",
-    "status": "OK",
-    "source_url": "https://wildog.co.za/wp-content/uploads/2025/09/cropped-WhatsApp-Image-2025-07-10-at-15.29.47_490237a4-300x100.jpg",
-    "saved_as": "wildog.jpg",
-    "official_source": "https://wildog.co.za"
-  },
-  {
-    "slug": "rhinoman",
-    "status": "NO_CANDIDATES",
-    "official_source": "https://rhinoman.co.za"
-  },
-  {
-    "slug": "arb",
-    "status": "OK",
-    "source_url": "https://arb.com.au/content/dam/arb/permanent-site-assets/arb/logos/ARB%20Logo.svg",
-    "saved_as": "arb.svg",
-    "official_source": "https://arb.com.au"
+    "official_source": "https://toughdog.com.au",
+    "note": "Reused from prior session (existing logo file)"
   },
   {
     "slug": "ecoflow",
+    "name": "EcoFlow",
     "status": "OK",
-    "source_url": "https://us.ecoflow.com/cdn/shop/files/Logo_white_300x300.svg?v=1783411021",
     "saved_as": "ecoflow.svg",
-    "official_source": "https://ecoflow.com"
+    "official_source": "https://ecoflow.com",
+    "note": "Reused from prior session (existing logo file)"
   },
   {
-    "slug": "bfgoodrich",
+    "slug": "warn",
+    "name": "WARN",
     "status": "OK",
-    "source_url": "https://africa.bfgoodrich.com/public/themes/bfgoodrich/assets/images/logos/svg/sprite-logos.svg",
-    "saved_as": "bfgoodrich.svg",
-    "official_source": "https://africa.bfgoodrich.com"
+    "saved_as": "warn.svg",
+    "official_source": "https://www.warn.com",
+    "note": "Sourced 2026-08-06 from warn.com homepage header"
+  },
+  {
+    "slug": "howling-moon",
+    "name": "Howling Moon",
+    "status": "OK",
+    "saved_as": "howling-moon.png",
+    "official_source": "https://www.howlingmoon.co.za",
+    "note": "Sourced 2026-08-06; dark badge background removed via luminance threshold"
+  },
+  {
+    "slug": "fox",
+    "name": "Fox",
+    "status": "OK",
+    "saved_as": "fox.svg",
+    "official_source": "https://ridefox.com",
+    "note": "Sourced 2026-08-06 from ridefox.com header (Fox-Logo.svg)"
+  },
+  {
+    "slug": "runva",
+    "name": "Runva",
+    "status": "OK",
+    "saved_as": "runva.svg",
+    "official_source": "https://www.runva.com",
+    "note": "Sourced 2026-08-06 from runva.com wp-content logo.svg"
+  },
+  {
+    "slug": "gobi-x",
+    "name": "GOBI X",
+    "status": "OK",
+    "saved_as": "gobi-x.png",
+    "official_source": "https://www.gobi-x.co.za",
+    "note": "Sourced 2026-08-06 from gobi-x.co.za wp-content WEB-LOGO.png"
+  },
+  {
+    "slug": "ratel",
+    "name": "Ratel",
+    "status": "OK",
+    "saved_as": "ratel.png",
+    "official_source": "https://bosbumper.co.za",
+    "note": "Sourced 2026-08-06 from bosbumper.co.za (Ratel 4x4 Bosbumper brand)"
+  },
+  {
+    "slug": "moremi",
+    "name": "Moremi",
+    "status": "OK",
+    "saved_as": "moremi.png",
+    "official_source": "https://www.moremitrailers.co.za",
+    "note": "Sourced 2026-08-06 from moremitrailers.co.za (Moremi Custom Campers & Trailers)"
+  },
+  {
+    "slug": "degraaf",
+    "name": "DeGraaf Exhausts",
+    "status": "OK",
+    "saved_as": "degraaf.png",
+    "official_source": "https://degraaf.co.za",
+    "note": "Sourced 2026-08-06 from degraaf.co.za (Degraaf Performance Exhausts)"
+  },
+  {
+    "slug": "fredlin",
+    "name": "Fredlin Hoists",
+    "status": "OK",
+    "saved_as": "fredlin.png",
+    "official_source": "https://fredlin.co.za",
+    "note": "Sourced 2026-08-06 from fredlin.co.za/pictures/LogoPNG.png"
+  },
+  {
+    "slug": "efs",
+    "name": "EFS",
+    "status": "OK",
+    "saved_as": "efs.png",
+    "official_source": "https://efs4wd.com.au",
+    "note": "Sourced 2026-08-06 from efs4wd.com.au (EFS 4x4 Accessories manufacturer site; efsafrica.co.za is a placeholder)"
+  },
+  {
+    "slug": "tougher",
+    "name": "Tougher",
+    "status": "OK",
+    "saved_as": "tougher.webp",
+    "official_source": "https://tougher.co.za",
+    "note": "Sourced 2026-08-06 from tougher.co.za (Tougher Seat Covers and Accessories)"
+  },
+  {
+    "slug": "beesdam",
+    "name": "Beesdam",
+    "status": "OK",
+    "saved_as": "beesdam.png",
+    "official_source": "https://beesdam.co.za",
+    "note": "Sourced 2026-08-06 from beesdam.co.za Shopify CDN (beesdam-longhorn-logo)"
+  },
+  {
+    "slug": "alublack",
+    "name": "AluBlack",
+    "status": "OK",
+    "saved_as": "alublack.png",
+    "official_source": "https://alublack.com",
+    "note": "Sourced 2026-08-06 from alublack.com (AluBlack Outdoor; Alublack-official.png)"
+  },
+  {
+    "slug": "rockford",
+    "name": "Rockford",
+    "status": "OK",
+    "saved_as": "rockford.svg",
+    "official_source": "https://rockfordfosgate.com",
+    "note": "Sourced 2026-08-06 from rockfordfosgate.com inline SVG header logo (Rockford Fosgate audio)"
+  },
+  {
+    "slug": "dag",
+    "name": "DAG",
+    "status": "PENDING",
+    "official_source": null,
+    "note": "Confirmed by client but no independent official site found. Distributed by 4x4 Wholesalers Africa (4x4wholesalersafrica.com). Client to provide logo directly."
+  },
+  {
+    "slug": "escape-gear",
+    "name": "Escape Gear",
+    "status": "OK",
+    "saved_as": "escape-gear.webp",
+    "official_source": "https://escapegear.com",
+    "note": "Sourced 2026-08-06 via Wayback Machine archive (escapegear.com is behind Cloudflare bot protection; direct fetch returns 403 for both HTML and static assets). Logo path: /wp-content/uploads/2025/05/cropped-Escape-Gear_logo_2-01-142x86.png"
   }
 ]

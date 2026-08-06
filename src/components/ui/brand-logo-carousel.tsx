@@ -16,8 +16,12 @@ interface BrandLogoCarouselProps {
  *     reduced-motion fallback to static centered row.
  *   - variant="grid": static responsive grid (for /services page).
  *
- * Each logo links to the brand's verified official site in a new tab
- * with rel="noopener noreferrer".
+ * Behaviour change (2026-08-06, per client instruction):
+ *   Logos are DISPLAY ONLY — non-clickable. The previous target="_blank"
+ *   outbound links to each brand's official site have been removed. The
+ *   client explicitly said logos do not need to link out to the supplier's
+ *   site. If/when a /shop category page exists for a brand, the logo can
+ *   link there instead; for now it is purely decorative.
  *
  * Visual treatment (per visual-polish brief):
  *   - All logos are rendered in a uniform white/monochrome via CSS filter
@@ -41,7 +45,7 @@ export function BrandLogoCarousel({ variant = 'carousel', className = '' }: Bran
       <div
         className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-6 gap-y-8 ${className}`}
         role="list"
-        aria-label="Brands we install"
+        aria-label="Brands we sell"
       >
         {brands.map((brand) => (
           <BrandLogoCard key={brand.name} brand={brand} />
@@ -112,7 +116,12 @@ export function BrandLogoCarousel({ variant = 'carousel', className = '' }: Bran
  * Single brand logo card. No background plate or card — just the logo
  * on the parent section's dark background, rendered in monochrome white
  * via CSS filter, with the filter removed on hover/focus to reveal the
- * brand's true colors. Links out to the brand's official site.
+ * brand's true colors.
+ *
+ * Non-clickable (display only) per client instruction 2026-08-06.
+ * Rendered as a <div role="listitem"> with a tabindex for keyboard
+ * accessibility so the hover-reveal interaction is still reachable
+ * without a mouse, without making it a link.
  */
 function BrandLogoCard({
   brand,
@@ -127,16 +136,13 @@ function BrandLogoCard({
   const heightClass = compact ? 'h-10 md:h-12' : 'h-12 md:h-14';
   const width = compact ? 140 : 180;
   const height = compact ? 48 : 56;
-  const href = brand.website || '#';
 
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
       role="listitem"
-      aria-label={`${brand.name} — visit official site`}
-      className="group flex shrink-0 items-center justify-center transition-transform duration-300 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline-none"
+      aria-label={`${brand.name} — ${brand.description}`}
+      tabIndex={0}
+      className="group flex shrink-0 items-center justify-center transition-transform duration-300 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline-none cursor-default"
       title={`${brand.name} — ${brand.description}`}
     >
       {isSvg ? (
@@ -185,6 +191,6 @@ function BrandLogoCard({
           }
         }
       `}</style>
-    </a>
+    </div>
   );
 }

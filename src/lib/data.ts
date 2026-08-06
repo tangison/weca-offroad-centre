@@ -2845,15 +2845,41 @@ export const galleryCategories = [
 
 // Brands
 export const brands: Brand[] = [
-  { name: 'Tentco', logo: '/brands/tentco.webp', description: 'Premium rooftop tents', website: 'https://tentco.co.za/' },
-  { name: 'Front Runner', logo: '/brands/front-runner.svg', description: 'Roof racks and storage', website: 'https://dometic.com/' },
-  { name: 'Tough Dog', logo: '/brands/tough-dog.png', description: 'Suspension systems', website: 'https://toughdog.com.au/' },
+  // Confirmed real brand list per client (Shalyn), 2026-08-06.
+  // Removed: Front Runner, ARB, BF Goodrich, Rhinoman — not carried.
+  // All logos sourced from each brand's own official site (never
+  // third-party aggregators), in small batches to avoid timeouts.
+  // Logos are display-only (non-clickable) in the carousel per client
+  // instruction — the `website` field is kept for reference only and is
+  // NOT rendered as a link.
+  //
+  // Pending (confirmed by client but logo not yet sourced):
+  //  - DAG: no independent official site found; distributed by 4x4
+  //    Wholesalers Africa. Client to provide logo directly.
+  //  - 'Gerbers': client mentioned but name unconfirmed — DO NOT add
+  //    until Tangi confirms the exact brand name.
+  //  - Tyre brands: client said 'different tyre brands and rims' but did
+  //    not name which — DO NOT add until client provides specific names.
   { name: 'Wildog', logo: '/brands/wildog.png', description: 'Bumpers and protection', website: 'https://wildog.co.za/' },
-  { name: 'Rhinoman', logo: '/brands/rhinoman.webp', description: 'Canopies', website: 'https://rhinoman.co.za/' },
-  { name: 'Ecoflow', logo: '/brands/ecoflow.svg', description: 'Portable power', website: 'https://ecoflow.com/' },
   { name: 'Dometic', logo: '/brands/dometic.svg', description: 'Camping equipment', website: 'https://dometic.com/' },
-  { name: 'ARB', logo: '/brands/arb.svg', description: '4x4 accessories', website: 'https://arb.com.au/' },
-  { name: 'BF Goodrich', logo: '/brands/bfgoodrich.svg', description: 'All-terrain tyres', website: 'https://africa.bfgoodrich.com/' },
+  { name: 'Tentco', logo: '/brands/tentco.webp', description: 'Premium rooftop tents', website: 'https://tentco.co.za/' },
+  { name: 'Tough Dog', logo: '/brands/tough-dog.png', description: 'Suspension systems', website: 'https://toughdog.com.au/' },
+  { name: 'EcoFlow', logo: '/brands/ecoflow.svg', description: 'Portable power', website: 'https://ecoflow.com/' },
+  { name: 'WARN', logo: '/brands/warn.svg', description: 'Winches and recovery gear', website: 'https://www.warn.com/' },
+  { name: 'Howling Moon', logo: '/brands/howling-moon.png', description: 'Rooftop tents and awnings', website: 'https://www.howlingmoon.co.za/' },
+  { name: 'Fox', logo: '/brands/fox.svg', description: 'Performance suspension', website: 'https://ridefox.com/' },
+  { name: 'Runva', logo: '/brands/runva.svg', description: 'Electric winches', website: 'https://www.runva.com/' },
+  { name: 'GOBI X', logo: '/brands/gobi-x.png', description: 'Front bumpers and protection', website: 'https://www.gobi-x.co.za/' },
+  { name: 'Ratel', logo: '/brands/ratel.png', description: 'Bos bumpers and protection', website: 'https://bosbumper.co.za/' },
+  { name: 'Moremi', logo: '/brands/moremi.png', description: 'Custom campers and trailers', website: 'https://www.moremitrailers.co.za/' },
+  { name: 'DeGraaf Exhausts', logo: '/brands/degraaf.png', description: 'Performance exhaust systems', website: 'https://degraaf.co.za/' },
+  { name: 'Fredlin Hoists', logo: '/brands/fredlin.png', description: 'Rooftop tent hoists', website: 'https://fredlin.co.za/' },
+  { name: 'EFS', logo: '/brands/efs.png', description: '4x4 suspension and accessories', website: 'https://efs4wd.com.au/' },
+  { name: 'Tougher', logo: '/brands/tougher.webp', description: 'Seat covers and accessories', website: 'https://tougher.co.za/' },
+  { name: 'Beesdam', logo: '/brands/beesdam.png', description: 'Premium seat covers', website: 'https://beesdam.co.za/' },
+  { name: 'Escape Gear', logo: '/brands/escape-gear.webp', description: 'Vehicle seat covers and protection', website: 'https://escapegear.com/' },
+  { name: 'AluBlack', logo: '/brands/alublack.png', description: 'Flatbed trays and canopies', website: 'https://alublack.com/' },
+  { name: 'Rockford', logo: '/brands/rockford.svg', description: 'Premium audio systems', website: 'https://rockfordfosgate.com/' },
 ];
 
 // Business Information - Complete with all contact details
