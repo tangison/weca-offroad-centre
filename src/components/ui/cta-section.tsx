@@ -80,7 +80,7 @@ export function CTASection({
           <Link
             href={primaryCTA.href}
             className={cn(
-              'inline-flex items-center justify-center font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors',
+              'btn-pill inline-flex items-center justify-center font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors',
               isPrimary
                 ? 'bg-[#0D0D0D] text-[#F5F5F5] hover:bg-[#1A1A1A]'
                 : 'bg-[#E67E22] text-[#0D0D0D] hover:bg-[#F39C12]'
@@ -95,7 +95,7 @@ export function CTASection({
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              'inline-flex items-center justify-center font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors',
+              'btn-pill inline-flex items-center justify-center font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors',
               isPrimary
                 ? 'border border-[#0D0D0D] text-[#0D0D0D] hover:bg-[#0D0D0D]/10'
                 : 'border border-[#2A2A2A] text-[#F5F5F5] hover:border-[#E67E22]'

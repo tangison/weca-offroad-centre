@@ -30,7 +30,7 @@ export default function GlobalError({
             {/* Action */}
             <button
               onClick={reset}
-              className="bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors"
+              className="btn-pill bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-sm px-8 py-4 transition-colors"
             >
               Try Again
             </button>

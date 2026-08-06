@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ArrowRight, Phone, MessageCircle, Mail, Search } from 'lucide-react';
 import { businessInfo, shopCategories } from '@/lib/data';
 import { SearchDialog } from '@/components/ui/search-dialog';
+import { ConstructionBanner } from '@/components/layout/construction-banner';
+import { siteConfig } from '@/lib/config';
 
 // TikTok Icon
 function TikTokIcon({ className }: { className?: string }) {
@@ -142,16 +144,36 @@ export function Navbar() {
 
   const isActive = (href: string) => pathname === href;
 
+  // Desktop dropdown vertical offset. The dropdowns are position:fixed
+  // relative to the viewport, so their `top` must account for the full
+  // header height (banner + nav row). The construction banner adds ~30px
+  // when the underConstruction flag is on; the offset is computed at build
+  // time from the config flag so flipping the flag adjusts the dropdowns
+  // automatically with no separate edit required.
+  const dropdownTop = siteConfig.features.underConstruction ? 'top-[98px]' : 'top-[68px]';
+
   return (
     <>
-      {/* Header */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-          isScrolled
-            ? 'bg-[#0D0D0D]/98 backdrop-blur-sm border-b border-[#2A2A2A] py-3'
-            : 'bg-transparent py-4'
-        }`}
-      >
+      {/* Header — fixed. Contains the optional construction banner (slim
+          strip at the very top) and the nav row below it. The two are
+          wrapped in a single fixed container so they move as one unit
+          and share z-50 stacking. */}
+      <header className="fixed top-0 left-0 right-0 z-50">
+        {/* Construction banner — conditional on siteConfig.features.underConstruction.
+            Rendered above the nav row so it is the first thing visible.
+            Not dismissible; stays for the whole visit while the flag is on. */}
+        <ConstructionBanner />
+
+        {/* Nav row — carries the scroll-state bg/padding (was previously on
+            the <header> itself; moved here when the banner was added so the
+            banner can have its own bg independent of scroll state). */}
+        <div
+          className={`transition-all duration-200 ${
+            isScrolled
+              ? 'bg-[#0D0D0D]/98 backdrop-blur-sm border-b border-[#2A2A2A] py-3'
+              : 'bg-transparent py-4'
+          }`}
+        >
         <nav className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -255,7 +277,7 @@ export function Navbar() {
               {/* CTA Button */}
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-xs px-6 py-3 transition-colors"
+                className="btn-pill inline-flex items-center justify-center bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-xs px-6 py-3 transition-colors"
               >
                 Get A Quote
               </Link>
@@ -288,6 +310,7 @@ export function Navbar() {
             </div>
           </div>
         </nav>
+        </div>
       </header>
 
       {/* Desktop Shop Dropdown */}
@@ -299,7 +322,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.12, ease: 'easeOut' }}
-            className="fixed top-[68px] left-1/2 -translate-x-1/2 z-40 hidden lg:block"
+            className={`fixed ${dropdownTop} left-1/2 -translate-x-1/2 z-40 hidden lg:block`}
             onMouseEnter={handleShopMouseEnter}
             onMouseLeave={handleShopMouseLeave}
           >
@@ -363,7 +386,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.12, ease: 'easeOut' }}
-            className="fixed top-[68px] right-[calc((100vw-1280px)/2+32px)] z-40 hidden lg:block"
+            className={`fixed ${dropdownTop} right-[calc((100vw-1280px)/2+32px)] z-40 hidden lg:block`}
             onMouseEnter={handleMoreMouseEnter}
             onMouseLeave={handleMoreMouseLeave}
           >
@@ -555,7 +578,7 @@ export function Navbar() {
               {/* Bottom */}
               <div className="border-t border-[#2A2A2A] p-4 space-y-3">
                 <Link href="/contact" onClick={handleLinkClick} className="block">
-                  <button className="w-full bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-sm py-3 transition-colors">
+                  <button className="btn-pill w-full bg-[#E67E22] hover:bg-[#F39C12] text-[#0D0D0D] font-accent font-semibold uppercase tracking-wider text-sm py-3 transition-colors">
                     Get A Quote
                   </button>
                 </Link>

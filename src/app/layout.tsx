@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { LocalBusinessStructuredData, WebsiteStructuredData } from "@/components/ui/structured-data";
 import { siteConfig } from "@/lib/config";
 
@@ -129,6 +130,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <ScrollToTop />
         <Toaster />
       </body>
     </html>

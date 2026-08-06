@@ -187,6 +187,11 @@ export const siteConfig = {
     enableSearch: true,
     enableWhatsAppRedirect: true,
     enableProductModal: true,
+    // Site-wide "under construction" banner. When true, a slim non-dismissible
+    // strip renders at the top of the header on every page (see navbar.tsx)
+    // alongside the footer disclaimer. Flip to false and rebuild to remove
+    // the header banner cleanly — no markup to delete across files.
+    underConstruction: true,
   },
 } as const;
 

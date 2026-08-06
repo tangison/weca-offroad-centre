@@ -234,7 +234,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                     <Link
                       href="/services"
                       onClick={onClose}
-                      className="inline-block mt-4 px-4 py-2 bg-[#E67E22] text-[#0D0D0D] text-sm font-accent font-semibold uppercase tracking-wider hover:bg-[#F39C12] transition-colors"
+                      className="btn-pill inline-block mt-4 px-4 py-2 bg-[#E67E22] text-[#0D0D0D] text-sm font-accent font-semibold uppercase tracking-wider hover:bg-[#F39C12] transition-colors"
                     >
                       Browse Services
                     </Link>
