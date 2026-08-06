@@ -2821,63 +2821,63 @@ export const faqs: { question: string; answer: string }[] = [
 
 // Gallery Items - POPULATED WITH 47+ REAL ASSETS
 export const galleryItems: GalleryItem[] = [
-  { id: 'g1', title: 'Toyota Hilux GD-6 Overland Build', category: 'full-build', vehicle: 'Toyota Hilux GD-6', description: 'Hardshell rooftop tent, suspension lift, and Wildog bumper fitted for desert travel.', image: '/images/gallery/rooftent_safari_01.webp', workDone: ['Hardshell RTT', 'Suspension Lift', 'Wildog Bumper'], date: '2024-03-10' },
-  { id: 'g2', title: 'Land Cruiser 79 Heavy-Duty Suspension', category: 'suspension', vehicle: 'Land Cruiser 79', description: 'Tough Dog shocks and leaf spring upgrade fitted for mining and farm conditions.', image: '/images/gallery/workshop_interior_01.webp', workDone: ['Tough Dog Shocks', 'Leaf Spring Upgrade'], date: '2024-02-28' },
-  { id: 'g3', title: '70 Series Specialist', category: 'canopy', vehicle: 'LC 70 Series', description: 'Roof rack and storage integration.', image: '/images/gallery/roofrack_70series_01.webp', workDone: ['Slimline II Rack', 'Side Ladders'], date: '2024-02-15' },
-  { id: 'g4', title: 'Nissan Patrol Rooftop Tent & Awning', category: 'rooftop-tents', vehicle: 'Nissan Patrol', description: 'Rooftop tent and side awning fitted for desert camping.', image: '/images/gallery/rooftent_desert_01.webp', workDone: ['RTT Install', 'Awning System'], date: '2024-01-20' },
-  { id: 'g5', title: 'Coastal Cruiser', category: 'rooftop-tents', vehicle: 'Ford Ranger', description: 'Quick-pitch tent for weekend getaways.', image: '/images/gallery/rooftent_with_awning_01.webp', workDone: ['Tentco Tent', '270 Degree Awning'], date: '2024-03-05' },
-  { id: 'g6', title: 'Jeep Wrangler Control Arm & Coil Spring Fitment', category: 'suspension', vehicle: 'Jeep Wrangler', description: 'Control arms and coil springs fitted in our Swakopmund workshop.', image: '/images/gallery/workshop_interior_02.webp', workDone: ['Control Arms', 'Coil Springs'], date: '2024-01-15' },
-  { id: 'g7', title: 'Toyota Hilux Recovery Gear Setup', category: 'recovery', vehicle: 'Toyota Hilux', description: 'Winch and sand tracks fitted for dune recovery.', image: '/images/gallery/awning_desert_01.webp', workDone: ['Winch Fitment', 'Sand Tracks'], date: '2024-02-20' },
-  { id: 'g8', title: 'Front Entrance', category: 'full-build', vehicle: 'Showroom', description: 'Our Swakopmund industrial premises.', image: '/images/gallery/shop_exterior.webp', workDone: ['Showroom Fitout'], date: '2024-03-18' },
-  { id: 'g9', title: 'Wildog Protection', category: 'bumpers', vehicle: 'Toyota Fortuner', description: 'Steel bumper with high approach angle.', image: '/images/gallery/brand_sign_metal.webp', workDone: ['Front Bumper', 'Tow Bar'], date: '2024-03-25' },
-  { id: 'g10', title: 'Hilux Legend Modular Roof Rack', category: 'canopy', vehicle: 'Hilux Legend', description: 'Modular roof rack with gear boxes for tools and equipment.', image: '/images/gallery/roofrack_offroad_01.webp', workDone: ['Roof Rack', 'Gear Boxes'], date: '2024-04-01' },
-  { id: 'g11', title: 'Land Rover Defender Safari Lighting & Dual Battery', category: 'rooftop-tents', vehicle: 'Land Rover Defender', description: 'LED lighting and dual battery system fitted for safari camping.', image: '/images/gallery/rooftent_safari_02.webp', workDone: ['LED Lighting', 'Dual Battery'], date: '2024-04-05' },
-  { id: 'g12', title: 'Isuzu D-Max Suspension Tuning', category: 'suspension', vehicle: 'Isuzu D-Max', description: 'Shock tuning and spring selection for farm road ride quality.', image: '/images/gallery/workshop_sign_01.webp', workDone: ['Shock Tuning', 'Spring Selection'], date: '2024-04-10' },
-  { id: 'g13', title: 'Land Cruiser Extended Awning with Privacy Wall', category: 'recovery', vehicle: 'Toyota Land Cruiser', description: 'Extended side awning with privacy wall for sun protection.', image: '/images/gallery/awning_extended_01.webp', workDone: ['Side Awning', 'Privacy Wall'], date: '2024-04-15' },
-  { id: 'g14', title: 'LC 79 Custom Rack & Rooftop Tent', category: 'rooftop-tents', vehicle: 'LC 79', description: 'Custom rack and rooftop tent fitted for elevated camping.', image: '/images/gallery/rooftent_desert_02.webp', workDone: ['Custom Rack', 'Tent Install'], date: '2024-04-20' },
-  { id: 'g15', title: 'Orange Branding', category: 'full-build', vehicle: 'Showroom', description: 'Our signature orange signage.', image: '/images/gallery/shop_sign_orange.webp', workDone: ['Branding'], date: '2024-04-25' },
-  // Adding more to fulfill "ALL images" request
-  { id: 'g16', title: 'Awning Detail 1', category: 'recovery', vehicle: '4x4', description: 'Setup detail.', image: '/images/gallery/awning_desert_02.webp', workDone: ['Installation'], date: '2024-05-01' },
-  { id: 'g17', title: 'Awning Detail 2', category: 'recovery', vehicle: '4x4', description: 'Extended view.', image: '/images/gallery/awning_extended_02.webp', workDone: ['Installation'], date: '2024-05-01' },
-  { id: 'g18', title: 'Roofrack 70s 2', category: 'canopy', vehicle: 'LC70', description: 'Top view.', image: '/images/gallery/roofrack_70series_02.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g19', title: 'Roofrack 70s 3', category: 'canopy', vehicle: 'LC70', description: 'Side view.', image: '/images/gallery/roofrack_70series_03.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g20', title: 'Rooftent 70s', category: 'rooftop-tents', vehicle: 'LC70', description: 'Camp setup.', image: '/images/gallery/rooftent_70series_01.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g21', title: 'Rooftent Desert 4', category: 'rooftop-tents', vehicle: '4x4', description: 'Dune camp.', image: '/images/gallery/rooftent_desert_04.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g22', title: 'Rooftent Desert 5', category: 'rooftop-tents', vehicle: '4x4', description: 'Sunset camp.', image: '/images/gallery/rooftent_desert_05.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g23', title: 'Rooftent Desert 6', category: 'rooftop-tents', vehicle: '4x4', description: 'Morning view.', image: '/images/gallery/rooftent_desert_06.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g24', title: 'Rooftent Desert 7', category: 'rooftop-tents', vehicle: '4x4', description: 'Full setup.', image: '/images/gallery/rooftent_desert_07.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g25', title: 'Rooftent Dual', category: 'rooftop-tents', vehicle: '4x4', description: 'Dual tent setup.', image: '/images/gallery/rooftent_dual_01.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g26', title: 'Rooftent Safari 4', category: 'rooftop-tents', vehicle: '4x4', description: 'Bush camp.', image: '/images/gallery/rooftent_safari_04.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g27', title: 'Rooftent Safari 5', category: 'rooftop-tents', vehicle: '4x4', description: 'Tree shade.', image: '/images/gallery/rooftent_safari_05.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g28', title: 'Rooftent Safari 6', category: 'rooftop-tents', vehicle: '4x4', description: 'Remote camp.', image: '/images/gallery/rooftent_safari_06.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g29', title: 'Rooftent Awning 2', category: 'rooftop-tents', vehicle: '4x4', description: 'Combined setup.', image: '/images/gallery/rooftent_with_awning_02.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g30', title: 'Rooftent Awning 3', category: 'rooftop-tents', vehicle: '4x4', description: 'Wide setup.', image: '/images/gallery/rooftent_with_awning_03.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g31', title: 'Rooftent Spare 1', category: 'rooftop-tents', vehicle: '4x4', description: 'Integrated spare carrier.', image: '/images/gallery/rooftent_with_sparewheel_01.webp', workDone: ['Fitment'], date: '2024-05-01' },
-  { id: 'g32', title: 'Boutique Branding', category: 'full-build', vehicle: 'Shop', description: 'Orange entrance.', image: '/images/gallery/shop_sign_orange_02.webp', workDone: ['Signage'], date: '2024-05-01' },
-  { id: 'g33', title: 'Workshop View 2', category: 'suspension', vehicle: 'Workshop', description: 'Service bay.', image: '/images/gallery/workshop_sign_02.webp', workDone: ['Facility'], date: '2024-05-01' },
-  { id: 'g34', title: 'Desert Awning 3', category: 'recovery', vehicle: 'LC 70', description: 'Compact setup.', image: '/images/gallery/awning_desert_03.webp', workDone: ['Installation'], date: '2024-05-10' },
-  { id: 'g35', title: 'Extended Shade 3', category: 'recovery', vehicle: 'Hilux', description: 'Maximum coverage.', image: '/images/gallery/awning_extended_03.webp', workDone: ['Installation'], date: '2024-05-10' },
-  { id: 'g36', title: 'Nissan Patrol Full Bush Fitout', category: 'full-build', vehicle: 'Nissan Patrol', description: 'Complete bush-ready fitout including awning and accessories.', image: '/images/gallery/awning_patrol.webp', workDone: ['Full Fitout'], date: '2024-05-10' },
-  { id: 'g37', title: 'Rack System 4', category: 'canopy', vehicle: '70 Series', description: 'Heavy duty rack.', image: '/images/gallery/roofrack_70series_04.webp', workDone: ['Rack Fitment'], date: '2024-05-10' },
-  { id: 'g38', title: 'Spare Wheel Mount', category: 'recovery', vehicle: '4x4', description: 'Rear protection.', image: '/images/gallery/rooftent_70series_sparewheel.webp', workDone: ['Mounting'], date: '2024-05-10' },
-  { id: 'g39', title: 'Desert Camp 8', category: 'rooftop-tents', vehicle: 'Exploration Rig', description: 'Panoramic setup.', image: '/images/gallery/rooftent_desert_08.webp', workDone: ['RTT Fitment'], date: '2024-05-10' },
-  { id: 'g40', title: 'Desert Camp 9', category: 'rooftop-tents', vehicle: 'Exploration Rig', description: 'Compact desert setup.', image: '/images/gallery/rooftent_desert_09.webp', workDone: ['RTT Fitment'], date: '2024-05-10' },
-  { id: 'g41', title: 'Defender 110 Classic Safari Build', category: 'rooftop-tents', vehicle: 'Defender 110', description: 'Classic safari rooftop tent and accessory build.', image: '/images/gallery/rooftent_safari_03.webp', workDone: ['Full Build'], date: '2024-05-10' },
-  { id: 'g42', title: 'Tent & Shade 4', category: 'rooftop-tents', vehicle: 'Prado', description: 'Family camping setup.', image: '/images/gallery/rooftent_with_awning_04.webp', workDone: ['Combined Fitment'], date: '2024-05-10' },
-  { id: 'g43', title: 'Spare Detail 2', category: 'recovery', vehicle: '4x4', description: 'Component detail.', image: '/images/gallery/rooftent_with_sparewheel_02.webp', workDone: ['Installation'], date: '2024-05-10' },
-  { id: 'g44', title: 'Entrance Signage', category: 'full-build', vehicle: 'Facility', description: 'Main entrance sign.', image: '/images/gallery/entrance_sign.webp', workDone: ['Branding'], date: '2024-05-10' },
-  { id: 'g45', title: 'Metal Branding', category: 'full-build', vehicle: 'Facility', description: 'Premium cut metal sign.', image: '/images/gallery/brand_sign_metal.webp', workDone: ['Branding'], date: '2024-05-10' },
+  // BUMPERS - real aftermarket front/rear bumper installs photographed at the workshop
+  { id: 'g01', title: 'Toyota Fortuner Steel Front Bumper with Winch', category: 'bumpers', vehicle: 'Toyota Fortuner', description: 'Aftermarket steel front bumper fitted with an integrated winch mount and red recovery points. Photographed outside the Weca workshop in Swakopmund Industrial.', image: '/images/gallery/awning_desert_01.webp', workDone: ['Steel Front Bumper', 'Winch Mount', 'Recovery Points'], date: '2024-03-10' },
+  { id: 'g02', title: 'Toyota Hilux Heavy-Duty Front Bumper with Light Pods', category: 'bumpers', vehicle: 'Toyota Hilux', description: 'Heavy-duty steel front bumper with integrated LED light pods and winch cradle, fitted in our Swakopmund workshop.', image: '/images/gallery/roofrack_70series_03.webp', workDone: ['Front Bumper', 'LED Light Pods', 'Winch Cradle'], date: '2024-02-15' },
+  { id: 'g03', title: 'Toyota Hilux Front Bumper at Workshop', category: 'bumpers', vehicle: 'Toyota Hilux', description: 'Toyota Hilux fitted with an aftermarket bull bar, photographed at the Weca Offroad Centre workshop.', image: '/images/gallery/rooftent_desert_04.webp', workDone: ['Bull Bar Install'], date: '2024-02-20' },
+  { id: 'g04', title: 'Nissan Navara Front Bumper and Underbody Protection', category: 'bumpers', vehicle: 'Nissan Navara', description: 'Heavy-duty front bumper with integrated underbody protection plate for a Nissan Navara working in remote Namibian conditions.', image: '/images/gallery/rooftent_dual_awning.webp', workDone: ['Front Bumper', 'Underbody Protection'], date: '2024-04-01' },
+  { id: 'g05', title: 'Jeep Wrangler Bull Bar with Lighting Mounts', category: 'bumpers', vehicle: 'Jeep Wrangler', description: 'Front bull bar with auxiliary lighting mounts fitted to a Jeep Wrangler at our Swakopmund workshop.', image: '/images/gallery/rooftent_safari_03.webp', workDone: ['Bull Bar', 'Light Mounts'], date: '2024-04-05' },
+  { id: 'g06', title: 'Toyota Hilux Front Bumper with Integrated Lighting', category: 'bumpers', vehicle: 'Toyota Hilux', description: 'Aftermarket front bumper with integrated lighting on a Toyota Hilux, fitted and wired by Weca technicians.', image: '/images/gallery/rooftent_safari_06.webp', workDone: ['Front Bumper', 'Integrated Lighting'], date: '2024-04-10' },
+  { id: 'g07', title: 'Toyota Hilux Rear Bumper with Tow Points', category: 'bumpers', vehicle: 'Toyota Hilux', description: 'Aftermarket rear step bumper with integrated tow points and recovery rated tow bar.', image: '/images/gallery/rooftent_with_awning_03.webp', workDone: ['Rear Step Bumper', 'Tow Points'], date: '2024-04-15' },
+  { id: 'g08', title: 'Toyota Hilux Front Bumper with Light Pods', category: 'bumpers', vehicle: 'Toyota Hilux', description: 'Steel front bumper with integrated LED light pods, fitted for high-output night driving.', image: '/images/gallery/workshop_sign_01.webp', workDone: ['Front Bumper', 'LED Light Pods'], date: '2024-04-20' },
+
+  // FULL BUILD - complete vehicle transformations and showcase builds
+  { id: 'g09', title: 'Jeep Wrangler White Beadlock Build', category: 'full-build', vehicle: 'Jeep Wrangler', description: 'Jeep Wrangler with aftermarket front bumper, hood vents, and red beadlock wheels, photographed outside the Weca workshop.', image: '/images/gallery/roofrack_70series_01.webp', workDone: ['Front Bumper', 'Hood Vents', 'Beadlock Wheels'], date: '2024-04-25' },
+  { id: 'g10', title: 'Jeep Wrangler Lifted Snorkel Build', category: 'full-build', vehicle: 'Jeep Wrangler', description: 'Lifted Jeep Wrangler with snorkel, bull bar with red recovery hooks, and oversized off-road tyres. Built for serious Namibian bush travel.', image: '/images/gallery/rooftent_desert_02.webp', workDone: ['Suspension Lift', 'Snorkel', 'Bull Bar', 'Recovery Hooks'], date: '2024-05-01' },
+  { id: 'g11', title: 'Ford Ranger Raptor Race Build #363', category: 'full-build', vehicle: 'Ford Ranger Raptor', description: 'Ford Ranger Raptor in full racing livery, number 363, with race-spec suspension components visible. Built and prepared at Weca Offroad Centre.', image: '/images/gallery/roofrack_70series_04.webp', workDone: ['Race Suspension', 'Race Livery', 'Safety Equipment'], date: '2024-05-05' },
+  { id: 'g12', title: 'Race Truck #363 in Desert Sunset', category: 'full-build', vehicle: 'Ford Ranger Raptor', description: 'The same Ford Ranger Raptor race build photographed in the Namib desert at sunset, showcasing the livery and ride height.', image: '/images/gallery/rooftent_desert_05.webp', workDone: ['Race Build', 'Desert Testing'], date: '2024-05-05' },
+  { id: 'g13', title: 'Maxxis Trepador Tyre Showcase', category: 'full-build', vehicle: 'Showcase', description: 'Close-up of a Maxxis Trepador off-road tyre showing the aggressive tread pattern and sidewall branding. One of the tyre brands we carry and recommend.', image: '/images/gallery/awning_extended_02.webp', workDone: ['Tyre Supply'], date: '2024-05-10' },
+  { id: 'g14', title: 'Maxxis Razr MT Tyre Stack', category: 'full-build', vehicle: 'Showcase', description: 'A stack of new Maxxis Razr MT mud-terrain tyres in the Weca workshop, ready for fitment to customer vehicles.', image: '/images/gallery/awning_patrol.webp', workDone: ['Tyre Supply', 'Fitment Ready'], date: '2024-05-10' },
+  { id: 'g15', title: 'Interior Fridge and Storage Fitout', category: 'full-build', vehicle: '4x4', description: 'Custom interior fitout with a fridge and storage unit mounted between the front seats, wired to the dual battery system.', image: '/images/gallery/awning_extended_03.webp', workDone: ['Fridge Slide', 'Storage Unit', 'Dual Battery'], date: '2024-05-15' },
+
+  // SUSPENSION - shock absorbers, coil springs, lift kits
+  { id: 'g16', title: 'Old Man Emu Shock Absorber and Coil Spring', category: 'suspension', vehicle: '4x4', description: 'Old Man Emu shock absorber and matching yellow coil spring, ready for fitment. ARB Old Man Emu is one of our carried suspension brands.', image: '/images/gallery/awning_desert_02.webp', workDone: ['OME Shock', 'Coil Spring'], date: '2024-05-20' },
+  { id: 'g17', title: 'Falcon Shock Absorber Detail', category: 'suspension', vehicle: '4x4', description: 'Falcon branded shock absorber installed on a customer vehicle, showing the build quality and clear branding.', image: '/images/gallery/roofrack_70series_02.webp', workDone: ['Falcon Shock Install'], date: '2024-05-25' },
+  { id: 'g18', title: 'Red Anodised Coil Spacers for Ford Ranger and Hilux', category: 'suspension', vehicle: 'Ford Ranger / Toyota Hilux', description: 'Set of red anodised aluminium coil spacers for Ford Ranger and Toyota Hilux suspension lifts, on the Weca workshop display.', image: '/images/gallery/rooftent_safari_01.webp', workDone: ['Coil Spacers', 'Suspension Lift'], date: '2024-06-01' },
+
+  // RECOVERY - winches, compressors, traction boards, recovery straps
+  { id: 'g19', title: 'Runva Winch on Display Stand', category: 'recovery', vehicle: '4x4', description: 'Runva electric winch on the Weca workshop display stand, ready for fitment to a customer vehicle. Runva is one of our carried winch brands.', image: '/images/gallery/roofrack_offroad_01.webp', workDone: ['Runva Winch', 'Display Stand'], date: '2024-06-05' },
+  { id: 'g20', title: 'Runva Winch and EWX Air Compressor Setup', category: 'recovery', vehicle: '4x4', description: 'Complete recovery setup with a Runva electric winch and an EWX air compressor, both fitted and wired by Weca Offroad Centre.', image: '/images/gallery/rooftent_desert_06.webp', workDone: ['Runva Winch', 'EWX Air Compressor', 'Wiring'], date: '2024-06-10' },
+  { id: 'g21', title: 'Air Compressor and Tank Installation', category: 'recovery', vehicle: '4x4', description: 'Aftermarket air compressor and air tank installation in a customer vehicle, wired to the dual battery system with pressure switch.', image: '/images/gallery/rooftent_dual_01.webp', workDone: ['Air Compressor', 'Air Tank', 'Pressure Switch', 'Wiring'], date: '2024-06-15' },
+  { id: 'g22', title: 'Recovery Strap and Traction Board', category: 'recovery', vehicle: '4x4', description: 'Orange recovery strap and plastic traction board on display, part of the recovery gear we supply and fit.', image: '/images/gallery/awning_extended_01.webp', workDone: ['Recovery Strap', 'Traction Board'], date: '2024-06-20' },
+  { id: 'g23', title: 'Jeep Wrangler Winch and Recovery Lighting Build', category: 'recovery', vehicle: 'Jeep Wrangler', description: 'Front bull bar with integrated winch, red recovery hooks, and LED driving lights fitted to a Jeep Wrangler at Weca Offroad Centre.', image: '/images/gallery/rooftent_with_awning_04.webp', workDone: ['Bull Bar', 'Winch', 'Recovery Hooks', 'LED Lights'], date: '2024-06-25' },
+  { id: 'g24', title: 'Jeep Wrangler Bull Bar with Winch and Recovery Hooks', category: 'recovery', vehicle: 'Jeep Wrangler', description: 'Front bull bar with winch, red recovery hooks, and LED light bar fitted to a Jeep Wrangler. A complete front-end recovery setup.', image: '/images/gallery/shop_sign_orange.webp', workDone: ['Bull Bar', 'Winch', 'Recovery Hooks', 'LED Light Bar'], date: '2024-07-01' },
+
+  // CANOPY and STORAGE
+  { id: 'g25', title: 'Suzuki Jimny Custom Storage Drawer System', category: 'canopy', vehicle: 'Suzuki Jimny', description: 'Custom carpeted storage drawer system built and fitted into the boot of a Suzuki Jimny, maximising usable storage space.', image: '/images/gallery/rooftent_desert_03.webp', workDone: ['Custom Drawer System', 'Carpet Fitout'], date: '2024-07-05' },
+  { id: 'g26', title: 'WECA Branded Storage Bracket', category: 'canopy', vehicle: '4x4', description: 'Black metal storage bracket branded with the Weca Offroad Centre logo, custom fabricated in our workshop.', image: '/images/gallery/rooftent_with_sparewheel_02.webp', workDone: ['Custom Bracket', 'Branding'], date: '2024-07-10' },
+
+  // BRANDING and SHOP - signage, displays, events
+  { id: 'g27', title: 'Weca Offroad Centre Workshop Exterior', category: 'branding', vehicle: 'Facility', description: 'The Weca Offroad Centre workshop building exterior with WECA and Toughest Driven signage in Swakopmund Industrial.', image: '/images/gallery/rooftent_with_awning_01.webp', workDone: ['Workshop Signage'], date: '2024-07-15' },
+  { id: 'g28', title: 'Weca Building Signage', category: 'branding', vehicle: 'Facility', description: 'The Weca Offroad Centre building signage visible from the street, making the workshop easy to find for first-time visitors.', image: '/images/gallery/rooftent_70series_sparewheel.webp', workDone: ['Building Signage'], date: '2024-07-15' },
+  { id: 'g29', title: 'Workshop Retail Display with Upgrade Centre Banner', category: 'branding', vehicle: 'Facility', description: 'Inside the Weca workshop retail area, showing the wheel and tyre display under the Upgrade Centre banner.', image: '/images/gallery/entrance_sign.webp', workDone: ['Retail Display', 'Workshop Fitout'], date: '2024-07-20' },
+  { id: 'g30', title: 'Jeep Wrangler with Maxxis Branding at Workshop', category: 'branding', vehicle: 'Jeep Wrangler', description: 'Customer Jeep Wrangler with Maxxis branding and large off-road tyres, parked outside the Weca workshop.', image: '/images/gallery/brand_sign_metal.webp', workDone: ['Tyre Fitment', 'Customer Vehicle'], date: '2024-07-25' },
+  { id: 'g31', title: 'M and Z Motor Show Event Booth', category: 'branding', vehicle: 'Event', description: 'The Weca Offroad Centre promotional booth at the M and Z Motor Show, showcasing our brand and products at a Namibian industry event.', image: '/images/gallery/workshop_interior_01.webp', workDone: ['Event Booth', 'Promotional Display'], date: '2024-08-01' },
+  { id: 'g32', title: 'Workshop Building Exterior Signage', category: 'branding', vehicle: 'Facility', description: 'The Weca workshop building exterior signage, photographed during business hours in Swakopmund Industrial.', image: '/images/gallery/workshop_interior_02.webp', workDone: ['Building Signage'], date: '2024-08-05' },
+
+  // GOOGLE MAPS - real photo from the live Google Maps listing
+  { id: 'g33', title: 'Weca Offroad Centre Brand and Quality Tyres Banner', category: 'branding', vehicle: 'Showcase', description: 'Official Weca Offroad Centre marketing banner, showing the brand logo and the Quality Tyres tagline. This is the cover photo from our live Google Maps listing.', image: '/images/gallery/gmaps/weca-gmaps-cover.webp', workDone: ['Brand Marketing', 'Google Maps Cover Photo'], date: '2024-08-07' },
 ];
 
 // Gallery Categories
 export const galleryCategories = [
   { id: 'all', name: 'All Projects' },
-  { id: 'rooftop-tents', name: 'Rooftop Tents' },
-  { id: 'suspension', name: 'Suspension Upgrades' },
-  { id: 'bumpers', name: 'Bumper Installations' },
-  { id: 'canopy', name: 'Canopy Fitments' },
-  { id: 'full-build', name: 'Full Vehicle Builds' },
-  { id: 'recovery', name: 'Recovery Setups' },
+  { id: 'full-build', name: 'Full Builds' },
+  { id: 'suspension', name: 'Suspension' },
+  { id: 'bumpers', name: 'Bumpers' },
+  { id: 'recovery', name: 'Recovery' },
+  { id: 'canopy', name: 'Canopy & Storage' },
+  { id: 'branding', name: 'Shop & Branding' },
 ];
 
 // Brands
@@ -2950,13 +2950,14 @@ export const businessInfo = {
   maps: {
     placeId: 'ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
     googleMapsLink: 'https://www.google.com/maps/place/?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
-    directionsLink: 'https://www.google.com/maps/place/?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
-    embedUrl: 'https://maps.google.com/maps?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc&output=embed',
+    directionsLink: 'https://www.google.com/maps/dir/?api=1&destination=-22.6712912,14.5492686&destination_place_id=ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
+    embedUrl: 'https://maps.google.com/maps?q=Weca+Offroad+Centre+Swakopmund&z=17&output=embed',
     reviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
     coordinates: {
       lat: -22.6712912,
       lng: 14.5492686,
     },
+    plusCode: '8GHX+FP Swakopmund, Namibia',
   },
   websites: {
     primary: 'https://weca.co.za',

@@ -11,8 +11,19 @@ import { Star, ExternalLink, MapPin } from 'lucide-react';
  * the place card exactly as a visitor would see on maps.google.com, with
  * the reviews tab accessible by clicking "Reviews" inside the iframe.
  *
- * The place_id is sourced from `siteConfig.maps.placeId` (verified real
- * Google Place ID for Weca Offroad Centre, Swakopmund - see config.ts).
+ * IMPORTANT (2026-08-07): Google deprecated the legacy
+ * `q=place_id:<ID>&output=embed` format for the public Embed API. Loading
+ * that URL in an iframe now renders a zoomed-out world map with no
+ * business pin or place card. Verified via agent-browser + VLM analysis.
+ * The working format for the public Embed API without an API key is
+ * `q=<business name + city>&z=17&output=embed`, which resolves the
+ * listing server-side and renders a red pin with the business name in an
+ * info card. We use that format here, sourced from
+ * `siteConfig.maps.embedUrl` so the URL is in one place.
+ *
+ * The place_id is still kept for the share/review URLs
+ * (`siteConfig.maps.googleMapsLink` and `siteConfig.maps.reviewUrl`) -
+ * those endpoints accept place_id directly and continue to work.
  *
  * Why iframe (not native fetch + render):
  *   - Google Places Details API requires an API key, which the client has
@@ -31,8 +42,7 @@ import { Star, ExternalLink, MapPin } from 'lucide-react';
  *     `siteConfig.maps.reviewUrl`.
  */
 export function GoogleReviewsEmbed() {
-  const placeId = siteConfig.maps.placeId;
-  const embedSrc = `https://maps.google.com/maps?q=place_id:${placeId}&output=embed`;
+  const embedSrc = siteConfig.maps.embedUrl;
   const mapsLink = siteConfig.maps.googleMapsLink;
   const reviewUrl = siteConfig.maps.reviewUrl;
 

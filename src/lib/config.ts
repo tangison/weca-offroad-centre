@@ -78,16 +78,27 @@ export const siteConfig = {
     whatsapp: 'https://wa.me/264811691942',
   },
   
-  // Maps - real Google Place ID for Weca Offroad Centre, Swakopmund
+  // Maps - real Google Place ID for Weca Offroad Centre, Swakopmund.
   // place_id verified via Google Maps: ChIJoa5Ba9xYdhwRzBnhVLf64Pc
-  // embedUrl uses Google's documented output=embed format, which redirects to
-  // the real /maps/embed endpoint with a server-generated pb. No hand-written pb.
+  // (verified by loading https://www.google.com/maps/search/?api=1&query_place_id=...
+  // which resolves to the "Weca Offroad centre/Opposite lock Swakopmund" listing
+  // at -22.6712912, 14.5492686, Plus Code 8GHX+FP Swakopmund).
+  //
+  // IMPORTANT: The legacy `q=place_id:...&output=embed` format was deprecated by
+  // Google for the public Embed API without an API key. Loading that URL in an
+  // iframe renders a zoomed-out world map with no business pin (verified
+  // 2026-08-07 via agent-browser + VLM analysis). The working format for the
+  // public Embed API is `q=<business name + city>&z=17&output=embed`, which
+  // resolves the listing server-side and renders a red pin with the business
+  // name in an info card. The place_id is still kept for the share/review URLs
+  // (those endpoints accept place_id directly and continue to work).
   maps: {
     placeId: 'ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
     googleMapsLink: 'https://www.google.com/maps/place/?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
-    directionsLink: 'https://www.google.com/maps/place/?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
-    embedUrl: 'https://maps.google.com/maps?q=place_id:ChIJoa5Ba9xYdhwRzBnhVLf64Pc&output=embed',
+    directionsLink: 'https://www.google.com/maps/dir/?api=1&destination=-22.6712912,14.5492686&destination_place_id=ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
+    embedUrl: 'https://maps.google.com/maps?q=Weca+Offroad+Centre+Swakopmund&z=17&output=embed',
     reviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJoa5Ba9xYdhwRzBnhVLf64Pc',
+    plusCode: '8GHX+FP Swakopmund, Namibia',
   },
   
   // Brands carried - confirmed real list per client (Shalyn), 2026-08-06.
