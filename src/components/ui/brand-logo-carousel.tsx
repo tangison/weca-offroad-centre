@@ -65,20 +65,27 @@ export function BrandLogoCarousel({ variant = 'carousel', className = '' }: Bran
       {/* Edge fade masks so logos fade in/out at the edges of the marquee.
           Mask color matches the dark section background (#0D0D0D).
 
-          Width is sized to be WIDER than the largest logo in the strip
-          (logos render at h-10/h-12 with ~3:1 aspect = ~120-160px wide).
-          Previous w-16/w-24 (64/96px) was narrower than the logos, so
-          `overflow-hidden` hard-clipped logos mid-word (e.g. "ECOFLC")
-          before the gradient could fade them out. Now w-32 (128px) on
-          mobile and w-48 (192px) on desktop, with a 3-stop gradient
-          (full bg -> 70% bg -> transparent) so the fade is gradual
-          enough that no visible hard-clip line remains. */}
+          The mask must be WIDER than the largest logo in the strip AND the
+          fade zone must be wider than a full logo, so that a logo can
+          completely fade to transparent before its leading edge reaches
+          the hard `overflow-hidden` clip. Otherwise logos get cut mid-word
+          (e.g. "ECOFLC" instead of "ECOFLOW") at the moment of clipping.
+
+          Logos render at h-10/h-12 with ~3:1 aspect = ~120-160px wide.
+          Mask widths: w-48 (192px) mobile, w-64 (256px) desktop.
+          Gradient (inline style for precise control): 25% solid, 75% fade.
+            Mobile: 48px solid + 144px fade (24px buffer beyond a 120px logo)
+            Desktop: 64px solid + 192px fade (47px buffer beyond a 145px logo)
+          The 75% fade zone is wider than a full logo at both breakpoints,
+          so logos reach fully-transparent before hitting the hard clip. */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 md:w-48 bg-gradient-to-r from-[#0D0D0D] via-[#0D0D0D]/70 to-transparent"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-48 md:w-64"
+        style={{ background: 'linear-gradient(to right, #0D0D0D 0%, #0D0D0D 25%, transparent 100%)' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 md:w-48 bg-gradient-to-l from-[#0D0D0D] via-[#0D0D0D]/70 to-transparent"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-48 md:w-64"
+        style={{ background: 'linear-gradient(to left, #0D0D0D 0%, #0D0D0D 25%, transparent 100%)' }}
         aria-hidden="true"
       />
 
