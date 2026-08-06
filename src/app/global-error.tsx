@@ -23,7 +23,7 @@ export default function GlobalError({
             </h1>
 
             {/* Message */}
-            <p className="text-[#888888] text-sm mb-8">
+            <p className="text-muted-foreground text-sm mb-8">
               A critical error occurred. Please refresh the page or try again later.
             </p>
 
@@ -36,7 +36,7 @@ export default function GlobalError({
             </button>
 
             {/* Help text */}
-            <p className="mt-8 text-[#888888]/60 text-xs">
+            <p className="mt-8 text-muted-foreground/80 text-xs">
               Contact us:{' '}
               <a
                 href="mailto:wecaoffroadcentre@gmail.com"

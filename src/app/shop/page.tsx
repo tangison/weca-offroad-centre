@@ -80,10 +80,10 @@ export default function ShopPage() {
 
           {/* Body — honest, specific, action-oriented. Explains the
               situation without apologising or over-explaining. */}
-          <p className="text-[#888888] text-base md:text-lg leading-relaxed mb-2 font-body">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-2 font-body">
             We are loading our full product range now.
           </p>
-          <p className="text-[#888888] text-base md:text-lg leading-relaxed mb-10 font-body">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 font-body">
             In the meantime, message us on WhatsApp with what you need —
             suspension, rooftop tents, canopies, recovery gear, power, fridges,
             the lot — and we will quote you on the spot.
@@ -125,7 +125,7 @@ export default function ShopPage() {
               <p className="font-accent text-[#F5F5F5] mb-2 uppercase tracking-wider text-sm">
                 While you wait
               </p>
-              <p className="text-[#888888] text-sm mb-5 font-body leading-relaxed">
+              <p className="text-muted-foreground text-sm mb-5 font-body leading-relaxed">
                 Our services page lists every fitment, repair, and custom build
                 we do in the workshop — all current, all client-verified.
               </p>

@@ -246,7 +246,7 @@ export function Navbar() {
               {/* Search Button */}
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-[#888888] hover:text-[#F5F5F5] transition-colors"
+                className="p-2 text-muted-foreground hover:text-[#F5F5F5] transition-colors"
                 aria-label="Search"
               >
                 <Search className="w-5 h-5" />
@@ -266,7 +266,7 @@ export function Navbar() {
               {/* Search */}
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-[#888888] hover:text-[#F5F5F5] transition-colors"
+                className="p-2 text-muted-foreground hover:text-[#F5F5F5] transition-colors"
                 aria-label="Search"
               >
                 <Search className="w-5 h-5" />
@@ -316,7 +316,7 @@ export function Navbar() {
                         key={category.id}
                         href={category.href}
                         onClick={() => setIsShopDropdownOpen(false)}
-                        className="block text-[#888888] hover:text-[#F5F5F5] hover:bg-[#2A2A2A] px-3 py-2 text-sm transition-colors"
+                        className="block text-muted-foreground hover:text-[#F5F5F5] hover:bg-[#2A2A2A] px-3 py-2 text-sm transition-colors"
                       >
                         {category.name}
                       </Link>
@@ -376,7 +376,7 @@ export function Navbar() {
                   className={`block px-4 py-3 text-sm transition-colors ${
                     isActive(link.href)
                       ? 'text-[#E67E22] bg-[#2A2A2A]'
-                      : 'text-[#888888] hover:text-[#F5F5F5] hover:bg-[#2A2A2A]'
+                      : 'text-muted-foreground hover:text-[#F5F5F5] hover:bg-[#2A2A2A]'
                   }`}
                 >
                   {link.label}
@@ -466,7 +466,7 @@ export function Navbar() {
                                     <Link
                                       href={category.href}
                                       onClick={handleLinkClick}
-                                      className="block py-2.5 px-4 text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm"
+                                      className="block py-2.5 px-4 text-muted-foreground hover:text-[#F5F5F5] transition-colors text-sm"
                                     >
                                       {category.name}
                                     </Link>
@@ -538,7 +538,7 @@ export function Navbar() {
                                 className={`block py-2.5 px-4 text-sm transition-colors ${
                                   isActive(link.href)
                                     ? 'text-[#E67E22]'
-                                    : 'text-[#888888] hover:text-[#F5F5F5]'
+                                    : 'text-muted-foreground hover:text-[#F5F5F5]'
                                 }`}
                               >
                                 {link.label}
@@ -564,7 +564,7 @@ export function Navbar() {
                 <div className="grid grid-cols-3 gap-2">
                   <a
                     href={`tel:${businessInfo.phone[0].replace(/\s/g, '')}`}
-                    className="flex flex-col items-center gap-1 py-3 bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                    className="flex flex-col items-center gap-1 py-3 bg-[#1A1A1A] text-muted-foreground hover:text-[#E67E22] transition-colors"
                   >
                     <Phone className="w-4 h-4" />
                     <span className="text-[10px] font-accent uppercase">Call</span>
@@ -573,14 +573,14 @@ export function Navbar() {
                     href={`https://wa.me/${businessInfo.whatsapp.replace(/\D/g, '')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-col items-center gap-1 py-3 bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                    className="flex flex-col items-center gap-1 py-3 bg-[#1A1A1A] text-muted-foreground hover:text-[#E67E22] transition-colors"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span className="text-[10px] font-accent uppercase">WhatsApp</span>
                   </a>
                   <a
                     href={`mailto:${businessInfo.email}`}
-                    className="flex flex-col items-center gap-1 py-3 bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                    className="flex flex-col items-center gap-1 py-3 bg-[#1A1A1A] text-muted-foreground hover:text-[#E67E22] transition-colors"
                   >
                     <Mail className="w-4 h-4" />
                     <span className="text-[10px] font-accent uppercase">Email</span>
@@ -593,7 +593,7 @@ export function Navbar() {
                     href={businessInfo.social.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                    className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-muted-foreground hover:text-[#E67E22] transition-colors"
                     aria-label="Facebook"
                   >
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -604,7 +604,7 @@ export function Navbar() {
                     href={businessInfo.social.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                    className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-muted-foreground hover:text-[#E67E22] transition-colors"
                     aria-label="Instagram"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -616,7 +616,7 @@ export function Navbar() {
                     href={businessInfo.social.tiktok}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-[#888888] hover:text-[#E67E22] transition-colors"
+                    className="w-9 h-9 flex items-center justify-center bg-[#1A1A1A] text-muted-foreground hover:text-[#E67E22] transition-colors"
                     aria-label="TikTok"
                   >
                     <TikTokIcon className="w-4 h-4" />

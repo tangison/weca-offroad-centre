@@ -63,7 +63,7 @@ export function CTASection({
             transition={{ duration: 0.4, delay: 0.1 }}
             className={cn(
               'text-sm md:text-base mb-8 max-w-xl mx-auto',
-              isPrimary ? 'text-[#0D0D0D]/70' : 'text-[#888888]'
+              isPrimary ? 'text-[#0D0D0D]/70' : 'text-muted-foreground'
             )}
           >
             {subtitle}

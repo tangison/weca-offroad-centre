@@ -63,13 +63,22 @@ export function BrandLogoCarousel({ variant = 'carousel', className = '' }: Bran
       aria-label="Brands we sell — auto-scrolling carousel"
     >
       {/* Edge fade masks so logos fade in/out at the edges of the marquee.
-          Mask color matches the dark section background (#0D0D0D). */}
+          Mask color matches the dark section background (#0D0D0D).
+
+          Width is sized to be WIDER than the largest logo in the strip
+          (logos render at h-10/h-12 with ~3:1 aspect = ~120-160px wide).
+          Previous w-16/w-24 (64/96px) was narrower than the logos, so
+          `overflow-hidden` hard-clipped logos mid-word (e.g. "ECOFLC")
+          before the gradient could fade them out. Now w-32 (128px) on
+          mobile and w-48 (192px) on desktop, with a 3-stop gradient
+          (full bg -> 70% bg -> transparent) so the fade is gradual
+          enough that no visible hard-clip line remains. */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 md:w-24 bg-gradient-to-r from-[#0D0D0D] to-transparent"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 md:w-48 bg-gradient-to-r from-[#0D0D0D] via-[#0D0D0D]/70 to-transparent"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 md:w-24 bg-gradient-to-l from-[#0D0D0D] to-transparent"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 md:w-48 bg-gradient-to-l from-[#0D0D0D] via-[#0D0D0D]/70 to-transparent"
         aria-hidden="true"
       />
 

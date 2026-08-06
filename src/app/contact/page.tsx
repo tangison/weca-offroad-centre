@@ -151,7 +151,7 @@ ${formData.message}`;
                   <h2 className="font-heading text-2xl md:text-3xl text-[#F5F5F5] mb-2">
                     Send Us a Message
                   </h2>
-                  <p className="text-[#888888] text-sm mb-6">
+                  <p className="text-muted-foreground text-sm mb-6">
                     Fill out the form below and choose your preferred contact method.
                   </p>
 
@@ -167,7 +167,7 @@ ${formData.message}`;
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="Your name"
-                          className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-[#888888]/50 focus:border-[#E67E22] h-12 ${errors.name ? 'border-[#E67E22]' : ''}`}
+                          className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-muted-foreground/80 focus:border-[#E67E22] h-12 ${errors.name ? 'border-[#E67E22]' : ''}`}
                         />
                         {errors.name && (
                           <p className="text-sm text-[#E67E22]">{errors.name}</p>
@@ -185,7 +185,7 @@ ${formData.message}`;
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="your@email.com"
-                          className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-[#888888]/50 focus:border-[#E67E22] h-12 ${errors.email ? 'border-[#E67E22]' : ''}`}
+                          className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-muted-foreground/80 focus:border-[#E67E22] h-12 ${errors.email ? 'border-[#E67E22]' : ''}`}
                         />
                         {errors.email && (
                           <p className="text-sm text-[#E67E22]">{errors.email}</p>
@@ -204,7 +204,7 @@ ${formData.message}`;
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+264 xx xxx xxxx"
-                          className="bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-[#888888]/50 focus:border-[#E67E22] h-12"
+                          className="bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-muted-foreground/80 focus:border-[#E67E22] h-12"
                         />
                       </div>
 
@@ -249,7 +249,7 @@ ${formData.message}`;
                         onChange={handleChange}
                         placeholder="Tell us about your vehicle, what you're looking for..."
                         rows={5}
-                        className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-[#888888]/50 focus:border-[#E67E22] ${errors.message ? 'border-[#E67E22]' : ''}`}
+                        className={`bg-[#0D0D0D] border-[#2A2A2A] text-[#F5F5F5] placeholder:text-muted-foreground/80 focus:border-[#E67E22] ${errors.message ? 'border-[#E67E22]' : ''}`}
                       />
                       {errors.message && (
                         <p className="text-sm text-[#E67E22]">{errors.message}</p>
@@ -268,7 +268,7 @@ ${formData.message}`;
                           className={`flex items-center justify-center gap-2 p-4 border transition-colors ${
                             contactMethod === 'whatsapp'
                               ? 'bg-[#E67E22] border-[#E67E22] text-[#0D0D0D]'
-                              : 'border-[#2A2A2A] text-[#888888] hover:border-[#E67E22] hover:text-[#F5F5F5]'
+                              : 'border-[#2A2A2A] text-muted-foreground hover:border-[#E67E22] hover:text-[#F5F5F5]'
                           }`}
                         >
                           <MessageCircle className="w-5 h-5" />
@@ -280,7 +280,7 @@ ${formData.message}`;
                           className={`flex items-center justify-center gap-2 p-4 border transition-colors ${
                             contactMethod === 'email'
                               ? 'bg-[#E67E22] border-[#E67E22] text-[#0D0D0D]'
-                              : 'border-[#2A2A2A] text-[#888888] hover:border-[#E67E22] hover:text-[#F5F5F5]'
+                              : 'border-[#2A2A2A] text-muted-foreground hover:border-[#E67E22] hover:text-[#F5F5F5]'
                           }`}
                         >
                           <Mail className="w-5 h-5" />
@@ -366,10 +366,10 @@ ${formData.message}`;
                       <MapPin className="w-4 h-4 text-[#E67E22] flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-[#F5F5F5] text-sm font-medium">Address</p>
-                        <p className="text-[#888888] text-sm">
+                        <p className="text-muted-foreground text-sm">
                           {businessInfo.address}
                         </p>
-                        <p className="text-[#888888]/60 text-xs">{businessInfo.city}, {businessInfo.country}</p>
+                        <p className="text-muted-foreground/80 text-xs">{businessInfo.city}, {businessInfo.country}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -378,7 +378,7 @@ ${formData.message}`;
                         <p className="text-[#F5F5F5] text-sm font-medium">Phone</p>
                         <a
                           href={`tel:${businessInfo.phone[0].replace(/\s/g, '')}`}
-                          className="text-[#888888] hover:text-[#E67E22] transition-colors text-sm"
+                          className="text-muted-foreground hover:text-[#E67E22] transition-colors text-sm"
                         >
                           {businessInfo.phone[0]}
                         </a>
@@ -390,7 +390,7 @@ ${formData.message}`;
                         <p className="text-[#F5F5F5] text-sm font-medium">Email</p>
                         <a
                           href={`mailto:${businessInfo.email}`}
-                          className="text-[#888888] hover:text-[#E67E22] transition-colors text-sm"
+                          className="text-muted-foreground hover:text-[#E67E22] transition-colors text-sm"
                         >
                           {businessInfo.email}
                         </a>
@@ -400,9 +400,9 @@ ${formData.message}`;
                       <Clock className="w-4 h-4 text-[#E67E22] mt-0.5" />
                       <div>
                         <p className="text-[#F5F5F5] text-sm font-medium">Hours</p>
-                        <p className="text-[#888888] text-sm">Mon-Fri: {businessInfo.hours.weekdays}</p>
-                        <p className="text-[#888888] text-sm">Sat: {businessInfo.hours.saturday}</p>
-                        <p className="text-[#888888] text-sm">Sun: {businessInfo.hours.sunday}</p>
+                        <p className="text-muted-foreground text-sm">Mon-Fri: {businessInfo.hours.weekdays}</p>
+                        <p className="text-muted-foreground text-sm">Sat: {businessInfo.hours.saturday}</p>
+                        <p className="text-muted-foreground text-sm">Sun: {businessInfo.hours.sunday}</p>
                       </div>
                     </div>
                   </div>
@@ -420,7 +420,7 @@ ${formData.message}`;
                       href={businessInfo.social.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 flex items-center justify-center bg-[#0D0D0D] text-[#888888] hover:text-[#E67E22] transition-colors"
+                      className="w-10 h-10 flex items-center justify-center bg-[#0D0D0D] text-muted-foreground hover:text-[#E67E22] transition-colors"
                       aria-label="Facebook"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -431,7 +431,7 @@ ${formData.message}`;
                       href={businessInfo.social.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 flex items-center justify-center bg-[#0D0D0D] text-[#888888] hover:text-[#E67E22] transition-colors"
+                      className="w-10 h-10 flex items-center justify-center bg-[#0D0D0D] text-muted-foreground hover:text-[#E67E22] transition-colors"
                       aria-label="Instagram"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -443,7 +443,7 @@ ${formData.message}`;
                       href={businessInfo.social.tiktok}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 flex items-center justify-center bg-[#0D0D0D] text-[#888888] hover:text-[#E67E22] transition-colors"
+                      className="w-10 h-10 flex items-center justify-center bg-[#0D0D0D] text-muted-foreground hover:text-[#E67E22] transition-colors"
                       aria-label="TikTok"
                     >
                       <TikTokIcon className="w-4 h-4" />
@@ -463,7 +463,7 @@ ${formData.message}`;
             <h2 className="font-heading text-2xl md:text-3xl text-[#F5F5F5] mb-2">
               Find Us
             </h2>
-            <p className="text-[#888888] text-sm">Visit our workshop in Swakopmund Industrial</p>
+            <p className="text-muted-foreground text-sm">Visit our workshop in Swakopmund Industrial</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6">
@@ -485,7 +485,7 @@ ${formData.message}`;
                 <h3 className="font-heading text-lg uppercase tracking-wide text-[#F5F5F5] mb-4">
                   Getting Here
                 </h3>
-                <div className="space-y-3 text-[#888888] text-sm">
+                <div className="space-y-3 text-muted-foreground text-sm">
                   <p>
                     We are located in the Swakopmund Industrial area, easily 
                     accessible from the main roads. Look for our signage on 

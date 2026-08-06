@@ -28,7 +28,7 @@ export default function NotFound() {
         <h2 className="font-heading text-2xl md:text-3xl text-[#F5F5F5] mb-4">
           Page Not Found
         </h2>
-        <p className="text-[#888888] text-sm mb-8">
+        <p className="text-muted-foreground text-sm mb-8">
           Sorry, the page you&apos;re looking for doesn&apos;t exist or has been moved.
           Let&apos;s get you back on track.
         </p>
@@ -51,22 +51,22 @@ export default function NotFound() {
 
         {/* Secondary Links */}
         <div className="border-t border-[#2A2A2A] pt-6">
-          <p className="text-[#888888] text-xs mb-4">Looking for something specific?</p>
+          <p className="text-muted-foreground text-xs mb-4">Looking for something specific?</p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <Link href="/services" className="text-[#888888] hover:text-[#E67E22] transition-colors">
+            <Link href="/services" className="text-muted-foreground hover:text-[#E67E22] transition-colors">
               Services
             </Link>
-            <Link href="/gallery" className="text-[#888888] hover:text-[#E67E22] transition-colors">
+            <Link href="/gallery" className="text-muted-foreground hover:text-[#E67E22] transition-colors">
               Gallery
             </Link>
-            <Link href="/contact" className="text-[#888888] hover:text-[#E67E22] transition-colors">
+            <Link href="/contact" className="text-muted-foreground hover:text-[#E67E22] transition-colors">
               Contact Us
             </Link>
           </div>
         </div>
 
         {/* Help text */}
-        <p className="mt-8 text-[#888888]/60 text-xs">
+        <p className="mt-8 text-muted-foreground/80 text-xs">
           Need help?{' '}
           <a
             href="https://wa.me/264811691942"

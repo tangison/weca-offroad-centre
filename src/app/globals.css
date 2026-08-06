@@ -57,7 +57,12 @@
   --secondary: #1A1A1A;
   --secondary-foreground: #F5F5F5;
   --muted: #2A2A2A;
-  --muted-foreground: #888888;
+  /* Bumped from #888888 to #A0A0A0 for WCAG AA contrast at small text sizes.
+     #A0A0A0 on #0D0D0D = ~7.4:1 (AAA pass). The previous #888888 was ~5.5:1
+     which technically passed AA for normal text but failed for the 11px text
+     used heavily in the footer and service cards. All secondary/muted text
+     sitewide now flows through this token. */
+  --muted-foreground: #A0A0A0;
   --accent: #E67E22;
   --accent-foreground: #0D0D0D;
   --destructive: #EF4444;
@@ -92,7 +97,7 @@
   --secondary: #1A1A1A;
   --secondary-foreground: #F5F5F5;
   --muted: #2A2A2A;
-  --muted-foreground: #888888;
+  --muted-foreground: #A0A0A0;
   --accent: #E67E22;
   --accent-foreground: #0D0D0D;
   --destructive: #EF4444;

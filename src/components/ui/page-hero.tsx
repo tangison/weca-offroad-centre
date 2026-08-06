@@ -77,7 +77,7 @@ export function PageHero({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-[#888888] text-sm md:text-base max-w-lg mx-auto mb-6"
+            className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto mb-6"
           >
             {subtitle}
           </motion.p>

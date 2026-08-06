@@ -71,7 +71,7 @@ export default function ServicesPage() {
             <h2 className="font-heading text-2xl md:text-3xl text-[#F5F5F5] tracking-tight">
               What We Offer
             </h2>
-            <p className="text-[#888888] text-sm mt-2">Comprehensive 4x4 services to get you adventure-ready</p>
+            <p className="text-muted-foreground text-sm mt-2">Comprehensive 4x4 services to get you adventure-ready</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -98,14 +98,14 @@ export default function ServicesPage() {
                       <h3 className="text-[#F5F5F5] font-medium mb-1 group-hover:text-[#E67E22] transition-colors">
                         {service.name}
                       </h3>
-                      <p className="text-[#888888] text-xs line-clamp-2 mb-2">
+                      <p className="text-muted-foreground text-xs line-clamp-2 mb-2">
                         {service.description}
                       </p>
                       <div className="flex items-center justify-between">
                         <p className="text-[#E67E22] font-accent font-semibold text-xs">
                           From {service.startingPrice}
                         </p>
-                        <p className="text-[#888888] text-xs">{service.duration}</p>
+                        <p className="text-muted-foreground text-xs">{service.duration}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -123,7 +123,7 @@ export default function ServicesPage() {
             <h2 className="font-heading text-2xl md:text-3xl text-[#F5F5F5] tracking-tight">
               Our Process
             </h2>
-            <p className="text-[#888888] text-sm mt-2">How we turn your 4x4 dreams into reality</p>
+            <p className="text-muted-foreground text-sm mt-2">How we turn your 4x4 dreams into reality</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -143,7 +143,7 @@ export default function ServicesPage() {
                       </div>
                       <div>
                         <h3 className="text-[#F5F5F5] font-medium mb-1">{step.title}</h3>
-                        <p className="text-[#888888] text-sm">{step.description}</p>
+                        <p className="text-muted-foreground text-sm">{step.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -175,7 +175,7 @@ export default function ServicesPage() {
                     <benefit.icon className="w-5 h-5 text-[#E67E22] mt-0.5" />
                     <div>
                       <h3 className="text-[#F5F5F5] font-medium text-sm">{benefit.title}</h3>
-                      <p className="text-[#888888] text-sm">{benefit.description}</p>
+                      <p className="text-muted-foreground text-sm">{benefit.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -208,7 +208,7 @@ export default function ServicesPage() {
           their true colors on hover. */}
       <section className="py-14 md:py-16 bg-[#0D0D0D]">
         <div className="container mx-auto px-4 lg:px-8">
-          <p className="text-[#666666] text-[10px] uppercase tracking-[0.25em] text-center mb-10 font-accent">
+          <p className="text-muted-foreground text-[10px] uppercase tracking-[0.25em] text-center mb-10 font-accent">
             Brands we install
           </p>
           <BrandLogoCarousel variant="grid" />
@@ -222,7 +222,7 @@ export default function ServicesPage() {
             <h2 className="font-heading text-2xl md:text-3xl text-[#F5F5F5] tracking-tight">
               FAQ
             </h2>
-            <p className="text-[#888888] text-sm mt-2">Common questions about our services</p>
+            <p className="text-muted-foreground text-sm mt-2">Common questions about our services</p>
           </div>
 
           <div className="max-w-2xl mx-auto">
@@ -232,7 +232,7 @@ export default function ServicesPage() {
                   <AccordionTrigger className="text-left text-[#F5F5F5] hover:text-[#E67E22] text-sm">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-[#888888] text-sm">
+                  <AccordionContent className="text-muted-foreground text-sm">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

@@ -83,7 +83,7 @@ export default function AboutPage() {
               <h2 className="font-heading text-3xl md:text-4xl text-[#F5F5F5] mb-6">
                 Our Story
               </h2>
-              <div className="space-y-4 text-[#888888]">
+              <div className="space-y-4 text-muted-foreground">
                 <p>
                   Weca Offroad Centre was founded in 2015 in Swakopmund, Namibia, 
                   with a simple mission: to provide quality 4x4 accessories and 
@@ -132,7 +132,7 @@ export default function AboutPage() {
                   <Target className="w-8 h-8 text-[#E67E22]" />
                 </div>
                 <h3 className="font-heading text-2xl text-[#F5F5F5] mb-4">Our Mission</h3>
-                <p className="text-[#888888] leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   To provide Namibian 4x4 enthusiasts with quality products, 
                   professional installation, and expert advice that enables 
                   them to explore our beautiful country safely and confidently.
@@ -145,7 +145,7 @@ export default function AboutPage() {
                   <Eye className="w-8 h-8 text-[#E67E22]" />
                 </div>
                 <h3 className="font-heading text-2xl text-[#F5F5F5] mb-4">Our Vision</h3>
-                <p className="text-[#888888] leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   To be Namibia&apos;s most trusted 4x4 partner, known for quality 
                   products, exceptional service, and a passionate community of 
                   offroad enthusiasts.
@@ -168,9 +168,9 @@ export default function AboutPage() {
                 <h3 className="text-xl font-semibold text-[#E67E22] mb-1">
                   {businessInfo.owner}
                 </h3>
-                <p className="text-[#888888]/60 text-sm">Owner & Manager</p>
+                <p className="text-muted-foreground/80 text-sm">Owner & Manager</p>
               </div>
-              <div className="space-y-4 text-[#888888]">
+              <div className="space-y-4 text-muted-foreground">
                 <p>
                   Werner Schaap founded Weca Offroad Centre out of a passion 
                   for 4x4 adventures and a desire to serve the growing offroad 
@@ -235,7 +235,7 @@ export default function AboutPage() {
                   <h3 className="font-accent text-[#F5F5F5] text-lg mb-2 uppercase tracking-wider">
                     {value.title}
                   </h3>
-                  <p className="text-[#888888] text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {value.description}
                   </p>
                 </CardContent>
@@ -285,15 +285,15 @@ export default function AboutPage() {
                     <MapPin className="w-6 h-6 text-[#E67E22] flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium text-[#F5F5F5]">Address</p>
-                      <p className="text-[#888888]">{businessInfo.address}</p>
-                      <p className="text-[#888888]/60 text-sm">{businessInfo.city}, {businessInfo.country}</p>
+                      <p className="text-muted-foreground">{businessInfo.address}</p>
+                      <p className="text-muted-foreground/80 text-sm">{businessInfo.city}, {businessInfo.country}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
                     <Phone className="w-6 h-6 text-[#E67E22] flex-shrink-0" />
                     <div>
                       <p className="font-medium text-[#F5F5F5]">Phone</p>
-                      <a href={`tel:${businessInfo.phone[0].replace(/\s/g, '')}`} className="text-[#888888] hover:text-[#E67E22] transition-colors">
+                      <a href={`tel:${businessInfo.phone[0].replace(/\s/g, '')}`} className="text-muted-foreground hover:text-[#E67E22] transition-colors">
                         {businessInfo.phone[0]}
                       </a>
                     </div>
@@ -302,9 +302,9 @@ export default function AboutPage() {
                     <Clock className="w-6 h-6 text-[#E67E22] flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium text-[#F5F5F5]">Business Hours</p>
-                      <p className="text-[#888888]">Mon-Fri: {businessInfo.hours.weekdays}</p>
-                      <p className="text-[#888888]">Saturday: {businessInfo.hours.saturday}</p>
-                      <p className="text-[#888888]">Sunday: {businessInfo.hours.sunday}</p>
+                      <p className="text-muted-foreground">Mon-Fri: {businessInfo.hours.weekdays}</p>
+                      <p className="text-muted-foreground">Saturday: {businessInfo.hours.saturday}</p>
+                      <p className="text-muted-foreground">Sunday: {businessInfo.hours.sunday}</p>
                     </div>
                   </div>
                 </div>

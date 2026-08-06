@@ -189,7 +189,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
             <div className="bg-[#1A1A1A] border border-[#2A2A2A] overflow-hidden">
               {/* Search Input */}
               <div className="flex items-center border-b border-[#2A2A2A]">
-                <Search className="w-5 h-5 text-[#888888] ml-4 flex-shrink-0" />
+                <Search className="w-5 h-5 text-muted-foreground ml-4 flex-shrink-0" />
                 <Input
                   type="text"
                   placeholder="Search services, gallery..."
@@ -198,12 +198,12 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                     setQuery(e.target.value);
                     setSelectedIndex(0);
                   }}
-                  className="flex-1 bg-transparent border-0 text-[#F5F5F5] placeholder:text-[#888888] focus-visible:ring-0 text-base py-4 px-3"
+                  className="flex-1 bg-transparent border-0 text-[#F5F5F5] placeholder:text-muted-foreground focus-visible:ring-0 text-base py-4 px-3"
                   autoFocus
                 />
                 <button
                   onClick={onClose}
-                  className="p-4 text-[#888888] hover:text-[#F5F5F5] transition-colors"
+                  className="p-4 text-muted-foreground hover:text-[#F5F5F5] transition-colors"
                   aria-label="Close search"
                 >
                   <X className="w-5 h-5" />
@@ -215,20 +215,20 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                 {query.trim() === '' ? (
                   <div className="py-12 text-center">
                     <Search className="w-8 h-8 text-[#2A2A2A] mx-auto mb-3" />
-                    <p className="text-[#888888] text-sm">
+                    <p className="text-muted-foreground text-sm">
                       Start typing to search...
                     </p>
-                    <p className="text-[#888888]/60 text-xs mt-1">
+                    <p className="text-muted-foreground/80 text-xs mt-1">
                       Services and gallery items
                     </p>
                   </div>
                 ) : filteredResults.length === 0 ? (
                   <div className="py-12 text-center">
                     <Search className="w-8 h-8 text-[#2A2A2A] mx-auto mb-3" />
-                    <p className="text-[#888888] text-sm">
+                    <p className="text-muted-foreground text-sm">
                       No results for &quot;{query}&quot;
                     </p>
-                    <p className="text-[#888888]/60 text-xs mt-1">
+                    <p className="text-muted-foreground/80 text-xs mt-1">
                       Try different keywords or browse our services
                     </p>
                     <Link
@@ -244,7 +244,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                     {/* Services */}
                     {groupedResults.service.length > 0 && (
                       <div>
-                        <div className="flex items-center gap-2 px-4 py-2 text-[#888888] text-xs font-accent uppercase tracking-wider border-t border-[#2A2A2A]">
+                        <div className="flex items-center gap-2 px-4 py-2 text-muted-foreground text-xs font-accent uppercase tracking-wider border-t border-[#2A2A2A]">
                           <Wrench className="w-3 h-3" />
                           Services ({groupedResults.service.length})
                         </div>
@@ -273,11 +273,11 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                                 <p className="text-[#F5F5F5] text-sm font-medium truncate">
                                   {result.title}
                                 </p>
-                                <p className="text-[#888888] text-xs truncate">
+                                <p className="text-muted-foreground text-xs truncate">
                                   {result.description}
                                 </p>
                               </div>
-                              <ArrowRight className="w-4 h-4 text-[#888888] flex-shrink-0" />
+                              <ArrowRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                             </Link>
                           );
                         })}
@@ -287,7 +287,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                     {/* Gallery */}
                     {groupedResults.gallery.length > 0 && (
                       <div>
-                        <div className="flex items-center gap-2 px-4 py-2 text-[#888888] text-xs font-accent uppercase tracking-wider border-t border-[#2A2A2A]">
+                        <div className="flex items-center gap-2 px-4 py-2 text-muted-foreground text-xs font-accent uppercase tracking-wider border-t border-[#2A2A2A]">
                           <ImageIcon className="w-3 h-3" />
                           Gallery ({groupedResults.gallery.length})
                         </div>
@@ -316,11 +316,11 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                                 <p className="text-[#F5F5F5] text-sm font-medium truncate">
                                   {result.title}
                                 </p>
-                                <p className="text-[#888888] text-xs truncate">
+                                <p className="text-muted-foreground text-xs truncate">
                                   {result.description}
                                 </p>
                               </div>
-                              <ArrowRight className="w-4 h-4 text-[#888888] flex-shrink-0" />
+                              <ArrowRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                             </Link>
                           );
                         })}
@@ -332,7 +332,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
 
               {/* Footer */}
               {filteredResults.length > 0 && (
-                <div className="border-t border-[#2A2A2A] px-4 py-3 flex items-center justify-between text-xs text-[#888888]">
+                <div className="border-t border-[#2A2A2A] px-4 py-3 flex items-center justify-between text-xs text-muted-foreground">
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1">
                       <kbd className="px-1.5 py-0.5 bg-[#2A2A2A] text-[#F5F5F5] font-mono">↑</kbd>

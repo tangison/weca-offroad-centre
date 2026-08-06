@@ -55,7 +55,7 @@ export function SectionHeading({
             align === 'center' && 'mx-auto',
             align === 'left' && 'mr-auto',
             align === 'right' && 'ml-auto',
-            light ? 'text-[#888888]' : 'text-[#888888]'
+            light ? 'text-muted-foreground' : 'text-muted-foreground'
           )}
         >
           {subtitle}

@@ -6,7 +6,7 @@ export default function Loading() {
         <div className="w-10 h-10 border-2 border-[#2A2A2A] border-t-[#E67E22] animate-spin mx-auto mb-4" style={{ borderRadius: 0 }} />
         
         {/* Loading text */}
-        <p className="text-[#888888] text-sm font-accent uppercase tracking-wider">
+        <p className="text-muted-foreground text-sm font-accent uppercase tracking-wider">
           Loading...
         </p>
       </div>

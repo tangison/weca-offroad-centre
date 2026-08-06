@@ -31,7 +31,7 @@ export default function Error({
         </h1>
 
         {/* Message */}
-        <p className="text-[#888888] text-sm mb-8">
+        <p className="text-muted-foreground text-sm mb-8">
           We encountered an unexpected error. Please try again, or contact us if the problem persists.
         </p>
 
@@ -53,7 +53,7 @@ export default function Error({
         </div>
 
         {/* Help text */}
-        <p className="text-[#888888]/60 text-xs">
+        <p className="text-muted-foreground/80 text-xs">
           If this keeps happening,{' '}
           <a
             href="https://wa.me/264811691942"

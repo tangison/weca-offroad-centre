@@ -44,19 +44,25 @@ export function Footer() {
         <div className="flex flex-col items-start">
           <Link
             href="/"
-            className="block w-[70%] max-w-[280px]"
+            className="block"
             aria-label="Weca Offroad Centre — home"
           >
-            <div className="relative aspect-[523/477] w-full">
-              <Image
-                src="/images/logo.webp"
-                alt="Weca Offroad Centre"
-                fill
-                className="object-contain object-left"
-                priority={false}
-                sizes="(max-width: 768px) 70vw, 280px"
-              />
-            </div>
+            {/* Explicit width/height (not `fill`) so the image scales
+                deterministically to the rendered width. The previous
+                `fill + object-contain` pattern left empty space beside
+                the logo at narrow viewports because the image's intrinsic
+                size and the container's aspect ratio could disagree at
+                render time. Explicit dimensions eliminate that ambiguity.
+                Mobile: 220px (~60% of viewport). Tablet: 280px. Desktop: 320px. */}
+            <Image
+              src="/images/logo.webp"
+              alt="Weca Offroad Centre"
+              width={523}
+              height={477}
+              className="h-auto w-[220px] md:w-[280px] lg:w-[320px]"
+              priority={false}
+              sizes="(max-width: 768px) 220px, (max-width: 1024px) 280px, 320px"
+            />
           </Link>
         </div>
 
@@ -64,7 +70,7 @@ export function Footer() {
             functional info), but condensed to the minimum vertical footprint
             that still keeps every channel reachable. On mobile this is 2 lines
             (contact channels, then address+hours); on desktop it collapses to
-            a single row. Text is xs (11–12px) and low-contrast (#555555) so
+            a single row. Text is xs (11–12px) using the muted-foreground token (#A0A0A0, ~7.4:1 contrast) so
             it recedes visually while remaining legible and clickable.
             No border-t above — the whitespace alone separates it from the
             logo, keeping the hyper-minimal feel. */}
@@ -73,7 +79,7 @@ export function Footer() {
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <a
                 href={phoneHref}
-                className="text-[#555555] hover:text-[#F5F5F5] transition-colors text-[11px] font-body"
+                className="text-muted-foreground hover:text-[#F5F5F5] transition-colors text-[11px] font-body"
               >
                 {businessInfo.phone[0]}
               </a>
@@ -81,13 +87,13 @@ export function Footer() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#555555] hover:text-[#F5F5F5] transition-colors text-[11px] font-body"
+                className="text-muted-foreground hover:text-[#F5F5F5] transition-colors text-[11px] font-body"
               >
                 WhatsApp
               </a>
               <a
                 href={emailHref}
-                className="text-[#555555] hover:text-[#F5F5F5] transition-colors text-[11px] font-body break-all"
+                className="text-muted-foreground hover:text-[#F5F5F5] transition-colors text-[11px] font-body break-all"
               >
                 {businessInfo.email}
               </a>
@@ -97,11 +103,11 @@ export function Footer() {
                 href={businessInfo.maps.directionsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#555555] hover:text-[#F5F5F5] transition-colors text-[11px] font-body"
+                className="text-muted-foreground hover:text-[#F5F5F5] transition-colors text-[11px] font-body"
               >
                 {businessInfo.addressStreet}, {businessInfo.city}
               </a>
-              <span className="text-[#555555]/70 text-[11px] font-body">
+              <span className="text-muted-foreground text-[11px] font-body">
                 Mon–Fri {businessInfo.hours.weekdays} · Sat {businessInfo.hours.saturday}
               </span>
             </div>
@@ -117,7 +123,7 @@ export function Footer() {
           disclaimer credits Tangison Studio as the constructor. */}
       <div className="border-t border-[#1F1F1F]">
         <div className="container mx-auto px-6 lg:px-8 py-3">
-          <p className="text-[#888888] text-[11px] font-body text-center tracking-wide">
+          <p className="text-muted-foreground text-[11px] font-body text-center tracking-wide">
             This website is under construction by{' '}
             <a
               href="https://studio.tangison.com"
@@ -137,14 +143,14 @@ export function Footer() {
       <div className="border-t border-[#1F1F1F]">
         <div className="container mx-auto px-6 lg:px-8 py-5">
           <div className="flex flex-col gap-2 md:flex-row md:justify-between md:items-center">
-            <p className="text-[#666666]/60 text-[11px] font-body">
+            <p className="text-muted-foreground text-[11px] font-body">
               © {currentYear} {businessInfo.name}. All rights reserved.
             </p>
             <a
               href="https://studio.tangison.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#666666]/60 hover:text-[#888888] transition-colors text-[11px] font-body inline-flex items-center gap-1.5"
+              className="text-muted-foreground hover:text-[#F5F5F5] transition-colors text-[11px] font-body inline-flex items-center gap-1.5"
             >
               Made by Tangison Studio
               <span aria-hidden="true" className="inline-block w-3 h-3 align-middle">

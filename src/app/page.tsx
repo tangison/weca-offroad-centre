@@ -48,7 +48,7 @@ export default function HomePage() {
                 <item.icon className="w-5 h-5 text-[#E67E22]" />
                 <div>
                   <p className="text-[#F5F5F5] text-sm font-medium">{item.text}</p>
-                  <p className="text-[#888888] text-xs">{item.sub}</p>
+                  <p className="text-muted-foreground text-xs">{item.sub}</p>
                 </div>
               </motion.div>
             ))}
@@ -61,7 +61,7 @@ export default function HomePage() {
           their true colors on hover. */}
       <section className="py-14 md:py-16 bg-[#0D0D0D]">
         <div className="container mx-auto px-4 lg:px-8">
-          <p className="text-[#666666] text-[10px] uppercase tracking-[0.25em] text-center mb-8 font-accent">
+          <p className="text-muted-foreground text-[10px] uppercase tracking-[0.25em] text-center mb-8 font-accent">
             Brands we sell
           </p>
           <BrandLogoCarousel variant="carousel" />
@@ -80,7 +80,7 @@ export default function HomePage() {
           <h2 className="font-heading text-3xl md:text-4xl text-[#F5F5F5] tracking-tight mb-3">
             Catalog Coming Soon
           </h2>
-          <p className="text-[#888888] text-sm md:text-base leading-relaxed mb-8 font-body">
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-8 font-body">
             We are loading our full product range now. In the meantime,
             message us on WhatsApp with what you need and we will quote
             you on the spot.
@@ -119,7 +119,7 @@ export default function HomePage() {
               <h2 className="font-heading text-3xl md:text-4xl text-[#F5F5F5] tracking-tight">
                 Our Services
               </h2>
-              <p className="text-[#888888] text-sm mt-2">Professional fitment and installation</p>
+              <p className="text-muted-foreground text-sm mt-2">Professional fitment and installation</p>
             </div>
             <Link
               href="/services"
@@ -153,7 +153,7 @@ export default function HomePage() {
                       <h3 className="text-[#F5F5F5] font-medium mb-1 group-hover:text-[#E67E22] transition-colors">
                         {service.name}
                       </h3>
-                      <p className="text-[#888888] text-xs line-clamp-2 mb-2">
+                      <p className="text-muted-foreground text-xs line-clamp-2 mb-2">
                         {service.description}
                       </p>
                       <p className="text-[#E67E22] font-accent font-semibold text-xs">
@@ -176,7 +176,7 @@ export default function HomePage() {
               <h2 className="font-heading text-3xl md:text-4xl text-[#F5F5F5] tracking-tight">
                 Our Work
               </h2>
-              <p className="text-[#888888] text-sm mt-2">Real installations, real results</p>
+              <p className="text-muted-foreground text-sm mt-2">Real installations, real results</p>
             </div>
             <Link
               href="/gallery"
@@ -229,7 +229,7 @@ export default function HomePage() {
             <h2 className="font-heading text-3xl md:text-4xl text-[#F5F5F5] tracking-tight">
               Why Weca Offroad?
             </h2>
-            <p className="text-[#888888] text-sm mt-2">Your trusted 4x4 partner in Namibia</p>
+            <p className="text-muted-foreground text-sm mt-2">Your trusted 4x4 partner in Namibia</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -263,7 +263,7 @@ export default function HomePage() {
                     <h3 className="text-[#F5F5F5] font-medium text-lg mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-[#888888] text-sm">
+                    <p className="text-muted-foreground text-sm">
                       {item.desc}
                     </p>
                   </CardContent>
