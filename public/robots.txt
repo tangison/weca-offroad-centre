@@ -1,14 +1,10 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# PRIVATE SITE — DO NOT CRAWL
+# Per client instruction (2026-08-06): site is under construction and must
+# not be indexed by any search engine until the client approves it for
+# public release. This file is kept in sync with src/app/robots.ts.
+# The Next.js route handler at /robots.ts overrides this file at runtime;
+# this static file exists only as a fallback for any path that bypasses
+# the route handler (e.g. static export previews).
 
 User-agent: *
-Allow: /
+Disallow: /

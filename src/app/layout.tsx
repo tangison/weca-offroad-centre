@@ -77,15 +77,19 @@ export const metadata: Metadata = {
     description: siteConfig.seo.defaultDescription,
     images: [`${siteConfig.domain}/images/logo.png`],
   },
+  // PRIVATE SITE — noindex, nofollow while client reviews.
+  // Per client instruction (2026-08-06): site must not be crawled or
+  // indexed. Site stays accessible to client + Tangison Studio (no SSO),
+  // but search engines are blocked. Rendered as:
+  //   <meta name="robots" content="noindex, nofollow">
+  // Re-enable index:true / follow:true when the client approves public
+  // release, and re-add the sitemap reference in src/app/robots.ts.
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      index: false,
+      follow: false,
     },
   },
   alternates: {
