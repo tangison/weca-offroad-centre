@@ -203,3 +203,82 @@ Do NOT plan the integration until the Robotill edition is confirmed.
 - `bun run test` — 39/39 passing
 - `bun run build` — 13/13 routes built
 - Unauthenticated HTTP 200 on production Vercel URL
+
+## Real reviews + Facebook embeds (DONE — commit `82d81e3`)
+
+Client requested real reviews from Google and real staff content from
+Facebook, displayed on the site via iframes. Two new components added:
+
+- `src/components/ui/google-reviews-embed.tsx` — Google Maps Embed
+  iframe using the verified place_id (`ChIJoa5Ba9xYdhwRzBnhVLf64Pc`).
+  Shows the live Google Maps place card with reviews tab accessible.
+  No API key needed (uses Google's free `output=embed` form).
+- `src/components/ui/facebook-page-embed.tsx` — Facebook Page Plugin
+  iframe using the verified Facebook page URL. Shows live page feed
+  with posts, photos, cover, like button. No Facebook App needed.
+
+Pages updated:
+- `/testimonials` — Google reviews iframe in a new "Real Reviews from
+  Google" section above the existing testimonials grid. The existing
+  (curated) testimonials grid is relabeled "Featured Customer Stories"
+  with a note pointing to the Google iframe as the source of truth.
+- `/about` — Facebook page iframe in a new "See Us on Facebook" section
+  between the Owner section and the Values section.
+- `/` (home) — Google reviews iframe in a new "What Our Customers Say"
+  section just before the orange CTA.
+
+### Real staff from Facebook (OPEN ITEM)
+
+The brief asked to "grab our real staff from Facebook". Without a
+Facebook App with `pages_read_user_content` permission (which requires
+App Review and business verification), it is not possible to
+programmatically fetch a structured staff list from Facebook.
+
+The Facebook Page Plugin iframe shows the page's posts, which include
+team photos, workshop photos, and customer shout-outs that the
+business has posted. This is the closest "real staff from Facebook"
+without Graph API access.
+
+If the client wants a structured "Our Team" section with named staff
+members and photos, the paths are:
+1. The client manually provides staff names + photos (lowest effort).
+2. A Facebook App is created and submitted for App Review to obtain
+   `pages_read_user_content` permission, then the Graph API is used
+   to fetch tagged photos of the page (highest effort, weeks-long
+   review process).
+3. The client provides access to their Facebook Business Manager so
+   Tangison Studio can curate a staff list from the page's existing
+   tagged photos.
+
+Tangi to ask the client which path they prefer.
+
+### Google Places API native rendering (OPEN ITEM — optional)
+
+The current implementation uses the Google Maps Embed iframe, which
+shows the place card with reviews accessible by clicking "Reviews"
+inside the iframe. If the client wants the reviews rendered natively
+on the site (styled to match the site's design, no Google chrome),
+the path is:
+
+1. Provision a Google Places API key (requires a Google Cloud project
+   with billing enabled — the API has a $200/month free tier that
+   covers ~5000 reviews fetches).
+2. Add the API key to `.env` as `GOOGLE_PLACES_API_KEY`.
+3. Create an API route `/api/google-reviews` that fetches reviews
+   from the Place Details API and caches them for 24 hours.
+4. Replace the iframe with a native React component that fetches
+   from `/api/google-reviews` and renders the reviews in the site's
+   card style.
+
+This is not started. Tangison to confirm with the client whether the
+iframe approach is sufficient or whether native rendering is desired.
+
+### Curated testimonials array (OPEN ITEM — minor)
+
+The `testimonials` array in `src/lib/data.ts` contains 3 fabricated
+reviews (Johan van der Merwe, Anna-Marie Strauss, Michael Properties).
+These are clearly placeholder and are now relabeled on the page as
+"Featured Customer Stories" with a note pointing to the Google iframe
+as the source of truth. The array should be replaced with real
+curated reviews (with the client's permission) or removed entirely
+once the client is happy with the Google iframe as the sole source.
