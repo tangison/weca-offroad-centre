@@ -1,10 +1,33 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+
+/**
+ * PageHero - per-page hero banner with optional background image.
+ *
+ * Performance note (rewritten 2026-08-08 per web-quality-audit):
+ * The previous implementation used a CSS `background-image` style on the
+ * <section> element. That approach bypassed `next/image` entirely, which
+ * meant hero images on About, Contact, Gallery, Services, FAQ, and
+ * Testimonials were:
+ *   - Served at full size with no AVIF/WebP re-encoding
+ *   - No `srcset` / responsive sizing
+ *   - No lazy-loading hint
+ *   - No LCP preload priority
+ * The new implementation renders the background via `next/image` with
+ * `fill` + `object-cover`, which gives us all four. The dark overlay and
+ * text content stack above the image with `z-index`, matching the
+ * previous visual exactly.
+ *
+ * Accessibility:
+ *   - The background image is decorative (the page <h1> already describes
+ *     the page). We pass `alt=""` and `aria-hidden` so screen readers skip it.
+ *   - The hero <h1> is the only <h1> on each page that renders PageHero.
+ */
 
 interface CTAButton {
   text: string;
@@ -43,19 +66,23 @@ export function PageHero({
         heights[size],
         className
       )}
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `url(${backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }
-          : undefined
-      }
     >
-      {/* Dark overlay */}
+      {/* Background image via next/image - optimised AVIF/WebP, responsive
+          srcset, LCP priority preload, CLS-safe (fill + object-cover). */}
       {backgroundImage && (
-        <div className="absolute inset-0 bg-[#0D0D0D]/85" />
+        <>
+          <Image
+            src={backgroundImage}
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Dark overlay - sits above the image, below the text content. */}
+          <div className="absolute inset-0 bg-[#0D0D0D]/85" />
+        </>
       )}
 
       {/* Accent line at top */}
