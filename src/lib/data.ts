@@ -21,6 +21,8 @@ export interface Service {
   duration: string;
   features: string[];
   image: string;
+  /** Honest alt text describing what the image actually shows. */
+  imageAlt: string;
 }
 
 export interface Testimonial {
@@ -2680,7 +2682,8 @@ export const services: Service[] = [
     startingPrice: 'N$ 2,500',
     duration: '2-4 hours',
     features: ['Professional mounting', 'Wiring integration', 'Demonstration included', 'Warranty on installation', 'Safety inspection'],
-    image: '/images/gallery/rooftent_safari_01.webp',
+    image: '/images/gallery/rooftent_with_sparewheel_01.webp',
+    imageAlt: 'Customer Toyota Land Cruiser 70 Series overland build',
   },
   {
     id: '2',
@@ -2689,7 +2692,8 @@ export const services: Service[] = [
     startingPrice: 'N$ 4,500',
     duration: '4-6 hours',
     features: ['Full system install', 'Wheel alignment', 'Test drive included', 'Adjustment service', 'Parts warranty'],
-    image: '/images/gallery/workshop_interior_01.webp',
+    image: '/images/gallery/roofrack_70series_03.webp',
+    imageAlt: 'Falcon shock absorber and coil spring ready for fitment',
   },
   {
     id: '3',
@@ -2698,7 +2702,8 @@ export const services: Service[] = [
     startingPrice: 'N$ 3,500',
     duration: '3-5 hours',
     features: ['Winch ready', 'Light integration', 'Sensor calibration', 'Paint matching available', 'Tow bar install'],
-    image: '/images/gallery/brand_sign_metal.webp',
+    image: '/images/gallery/awning_desert_01.webp',
+    imageAlt: 'Toyota Hilux with steel front bumper and TRD accents',
   },
   {
     id: '4',
@@ -2707,7 +2712,8 @@ export const services: Service[] = [
     startingPrice: 'On Request',
     duration: '1-3 weeks',
     features: ['Custom design', 'Material options', 'Interior fitout', 'Electrical integration', 'Paint matching'],
-    image: '/images/gallery/shop_exterior.webp',
+    image: '/images/gallery/rooftent_dual_awning.webp',
+    imageAlt: 'Custom rear storage box fabricated for a Suzuki Jimny',
   },
   {
     id: '5',
@@ -2717,6 +2723,7 @@ export const services: Service[] = [
     duration: '1-4 hours',
     features: ['Wide range of accessories', 'Professional fitment', 'Electrical work', 'Testing included', 'Clean finish'],
     image: '/images/gallery/rooftent_with_awning_01.webp',
+    imageAlt: 'Nissan Navara with bull bar and Hella LED light',
   },
   {
     id: '6',
@@ -2725,7 +2732,8 @@ export const services: Service[] = [
     startingPrice: 'N$ 850',
     duration: 'Varies',
     features: ['Diagnostics', 'OEM parts available', 'Expert technicians', 'Transparent pricing', 'Warranty on repairs'],
-    image: '/images/gallery/workshop_sign_01.webp',
+    image: '/images/gallery/rooftent_desert_04.webp',
+    imageAlt: 'Customer Toyota Hilux parked outside the Weca workshop',
   },
   {
     id: '7',
@@ -2734,7 +2742,8 @@ export const services: Service[] = [
     startingPrice: 'N$ 1,200',
     duration: '1-2 hours',
     features: ['All tyre types', 'Computer balancing', 'Alignment check', 'Pressure monitoring', 'Disposal included'],
-    image: '/images/gallery/rooftent_with_sparewheel_01.webp',
+    image: '/images/gallery/awning_patrol.webp',
+    imageAlt: 'Maxxis Razr MT tyres stacked and ready for fitment',
   },
   {
     id: '8',
@@ -2743,7 +2752,8 @@ export const services: Service[] = [
     startingPrice: 'On Request',
     duration: '2-8 weeks',
     features: ['Full customization', 'Project management', 'Quality parts', 'Unique builds', 'Documentation'],
-    image: '/images/gallery/rooftent_70series_01.webp',
+    image: '/images/gallery/rooftent_desert_02.webp',
+    imageAlt: 'Customer Jeep Wrangler custom build with front bumper and beadlock wheels',
   },
 ];
 
@@ -2957,13 +2967,26 @@ export const businessInfo = {
   },
 };
 
-// Hero Slides - HIGH IMPACT REAL ASSETS
+// Hero Slides - REAL ASSETS, HONEST ALTS (audit 2026-09-12).
+// Every slide now shows exactly what its alt text says. The previous set
+// reused gallery photos with aspirational labels that did not match the
+// pixels: a motor-show booth as "Professional Fitment Centre", a B&W
+// engine bay as "Swakopmund Industrial Premises", a showroom interior as
+// "Namib Desert Exploration", and a lime Jeep with a FOR SALE sign at a
+// DoorTEC garage-doors business as "Custom Storage Solutions".
+// Sources (all verified against the actual photos):
+//   slide-1.webp - white Toyota Hilux in front of the WECA OFF-ROAD
+//                  CENTRE building (2400x1333)
+//   slide-2.webp - the shop's showroom interior (2400x1792)
+//   entrance_sign.webp - customer Jeeps on a desert trail run (1080x810)
+//   awning_extended_01.webp - Toyota FJ Cruiser on a sandy track (1080x618)
+//   rooftent_safari_02.webp - customer Jeep Wrangler build (1440x1080)
 export const heroSlides = [
-  { src: '/images/gallery/rooftent_safari_01.webp', alt: 'Weca Offroad Centre - Premium Safari Builds' },
-  { src: '/images/gallery/shop_exterior.webp', alt: 'Weca Offroad Centre - Swakopmund Industrial Premises' },
-  { src: '/images/gallery/rooftent_desert_01.webp', alt: 'Weca Offroad Centre - Namib Desert Exploration' },
-  { src: '/images/gallery/workshop_interior_01.webp', alt: 'Weca Offroad Centre - Professional Fitment Centre' },
-  { src: '/images/gallery/roofrack_70series_01.webp', alt: 'Weca Offroad Centre - Custom Storage Solutions' },
+  { src: '/images/hero/slide-1.webp', alt: 'Weca Offroad Centre premises in Swakopmund Industrial with a customer Toyota Hilux' },
+  { src: '/images/hero/slide-2.webp', alt: 'Weca Offroad Centre showroom interior with tyres and accessories' },
+  { src: '/images/gallery/entrance_sign.webp', alt: 'Customer Jeeps on a desert trail run' },
+  { src: '/images/gallery/awning_extended_01.webp', alt: 'Toyota FJ Cruiser on a sandy desert track' },
+  { src: '/images/gallery/rooftent_safari_02.webp', alt: 'Customer Jeep Wrangler build at Weca Offroad Centre' },
 ];
 
 // Navigation Links

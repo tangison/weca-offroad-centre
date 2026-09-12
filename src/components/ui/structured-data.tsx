@@ -68,7 +68,7 @@ export function LocalBusinessStructuredData() {
     currenciesAccepted: 'NAD',
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
     image: `${siteConfig.domain}/og-image.png`,
-    logo: `${siteConfig.domain}/logo.svg`,
+    logo: `${siteConfig.domain}/icon-512.png`,
     sameAs: [
       siteConfig.social.facebook,
       siteConfig.social.instagram,
@@ -96,7 +96,7 @@ export function WebsiteStructuredData() {
       name: siteConfig.business.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.domain}/logo.svg`,
+        url: `${siteConfig.domain}/icon-512.png`,
       },
     },
     potentialAction: {
@@ -226,7 +226,7 @@ export function OrganizationStructuredData() {
     name: siteConfig.business.name,
     legalName: siteConfig.business.legalName,
     url: siteConfig.domain,
-    logo: `${siteConfig.domain}/logo.svg`,
+    logo: `${siteConfig.domain}/icon-512.png`,
     foundingDate: siteConfig.business.founded,
     founder: {
       '@type': 'Person',

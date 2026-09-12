@@ -177,3 +177,21 @@ Stage Summary:
 - 4 em/en dashes removed (robots.txt + 3 markdown docs).
 - Production build succeeds; 48 tests pass; lint clean; typecheck clean.
 - Ready to commit and push to origin/main.
+
+---
+Task ID: 1
+Agent: Super Z (main)
+Task: Audit wecaoffroad.com, fix visible issues (banner scoping, favicon/brand set, out-of-context images), push to GitHub.
+
+Work Log:
+- Crawled all 13 live routes; cataloged banner, images, metadata; checked every image URL.
+- VLM-audited favicons, logo, og-image, hero slides, service images, gallery sheets.
+- Identified: Z-mark placeholder branding site-wide; 5/5 hero slides mismatched; 4/6 service images mismatched; 640x360 and 206x206 images used as page heroes; banner on all pages.
+- Scoped construction banner + footer disclaimer to /shop only (new ShopOnly client wrapper, pathname-aware banner + dropdownTop).
+- Rebuilt favicon.ico/svg/PNGs, apple-touch, icon-192/512(+maskable), og-image from the real brand artwork via scripts/build_brand_assets.py (W monogram for tiny sizes, real logo for large).
+- Replaced heroSlides with 5 honest high-res photos; remapped all 8 service images with new imageAlt field; fixed gallery/testimonials/about heroes; corrected mislabeled alts.
+- Deleted 6 orphaned/placeholder files; updated structured-data logo refs.
+- Gates: typecheck 0, lint 0, tests 48/48, build 19/19 routes; local prod server VLM-verified (banner only on shop, hero = real premises).
+
+Stage Summary:
+- All user-reported issues fixed at source; ready to commit + push to origin/main (Vercel auto-deploys wecaoffroad.com).

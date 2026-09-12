@@ -79,7 +79,7 @@ export default function ServicesPage() {
                     <div className="relative h-40 overflow-hidden">
                       <Image
                         src={service.image}
-                        alt={service.name}
+                        alt={service.imageAlt}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
@@ -184,8 +184,8 @@ export default function ServicesPage() {
               className="relative aspect-video overflow-hidden border border-[#2A2A2A]"
             >
               <Image
-                src="/images/about/workshop.webp"
-                alt="Professional Installation"
+                src="/images/gallery/shop_sign_orange.webp"
+                alt="Bull bar installed on a customer Toyota Hilux outside the workshop"
                 fill
                 className="object-cover"
               />

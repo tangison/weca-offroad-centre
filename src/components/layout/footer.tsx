@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { businessInfo } from '@/lib/data';
+import { ShopOnly } from '@/components/layout/shop-only';
 
 /**
  * Footer - hyper-minimal, Collins-style.
@@ -118,28 +119,31 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Construction disclaimer - small, understated, sits above the
-          copyright/credit bar. Per client instruction (2026-08-06): the
-          site is under construction and must communicate that clearly to
-          anyone who lands on it (client, Tangison Studio, or anyone who
-          finds the Vercel URL) while it remains private (noindex). The
-          disclaimer credits Tangison Studio as the constructor. */}
-      <div className="border-t border-[#1F1F1F]">
-        <div className="container mx-auto px-6 lg:px-8 py-3">
-          <p className="text-muted-foreground text-[11px] font-body text-center tracking-wide">
-            This website is under construction by{' '}
-            <a
-              href="https://studio.tangison.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#E67E22] hover:text-[#F39C12] transition-colors underline-offset-2 hover:underline"
-            >
-              Tangison Studio
-            </a>
-            . Content and pricing are not final.
-          </p>
+      {/* Catalog disclaimer - SHOP ROUTES ONLY (client instruction,
+          2026-09-12). The shop is the single unfinished part of the site
+          (product catalog pending the client's real stock data), so this
+          notice renders on /shop and nowhere else; every other page ships
+          production-ready. The disclaimer credits Tangison Studio as the
+          constructor and states exactly what is unfinished: product
+          listings and pricing. */}
+      <ShopOnly>
+        <div className="border-t border-[#1F1F1F]">
+          <div className="container mx-auto px-6 lg:px-8 py-3">
+            <p className="text-muted-foreground text-[11px] font-body text-center tracking-wide">
+              Our online catalog is under construction by{' '}
+              <a
+                href="https://studio.tangison.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#E67E22] hover:text-[#F39C12] transition-colors underline-offset-2 hover:underline"
+              >
+                Tangison Studio
+              </a>
+              . Product listings and pricing are not final.
+            </p>
+          </div>
         </div>
-      </div>
+      </ShopOnly>
 
       {/* Bottom bar - copyright + legal links + Tangison credit.
           Small, understated, does not compete with the big logo.

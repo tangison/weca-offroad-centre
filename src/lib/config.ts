@@ -200,10 +200,14 @@ export const siteConfig = {
     enableSearch: true,
     enableWhatsAppRedirect: true,
     enableProductModal: true,
-    // Site-wide "under construction" banner. When true, a slim non-dismissible
-    // strip renders at the top of the header on every page (see navbar.tsx)
-    // alongside the footer disclaimer. Flip to false and rebuild to remove
-    // the header banner cleanly - no markup to delete across files.
+    // "Under construction" notice for the SHOP PAGE ONLY (client
+    // instruction, 2026-09-12). When true, a slim non-dismissible strip
+    // renders at the top of the header and a matching footer disclaimer
+    // renders on /shop routes (see construction-banner.tsx and
+    // shop-only.tsx) because the product catalog is the single unfinished
+    // part of the site. Every other page ships production-ready with zero
+    // construction messaging. Flip to false and rebuild to remove the
+    // notice cleanly - no markup to delete across files.
     underConstruction: true,
   },
 } as const;

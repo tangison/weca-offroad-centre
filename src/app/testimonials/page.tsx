@@ -16,7 +16,7 @@ export default function TestimonialsPage() {
       <PageHero
         title="Customer Reviews"
         subtitle="Real, unfiltered reviews from our customers on Google and Facebook."
-        backgroundImage="/images/gallery/gallery-2.webp"
+        backgroundImage="/images/gallery/rooftent_safari_02.webp"
         size="sm"
       />
 

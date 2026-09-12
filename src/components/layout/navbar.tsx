@@ -148,10 +148,14 @@ export function Navbar() {
   // Desktop dropdown vertical offset. The dropdowns are position:fixed
   // relative to the viewport, so their `top` must account for the full
   // header height (banner + nav row). The construction banner adds ~30px
-  // when the underConstruction flag is on; the offset is computed at build
-  // time from the config flag so flipping the flag adjusts the dropdowns
-  // automatically with no separate edit required.
-  const dropdownTop = siteConfig.features.underConstruction ? 'top-[98px]' : 'top-[68px]';
+  // and renders on /shop routes only (client instruction 2026-09-12);
+  // the offset is computed per route from the pathname so dropdowns sit
+  // correctly with the banner on shop pages and without it everywhere
+  // else. Flipping the underConstruction flag off removes both the
+  // banner and the extra offset in one edit.
+  const bannerVisible =
+    siteConfig.features.underConstruction && Boolean(pathname?.startsWith('/shop'));
+  const dropdownTop = bannerVisible ? 'top-[98px]' : 'top-[68px]';
 
   return (
     <>
@@ -160,9 +164,9 @@ export function Navbar() {
           wrapped in a single fixed container so they move as one unit
           and share z-50 stacking. */}
       <header className="fixed top-0 left-0 right-0 z-50">
-        {/* Construction banner - conditional on siteConfig.features.underConstruction.
-            Rendered above the nav row so it is the first thing visible.
-            Not dismissible; stays for the whole visit while the flag is on. */}
+        {/* Construction banner - SHOP ROUTES ONLY (see construction-banner.tsx).
+            Renders above the nav row so it is the first thing visible on
+            /shop. Not dismissible; stays for the whole visit while on shop. */}
         <ConstructionBanner />
 
         {/* Nav row - carries the scroll-state bg/padding (was previously on

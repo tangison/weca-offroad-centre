@@ -57,7 +57,7 @@ const values = [
     icon: Award,
     title: 'Customer Satisfaction',
     description: 'Your adventure starts with us. We are committed to helping you get the most out of your 4x4.',
-    image: '/images/gallery/gallery-1.webp',
+    image: '/images/gallery/gmaps/weca-gmaps-cover.webp',
   },
 ];
 
@@ -111,8 +111,8 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/gallery/gallery-1.webp"
-                  alt="Weca Offroad Workshop"
+                  src="/images/gallery/rooftent_desert_01.webp"
+                  alt="Inside the Weca Offroad Centre showroom"
                   fill
                   className="object-cover"
                 />
@@ -344,7 +344,7 @@ export default function AboutPage() {
             <div className="relative aspect-video overflow-hidden">
               <Image
                 src="/images/about/workshop.webp"
-                alt="Weca Offroad Workshop"
+                alt="Weca Offroad Centre premises in Swakopmund Industrial"
                 fill
                 className="object-cover"
               />
